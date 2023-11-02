@@ -32,7 +32,7 @@ Prends le risque d'être vu en te déplaçant plus lentement. [lent]
                 case "lent":
                     Console.WriteLine("Tu prends ton temps et te diriges lentement vers la fenêtre. ");
                     Console.WriteLine("Tu l'ouvres et rentre dans la salle de jeux. ");
-
+                    Game.Transition<GameRoom>();
 
                     break;
                 default:
