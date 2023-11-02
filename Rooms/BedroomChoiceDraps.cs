@@ -34,9 +34,7 @@ Tes livres préférés. [livres]
                 case "porte": break;
                 case "tiroir": break;
                 case "livres": break;
-                default:
-                    Console.WriteLine("Commande invalide.");
-                    break;
+               
             }
         }
     }

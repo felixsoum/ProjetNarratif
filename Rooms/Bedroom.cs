@@ -47,31 +47,9 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     break;
                 case "drap":
 
-                    
 
-                    Console.WriteLine("Pris de peur ton petit corps ne te répond plus, tu te glisse immédiatement sous tes draps. ");
-                    Console.WriteLine("Tu l'entends courir vers ta fenetre et l'ouvrir...");
-                    Console.WriteLine("Un lourd bruit se fait entendre, suivi du grincement de ta porte d'entrée au premier étage.");
-                    Console.WriteLine("Tu retires tes draps, il n'est plus dans ta chambre.");
 
-                    Console.WriteLine("Tu regardes autours de toi : ");
-                    Console.WriteLine("Ta fenetre est toujours ouverte elle mène surement vers quelque part... [fenetre]");
-                    Console.WriteLine("La porte de ta chambre. [porte]");
-                    Console.WriteLine("Ton tiroir, tu gardes caché des informations utiles sur ta maison... [tiroir]");
-                    Console.WriteLine("Tes livres préférés. [livres]");
-
-                    switch (choice)
-                    {
-                        case "fenetre": 
-                            Console.WriteLine("Salut");    
-                            break;
-                        case "porte": break;
-                        case "tiroir": break;
-                        case "livres": break;
-                        default:
-                            Console.WriteLine("Commande invalide.");
-                            break;
-                    }
+                    Game.Transition<BedroomChoiceDraps>();
 
 
 
