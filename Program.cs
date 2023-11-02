@@ -4,6 +4,8 @@ using ProjetNarratif.Rooms;
 var game = new Game();
 game.Add(new Bedroom());
 game.Add(new BedroomChoiceDraps());
+game.Add(new BedroomBedChoice());
+game.Add(new PorcheRoom());
 game.Add(new Bathroom());
 game.Add(new AtticRoom());
 game.Add(new LivingRoom());

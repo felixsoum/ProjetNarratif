@@ -32,7 +32,7 @@ Tes livres préférés. [livres]
                 case "fenetre":
                     Console.WriteLine("Tu te diriges vers ta fenêtre ouverte et tu décide de passer de l'autre côté.");
                     Console.WriteLine("Tu te retrouve sur le toit de ton porche.");
-
+                    Game.Transition<PorcheRoom>();
                     break;
                    
                 case "porte":

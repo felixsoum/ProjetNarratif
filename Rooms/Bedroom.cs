@@ -1,7 +1,12 @@
-﻿namespace ProjetNarratif.Rooms
+﻿using static System.Reflection.Metadata.BlobBuilder;
+using System.Collections.Generic;
+using System;
+
+namespace ProjetNarratif.Rooms
 {
     internal class Bedroom : Room
     {
+        
         internal static bool firstdeath;
         internal static bool WindowLock;
         internal static bool Scared1;
@@ -46,17 +51,21 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
 
                     break;
                 case "drap":
-
-
-
                     Game.Transition<BedroomChoiceDraps>();
 
 
 
                     break;
                 case "lit":
-                    Console.WriteLine("Tu montes dans le grenier.");
-                    Game.Transition<AtticRoom>();
+                    Console.WriteLine("Tu te dépèches et te caches rapidement sous ton lit.");
+                    Console.WriteLine("Tu regardes alors ton garde robe s'ouvrir...");
+                    Console.WriteLine("Tu le vois se rapprocher tranquillement vers ton lit...");
+                    Console.WriteLine("Ton petit coeurs accélère...");
+                    Console.WriteLine("Il se dirige vers la porte de ta chambre...");
+                    Console.WriteLine("Il l'ouvre et la ferme derrière lui.");
+                    Scared1 = true;
+                    Game.Transition<BedroomBedChoice>();
+
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

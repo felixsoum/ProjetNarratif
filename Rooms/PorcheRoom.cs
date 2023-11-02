@@ -6,25 +6,34 @@ using System.Threading.Tasks;
 
 namespace ProjetNarratif.Rooms
 {
+    
     internal class PorcheRoom : Room
     {
+        internal static bool seconddeath;
         internal override string CreateDescription() =>
-@"Dans le grenier, il y fait noir et froid.
-Un coffre est verrouillé avec un code [????].
-Tu peux revenir dans ta [chambre].
+@"Sur le toit du porche, l'air et fraîche et l'atmosphère est menacante.
+Tu entends du bruit dans les escaliers, il les monte...
+Dépêches-toi à rejoindre la fenêtre qui mène à la salle de jeu. [cours]
+Prends le risque d'être vu en te déplaçant plus lentement. [lent]
 ";
 
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "chambre":
-                    Console.WriteLine("Tu retournes dans ta chambre.");
-                    Game.Transition<Bedroom>();
+                case "cours":
+                    Console.WriteLine("Tu te dépèche et cours vers la fenêtre, mais glisse sur le côté et chutes en bas tu porche.");
+                    Console.WriteLine("Fin 2 : Une chute mortelle");
+                    seconddeath = true;
+                    Console.Write("Appuyez sur une touche pour recommencer : ");
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
-                case "5872":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
-                    
+                case "lent":
+                    Console.WriteLine("Tu prends ton temps et te diriges lentement vers la fenêtre. ");
+                    Console.WriteLine("Tu l'ouvres et rentre dans la salle de jeux. ");
+
+
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");
