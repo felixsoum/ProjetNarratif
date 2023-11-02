@@ -14,6 +14,7 @@ while (!game.IsGameOver())
     string? choice = Console.ReadLine()?.ToLower() ?? "";
     Console.Clear();
     game.ReceiveChoice(choice);
+
 }
 
 Console.WriteLine("FIN");

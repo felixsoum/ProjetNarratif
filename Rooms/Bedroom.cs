@@ -7,6 +7,8 @@
         internal static bool Scared1;
         internal static bool Scared2;
         internal static bool Scared3;
+
+        
         internal override string CreateDescription() =>
             
 @"Alors que tu dormais paisiblement... Un grincement te réveille...
@@ -18,6 +20,7 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
 ";
  
         internal override void  ReceiveChoice(string choice)
+             
         {
             
 
@@ -43,7 +46,8 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
 
                     break;
                 case "drap":
-                    string choiceDrap;
+
+                    
 
                     Console.WriteLine("Pris de peur ton petit corps ne te répond plus, tu te glisse immédiatement sous tes draps. ");
                     Console.WriteLine("Tu l'entends courir vers ta fenetre et l'ouvrir...");
@@ -53,8 +57,21 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     Console.WriteLine("Tu regardes autours de toi : ");
                     Console.WriteLine("Ta fenetre est toujours ouverte elle mène surement vers quelque part... [fenetre]");
                     Console.WriteLine("La porte de ta chambre. [porte]");
-                    Console.WriteLine("Ton tiroir, tu gardes caché des informations utiles sur ta maison... [Tiroir]");
-                    Console.WriteLine("Tes livres préférés. [livre]");
+                    Console.WriteLine("Ton tiroir, tu gardes caché des informations utiles sur ta maison... [tiroir]");
+                    Console.WriteLine("Tes livres préférés. [livres]");
+
+                    switch (choice)
+                    {
+                        case "fenetre": 
+                            Console.WriteLine("Salut");    
+                            break;
+                        case "porte": break;
+                        case "tiroir": break;
+                        case "livres": break;
+                        default:
+                            Console.WriteLine("Commande invalide.");
+                            break;
+                    }
 
 
 
