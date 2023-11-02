@@ -8,6 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class BedroomChoiceDraps : Room
     {
+        internal static bool book;
         internal override string CreateDescription() =>
 @"Pris de peur ton petit corps ne te répond plus, tu te glisse immédiatement sous tes draps.
 Tu l'entends courir vers ta fenetre et l'ouvrir...
@@ -29,12 +30,36 @@ Tes livres préférés. [livres]
             switch (choice)
             {
                 case "fenetre":
-                    Console.WriteLine("Salut");
+                    Console.WriteLine("Tu te diriges vers ta fenêtre ouverte et tu décide de passer de l'autre côté.");
+                    Console.WriteLine("Tu te retrouve sur le toit de ton porche.");
+
                     break;
-                case "porte": break;
-                case "tiroir": break;
-                case "livres": break;
-               
+                   
+                case "porte":
+                    if (!BedroomBedChoice.book)
+                    {
+                        Console.WriteLine("En te rapprochant de la porte de ta chambre, tu réalise que la poignée est plus haute que d'habitude.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tu déposes le livres à tes pieds et grimpes dessus. Tu atteins finalement la poigné.");
+
+                    }
+
+
+                    break;
+                case "3537":
+                    Console.WriteLine("Tu ouvres le tirroir et trouves le plan de ta maison que tu avais dessiné!");
+
+                    break;
+                case "livres":
+                    Console.WriteLine("Tu prends la pile de livres, ils te serviront!");
+                    book = true;
+                    break;
+                default:
+                    Console.WriteLine("Commande invalide.");
+                    break;
+
             }
         }
     }
