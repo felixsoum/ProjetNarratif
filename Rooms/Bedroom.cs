@@ -3,21 +3,32 @@
     internal class Bedroom : Room
     {
         internal override string CreateDescription() =>
-@"Tu es dans ta chambre à dormir.
-La [porte] qui mène au salon est devant toi.
-Ta [toilette] privée est à ta gauche.
-Dans ton armoire, tu aperçois le [grenier]
+@"Alors que tu dormais paisiblement... Un grincement te réveille...
+Tes petits yeux ouverts tu ressens l'immense pression de son regard depuis ton garde-robe...
+Tu entends les portes, de celui-ci, s'ouvrir lentement, tu dois agir vite...
+Cours vers ta fenêtre il n'y a pas de temps a perdre [fenetre]
+Tu es tétanisé, cache toi sous tes couverture [drap]
+Roule hors de ton petit lit et cache toi en dessous [lit]
 ";
  
         internal override void  ReceiveChoice(string choice)
         {
+            
+
             switch (choice)
             {
-                case "toilette":
-                    Console.WriteLine("Tu entres dans la toilette.");
-                    Game.Transition<Bathroom>();
+                case "fenetre":
+                    Console.WriteLine("Tu cours vers ta fenêtre et tentes de l'ouvrir, mais celle-ci est coincée... ");
+                    Console.WriteLine("Des bruits de pas lourds se font entendre derrière toi...");
+                    Console.WriteLine("Tu endends sa respiration se rapprocher...");
+                    Console.WriteLine("Tu cris pour que tes parents t'entendent, mais il est trop tard, il t'a trouvé...");
+                    Console.WriteLine("FIN 1 : Mort prématurée");
+                    Console.Write("Appuyez sur une touche pour recommencer : ");
+                    Console.ReadKey();
+
+          
                     break;
-                case "porte":
+                case "drap":
                     if (!AtticRoom.isKeyCollected)
                     {
                         Console.WriteLine("La porte est verrouillée.");
@@ -31,7 +42,7 @@ Dans ton armoire, tu aperçois le [grenier]
                         //Game.Finish();
                     }
                     break;
-                case "grenier":
+                case "lit":
                     Console.WriteLine("Tu montes dans le grenier.");
                     Game.Transition<AtticRoom>();
                     break;
