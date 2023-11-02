@@ -2,7 +2,13 @@
 {
     internal class Bedroom : Room
     {
+        internal static bool firstdeath;
+        internal static bool WindowLock;
+        internal static bool Scared1;
+        internal static bool Scared2;
+        internal static bool Scared3;
         internal override string CreateDescription() =>
+            
 @"Alors que tu dormais paisiblement... Un grincement te réveille...
 Tes petits yeux ouverts tu ressens l'immense pression de son regard depuis ton garde-robe...
 Tu entends les portes, de celui-ci, s'ouvrir lentement, tu dois agir vite...
@@ -18,29 +24,40 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
             switch (choice)
             {
                 case "fenetre":
-                    Console.WriteLine("Tu cours vers ta fenêtre et tentes de l'ouvrir, mais celle-ci est coincée... ");
-                    Console.WriteLine("Des bruits de pas lourds se font entendre derrière toi...");
-                    Console.WriteLine("Tu endends sa respiration se rapprocher...");
-                    Console.WriteLine("Tu cris pour que tes parents t'entendent, mais il est trop tard, il t'a trouvé...");
-                    Console.WriteLine("FIN 1 : Mort prématurée");
-                    Console.Write("Appuyez sur une touche pour recommencer : ");
-                    Console.ReadKey();
+                    if (!Bedroom.WindowLock)
+                    {
+                        Console.WriteLine("Tu cours vers ta fenêtre et tentes de l'ouvrir, mais celle-ci est coincée... ");
+                        Console.WriteLine("Des bruits de pas lourds se font entendre derrière toi...");
+                        Console.WriteLine("Tu endends sa respiration se rapprocher...");
+                        Console.WriteLine("Tu cris pour que tes parents t'entendent, mais il est trop tard, il t'a trouvé...");
+                        Console.WriteLine("\n FIN 1 : Mort prématurée");
+                        firstdeath = true;
+                        Console.Write("Appuyez sur une touche pour recommencer : ");
+                        Console.ReadKey();
+                        Console.Clear();
+                    } else
+                    {
 
-          
+                    }
+                   
+
                     break;
                 case "drap":
-                    if (!AtticRoom.isKeyCollected)
-                    {
-                        Console.WriteLine("La porte est verrouillée.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Tu ouvres la porte avec ta clé et tu sors de ta chambre.");
-                      
-                        Console.WriteLine("Tu rentres dans le salon.");
-                        Game.Transition<LivingRoom>();
-                        //Game.Finish();
-                    }
+                    string choiceDrap;
+
+                    Console.WriteLine("Pris de peur ton petit corps ne te répond plus, tu te glisse immédiatement sous tes draps. ");
+                    Console.WriteLine("Tu l'entends courir vers ta fenetre et l'ouvrir...");
+                    Console.WriteLine("Un lourd bruit se fait entendre, suivi du grincement de ta porte d'entrée au premier étage.");
+                    Console.WriteLine("Tu retires tes draps, il n'est plus dans ta chambre.");
+
+                    Console.WriteLine("Tu regardes autours de toi : ");
+                    Console.WriteLine("Ta fenetre est toujours ouverte elle mène surement vers quelque part... [fenetre]");
+                    Console.WriteLine("La porte de ta chambre. [porte]");
+                    Console.WriteLine("Ton tiroir, tu gardes caché des informations utiles sur ta maison... [Tiroir]");
+                    Console.WriteLine("Tes livres préférés. [livre]");
+
+
+
                     break;
                 case "lit":
                     Console.WriteLine("Tu montes dans le grenier.");
@@ -49,6 +66,8 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;
+
+                    //Game.Finish();
             }
         }
     }
