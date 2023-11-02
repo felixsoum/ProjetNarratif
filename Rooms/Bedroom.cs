@@ -8,7 +8,7 @@ La [porte] qui mène au salon est devant toi.
 Ta [toilette] privée est à ta gauche.
 Dans ton armoire, tu aperçois le [grenier]
 ";
-
+ 
         internal override void  ReceiveChoice(string choice)
         {
             switch (choice)
@@ -25,7 +25,10 @@ Dans ton armoire, tu aperçois le [grenier]
                     else
                     {
                         Console.WriteLine("Tu ouvres la porte avec ta clé et tu sors de ta chambre.");
-                        Game.Finish();
+                      
+                        Console.WriteLine("Tu rentres dans le salon.");
+                        Game.Transition<LivingRoom>();
+                        //Game.Finish();
                     }
                     break;
                 case "grenier":
