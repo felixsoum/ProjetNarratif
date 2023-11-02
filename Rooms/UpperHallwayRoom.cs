@@ -8,23 +8,37 @@ namespace ProjetNarratif.Rooms
 {
     internal class UpperHallwayRoom : Room
     {
+        internal static bool thirddeath;
         internal override string CreateDescription() =>
-@"Dans le grenier, il y fait noir et froid.
-Un coffre est verrouillé avec un code [????].
-Tu peux revenir dans ta [chambre].
+@"Le couloir est sombre et tu ne vois pas bien.
+Tu entends du bruit venir de ta chambre. Il se rapproche de la porte!
+Vite, caches-toi :
+Tu te rends jusqu'aux escaliers de l'autre côté du couloir. [escaliers]
+Tic Tac Tic Tac... Tu te caches derrière l'horloge [horloge]
+Tu cours vers la toilette. [toilette]
 ";
 
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "chambre":
-                    Console.WriteLine("Tu retournes dans ta chambre.");
-                    Game.Transition<Bedroom>();
+                case "escaliers":
+                    Console.WriteLine("Tu tentes de te rendre jusqu'aux escaliers.");
+                    Console.WriteLine("Une fois devant tu manques la première marche et déboules les escaliers");
+                    Console.WriteLine("Fin 3 : Une mort abrupt");
+                    thirddeath = true;
                     break;
-                case "5872":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
-                    
+                case "horloge":
+                    Console.WriteLine("Tu te dirige rapidement vers l'horloge et te cache derrière");
+                    Console.WriteLine("TIC TAC TIC TAC TIC TAC");
+                    Console.WriteLine("Le bruit de l'horloge t'empêche de savoir où il est allé...");
+
+                    break;
+                case "toilette":
+                    Console.WriteLine("Tu te précipite vers les toilettes");
+                    Console.WriteLine("La lumière des toilettes clignottes, tu doit trouver un endroit pour te cacher vite!");
+                    Console.WriteLine();
+
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");
