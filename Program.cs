@@ -7,6 +7,8 @@ game.Add(new BedroomChoiceDraps());
 game.Add(new BedroomBedChoice());
 game.Add(new PorcheRoom());
 game.Add(new GameRoom());
+game.Add(new UpperHallwayRoom());
+game.Add(new UpperBathRoom());
 game.Add(new Bathroom());
 game.Add(new AtticRoom());
 game.Add(new LivingRoom());

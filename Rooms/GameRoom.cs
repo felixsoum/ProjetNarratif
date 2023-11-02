@@ -8,6 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class GameRoom : Room
     {
+        internal static bool Tocson;
         internal override string CreateDescription() =>
 @"Dans la salle de jeux, tu entends ses pas faire du bruit dans le couloir...
 Tu aimerais que ton meilleur ami Monsieur Tocson soit avec toi pour te donner du courage.
@@ -71,17 +72,22 @@ Tu retournes à la fenêtre [fenetre]
                     
                     break;
                 case "porte":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
+                    Console.WriteLine("Tu ouvres la portes et entres dans le couloir...");
+                    Game.Transition<UpperHallwayRoom>();
                     
                     break;
                 case "Tocson":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
+                    Console.WriteLine("Tu trouves Tocson!");
+                    Console.WriteLine("Il était là où tu l'avais laissé la dernière fois!");
+                    Console.WriteLine("Lorsque que le monstre est proche de toi, écris Tocson pour l'utiliser, il te sera d'un grande aide!");
 
                     break;
                 case "fenetre":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
+
+                    Console.WriteLine("En te retournant vers la fenêtre, tu remarque que celles-ci à disparue!");
 
                     break;
+              
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;
