@@ -489,15 +489,14 @@ namespace mon_premier_jeu
             string fin = " ";
             Console.WriteLine("Merci d'avoir joué à la démo de mon premier jeu!!!!");
             Console.ReadKey();
-            Console.WriteLine("n'hésitez pas à me faire part de vos commentaires et à me demander la suite quand je l'aurai fini si vous avez appréciez cette démo");
+            Console.WriteLine("n'hésitez pas à me faire part de vos commentaires et à me demander la suite quand je l'aurai fini si vous avez appréciez cette démo.");
             Console.ReadKey();
             Console.WriteLine("si vous même vous sentez triste quotidiennement ou si vous avez des idées suicidaire vous n'hésitez pas à aller chercher de l'aide ou appeler les numéros du site ci-dessous.");
             Console.WriteLine("https://www.infosuicide.org/urgences-aide-ressources/lignes-decoute/");
             Console.ReadKey();
             Console.WriteLine("\nvoulez vous [rejouer] ou [quitter] le jeu?\n");
             Console.ReadKey();
-            Console.WriteLine("choix : ");
-            Console.ReadKey();
+            Console.Write("choix : ");
             fin = Convert.ToString(Console.ReadLine());
             if (fin == "rejouer")
             {
