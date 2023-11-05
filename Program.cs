@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mon_premier_jeu
+namespace ProjetNarratif
 {
     internal class Program
     {
