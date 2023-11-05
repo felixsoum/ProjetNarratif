@@ -25,14 +25,27 @@ namespace mon_premier_jeu
         //fin forêt retour suicide ? + collègues tués?
         //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
         start:;
-            int habitsok = 0;//variable qui vérifie la sortie de la chambre
-            int cont = 0;//variable message suicidaire rasoir
+            //COMPTEUR POUR EASTER EGG
+            int contras = 0;//suicidaire rasoir
+            int contportm = 0;//destin famille
+
+            //CONAISSANCES
             string votre_femme = "votre femme";
             string votre_fils = "votre fils";
             string votre_fille = "votre fille";
+            
+            //ACTIONS
+            bool note = false;
             bool bon_mat_f = false;
             bool bon_mat_e = false;
+            
+            //OBJETS
             bool sac_à_lunch = false;
+            bool habits = false;//variable qui vérifie la sortie de la chambre
+            
+            //QTE
+            bool QTE1 = true;
+
 
             string choixchamb = " ";
             Console.WriteLine("vous vous réveillez dans votre lit, votre femme est déja levée.");
@@ -51,22 +64,22 @@ namespace mon_premier_jeu
             {
                 case "habits": //obligatoire
                     {
-                        if (habitsok == 0)
+                        if (habits == false)
                         {
                             Console.WriteLine("\nvous enfilez pour la cinquième fois cette semaine un costume 3 pièce gris");
                             Console.ReadKey();
                             Console.WriteLine("vous mettez votre cravate bleue.");
                             Console.ReadKey();
                             Console.WriteLine("puis vous déposez votre pyjama sur la commode\n");
-                            habitsok = habitsok + 1;
                             Console.ReadKey();
+                            habits = true;
                             goto chambre;
                         }
-                        else
+                        if (habits == true)
                         {
-                            Console.WriteLine("vous ne voyez que votre pyjama sur la commode.");
+                            Console.WriteLine("\nvous ne voyez que votre pyjama sur la commode.");
                             Console.ReadKey();
-                            Console.WriteLine("vous êtes prêt pour aller travailler.");
+                            Console.WriteLine("vous êtes prêt pour aller travailler.\n");
                             Console.ReadKey();
                             goto chambre;
                         }
@@ -105,7 +118,7 @@ namespace mon_premier_jeu
                                     Console.ReadKey();
                                     Console.WriteLine("vous ne vous reconnaissez toujours pas.");
                                     Console.ReadKey();
-                                    Console.WriteLine("vous regardez autour de vous.");
+                                    Console.WriteLine("vous regardez autour de vous.\n");
                                     Console.ReadKey();
                                     goto salledebain;
                                 }
@@ -114,7 +127,7 @@ namespace mon_premier_jeu
                             case "rasoir":
                                 {
 
-                                    if (cont == 0)
+                                    if (contras == 0)
                                     {
                                         Console.WriteLine("\nvous vous approchez du lavabo.");
                                         Console.ReadKey();
@@ -126,20 +139,20 @@ namespace mon_premier_jeu
                                         Console.ReadKey();
                                         Console.WriteLine("vous finissez de vous raser et observez le rasoir pendant quelques secondes avant de le reposer.\n");
                                         Console.ReadKey();
-                                        cont = cont + 1;
+                                        contras = contras + 1;
                                         goto salledebain;
                                     }
-                                    if (cont == 3) //easter egg teaser
+                                    if (contras == 3) //easter egg teaser
                                     {
                                         Console.WriteLine("\nvous : je ne suis pas encore sur d'en être capable.\n");
-                                        cont = cont + 1;
+                                        contras = contras + 1;
                                         Console.ReadKey();
                                         goto salledebain;
                                     }
                                     else
                                     {
                                         Console.WriteLine("je me suis déja rasé.\n");
-                                        cont = cont + 1;
+                                        contras = contras + 1;
                                         Console.ReadKey();
                                         goto salledebain;
                                     }
@@ -196,7 +209,7 @@ namespace mon_premier_jeu
 
                 case "couloir"://obligatoire
                     {
-                        if (habitsok != 1)
+                        if (habits == false)
                         {
                             Console.WriteLine("\nvous : je ferais mieux de m'habiller pour le travail tant que je suis dans ma chambre.\n");
                             Console.ReadKey();
@@ -212,8 +225,16 @@ namespace mon_premier_jeu
                             Console.ReadKey();
                             Console.WriteLine("vous avez la [porte] d'entrée derrière vous ainsi que celle de votre [chambre].");
                             Console.ReadKey();
-                            Console.WriteLine("vous entendez des rires d'enfant depuis la [cuisine].");
-                            Console.ReadKey();
+                            if (QTE1 == true)
+                            {
+                                Console.WriteLine("vous entendez des rires d'enfant depuis la [cuisine].");
+                                Console.ReadKey();
+                            }
+                            if (QTE1 == false)
+                            {
+                                Console.WriteLine("il y a la [cuisine].");
+                                Console.ReadKey();
+                            }
                             Console.Write("où voulez vous aller? : ");
                             choixcoul = Convert.ToString(Console.ReadLine());
 
@@ -250,7 +271,7 @@ namespace mon_premier_jeu
                                                 {
                                                     Console.WriteLine("\nvous soupirez.");
                                                     Console.ReadKey();
-                                                    Console.WriteLine("vous fermez la porte de la chambre de vos enfants derrière vous.");
+                                                    Console.WriteLine("vous fermez la porte de la chambre de vos enfants derrière vous.\n");
                                                     Console.ReadKey();
                                                     goto couloir;
                                                 }
@@ -275,13 +296,22 @@ namespace mon_premier_jeu
 
                                             case "papier":
                                                 {
-                                                    Console.WriteLine("\nvous vous approchez du bureau de vos enfants");
-                                                    Console.ReadKey();
-                                                    Console.WriteLine("vous prenez le crayon et écrivez une note chaleureuse pour vous enfants.");
-                                                    Console.ReadKey();
-                                                    Console.WriteLine("ce sont de bons enfants ils le méritent.\n");
-                                                    Console.ReadKey();
-                                                    goto chambre_enfants;
+                                                    if (note == false)
+                                                    {
+                                                        Console.WriteLine("\nvous vous approchez du bureau de vos enfants");
+                                                        Console.ReadKey();
+                                                        Console.WriteLine("vous prenez le crayon et écrivez une note chaleureuse pour vous enfants.");
+                                                        Console.ReadKey();
+                                                        Console.WriteLine("ce sont de bons enfants ils le méritent.\n");
+                                                        Console.ReadKey();
+                                                        goto chambre_enfants;
+                                                    }
+                                                    else 
+                                                    {
+                                                        Console.WriteLine("\nvous n'avez plus rien à faire ici.\n");
+                                                        Console.ReadKey();
+                                                        goto chambre_enfants;
+                                                    }
                                                 }
                                                 break;
 
@@ -314,6 +344,8 @@ namespace mon_premier_jeu
 
                                 case "cuisine": //optionnel
                                     {
+                                        if(QTE1 == true) 
+                                        { 
                                         string choixcui = " ";
                                         Console.WriteLine("\nvous vous dirigez vers la cuisine où l'odeur agréable du couloir s'intensifie");
                                         Console.ReadKey();
@@ -332,116 +364,200 @@ namespace mon_premier_jeu
                                         Console.ReadKey();
                                         choixcui = Convert.ToString(Console.ReadLine());
 
-                                        switch (choixcui)
+                                            switch (choixcui)
+                                            {
+                                                case "ouloir": //retour
+                                                    {
+                                                        Console.WriteLine("\nvous rassemblez vos forces et faites demi-tour en ignorant la délicieuse odeur.\n");
+                                                        Console.ReadKey();
+                                                        goto couloir;
+                                                    }
+                                                    break;
+
+                                                case "able":
+                                                    {
+                                                        
+                                                        if (bon_mat_e == false)
+                                                        {
+                                                            Console.WriteLine("\nvous vous approchez de vos enfants.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous sentez une goutte de sueur perler sur votre font");
+                                                            Console.ReadKey();
+                                                            int i = 0;
+                                                            Console.WriteLine("\nATTENTION QTE.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous allez devoir spamer votre touche entrer le plus rapidement possible 10 fois au signal.\n");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("QTE commencé");
+                                                            DateTime datea = DateTime.Now;//enregistre l'heur avant le QTE
+                                                            do
+                                                            {
+                                                                Console.ReadKey(); i++;
+                                                            } while (i < 10);//nombre de fois que l'utilisateur dois appuyer
+                                                            DateTime dateb = DateTime.Now;//enregistre l'heur apres le QTE
+                                                            Console.WriteLine("QTE terminé");
+                                                            Thread.Sleep(3000);//délai pour ne pas passer la suite de l'histoire
+                                                            TimeSpan res = dateb.Subtract(datea);//soustrait l'heur du début à l'heur de fin
+                                                            double resu = res.TotalSeconds;//converti le résultat en double en secondes
+                                                            Console.ReadKey();
+                                                            if (resu < 2)
+                                                            {
+                                                                Console.WriteLine("\nréussi\n");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous embrassez sur le front " + votre_fille + ", puis " + votre_fils + ".");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous leur souhaitez une bonne journée et leur dites que vous le aimez.");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous vous éloignez d'eux en soupirant.\n");
+                                                                Console.ReadKey();
+                                                                bon_mat_e = true;
+                                                                goto cuisine;
+                                                            }
+
+                                                            else
+                                                            {
+                                                                Console.WriteLine("\nraté\n");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous sentez une énorme chaleur envahir votre corps.");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("...");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("...");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous oubliez ce qui c'est passé.\n");
+                                                                Console.ReadKey();
+                                                                QTE1 = false;
+                                                                goto couloir;
+                                                            }
+                                                        }
+
+                                                        if (bon_mat_e == true)
+                                                        {
+                                                            Console.WriteLine("\nvous : je devrais laisser les enfants finir de déjeuner ou ils risquent d'être en retard pour l'école.\n");
+                                                            Console.ReadKey();
+                                                            goto cuisine;
+                                                        }
+
+                                                    }
+                                                    break;
+
+                                                case "omptoir":
+                                                    {
+                                                        
+                                                        if (bon_mat_f == false)
+                                                        {
+                                                            Console.WriteLine("\n" + votre_femme + " vous souhaite bon matin et vous embrasse sur la joue.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous lui souhaitez aussi bon matin.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous avez très chaud.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("ca ne vous arrive pas normalement");
+                                                            Console.ReadKey();
+                                                            Console.Write("...");
+                                                            Console.ReadKey();
+                                                            Console.Write("...");
+                                                            Console.ReadKey();
+                                                            Console.Write("...");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("pas avec eux.");
+                                                            Console.ReadKey();
+                                                            int i = 0;
+                                                            Console.WriteLine("\nATTENTION QTE.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous allez devoir spamer votre touche entrer le plus rapidement possible 10 fois au signal.\n");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("QTE commencé");
+                                                            DateTime datea = DateTime.Now;//enregistre l'heur avant le QTE
+                                                            do
+                                                            {
+                                                                Console.ReadKey(); i++;
+                                                            } while (i < 10);//nombre de fois que l'utilisateur dois appuyer
+                                                            DateTime dateb = DateTime.Now;//enregistre l'heur apres le QTE
+                                                            Console.WriteLine("QTE terminé");
+                                                            Thread.Sleep(3000);//délai pour ne pas passer la suite de l'histoire
+                                                            TimeSpan res = dateb.Subtract(datea);//soustrait l'heur du début à l'heur de fin
+                                                            double resu = res.TotalSeconds;//converti le résultat en double en secondes
+                                                            Console.ReadKey();
+                                                            if (resu < 2)
+                                                            {
+                                                                Console.WriteLine("\nréussi\n");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous voyez " + votre_femme + " écrire un mot pour le mettre dans la boîte à lunch de Agnès");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous prenez " + votre_femme + " dans vos bras, lui dites que vous l'aimez et lui souhaitez de passer une bonne journée");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous laissez " + votre_femme + " finir les lunch des enfants\n");
+                                                                Console.ReadKey();
+                                                                votre_fille = "Agnès";
+                                                                bon_mat_f = true;
+                                                                goto cuisine;
+                                                            }
+
+                                                            else
+                                                            {
+                                                                Console.WriteLine("\nraté\n");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous sentez une énorme chaleur envahir votre corps.");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("...");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("...");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("vous oubliez ce qui c'est passé.\n");
+                                                                Console.ReadKey();
+                                                                QTE1 = false;
+                                                                goto couloir;
+                                                            }
+                                                        }
+
+                                                        if (bon_mat_f == true)
+                                                        {
+                                                            Console.WriteLine("\nvous avez trop chaud pour lui reparler.\n");
+                                                            Console.ReadKey();
+                                                            goto cuisine;
+                                                        }
+
+                                                    }
+                                                    break;
+
+                                                case "ac":
+                                                    {
+                                                        if (sac_à_lunch == false)
+                                                        {
+                                                            Console.WriteLine("\nvous vous avancez vers le conptoir.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous prenez votre sac à lunch.");
+                                                            Console.ReadKey();
+                                                            Console.WriteLine("vous vous éloignez du contoir.\n");
+                                                            Console.ReadKey();
+                                                            sac_à_lunch = true;
+                                                            goto cuisine;
+                                                        }
+                                                        if (sac_à_lunch == true)
+                                                        {
+                                                            Console.WriteLine("\nvous : j'ai déja pris mon lunch je n'est plus rien à faire là-bas.\n");
+                                                            Console.ReadKey();
+                                                            goto cuisine;
+                                                        }
+                                                    }
+                                                    break;
+
+                                                default:
+                                                    {
+                                                        Console.WriteLine("\nvous soupirez en étant confus, car vous ne comprenez pas ce que votre cerveau essaye de vous faire faire.\n");
+                                                        Console.ReadKey();
+                                                        goto cuisine;
+                                                    }
+                                                    break;
+                                            }
+
+                                        }
+                                        if (QTE1 == false)
                                         {
-                                            case "ouloir": //retour
-                                                {
-                                                    Console.WriteLine("\nvous rassemblez vos forces et faites demi-tour en ignorant la délicieuse odeur.\n");
-                                                    Console.ReadKey();
-                                                    goto couloir;
-                                                }
-                                                break;
-
-                                            case "able":
-                                                {
-                                                    if (bon_mat_e == false)
-                                                    {
-                                                        Console.WriteLine("\nvous vous approchez de vos enfants.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous sentez une goutte de sueur perler sur votre font");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous embrassez sur le front " + votre_fille + ", puis " + votre_fils + ".");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous leur souhaitez une bonne journée et leur dites que vous le aimez.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous vous éloignez d'eux en soupirant.\n");
-                                                        Console.ReadKey();
-                                                        bon_mat_e = true;
-                                                        goto cuisine;
-                                                    }
-
-                                                    if (bon_mat_e == true)
-                                                    {
-                                                        Console.WriteLine("\nvous : je devrais laisser les enfants finir de déjeuner ou ils risquent d'être en retard pour l'école.\n");
-                                                        Console.ReadKey();
-                                                        goto cuisine;
-                                                    }
-
-                                                }
-                                                break;
-
-                                            case "omptoir":
-                                                {
-                                                    if (bon_mat_f == false)
-                                                    {
-                                                        Console.WriteLine("\n" + votre_femme + " vous souhaite bon matin et vous embrasse sur la joue.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous lui souhaitez aussi bon matin.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous avez très chaud.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("ca ne vous arrive pas normalement");
-                                                        Console.ReadKey();
-                                                        Console.Write("...");
-                                                        Console.ReadKey();
-                                                        Console.Write("...");
-                                                        Console.ReadKey();
-                                                        Console.Write("...");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("pas avec eux.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous voyez " + votre_femme + " écrire un mot pour le mettre dans la boîte à lunch de Agnès");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous prenez " + votre_femme + " dans vos bras, lui dites que vous l'aime et lui souhaitez de passer une bonne journée");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous laissez " + votre_femme + " finir les lunch des enfants\n");
-                                                        Console.ReadKey();
-                                                        votre_fille = "Agnès";
-                                                        bon_mat_f = true;
-                                                        goto cuisine;
-                                                    }
-
-                                                    if (bon_mat_f == true)
-                                                    {
-                                                        Console.WriteLine("\nvous avez trop chaud pour lui reparler.\n");
-                                                        Console.ReadKey();
-                                                        goto cuisine;
-                                                    }
-
-                                                }
-                                                break;
-
-                                            case "ac":
-                                                {
-                                                    if (sac_à_lunch == false)
-                                                    {
-                                                        Console.WriteLine("\nvous vous avancez vers le conptoir.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous prenez votre sac à lunch.");
-                                                        Console.ReadKey();
-                                                        Console.WriteLine("vous vous éloignez du contoir.\n");
-                                                        Console.ReadKey();
-                                                        sac_à_lunch = true;
-                                                        goto cuisine;
-                                                    }
-                                                    if (sac_à_lunch == true)
-                                                    {
-                                                        Console.WriteLine("\nvous : j'ai déja pris mon lunch je n'est plus rien à faire là-bas.\n");
-                                                        Console.ReadKey();
-                                                        goto cuisine;
-                                                    }
-                                                }
-                                                break;
-
-                                            default:
-                                                {
-                                                    Console.WriteLine("\nvous soupirez en étant confus, car vous ne comprenez pas ce que votre cerveau essaye de vous faire faire.\n");
-                                                    Console.ReadKey();
-                                                    goto cuisine;
-                                                }
-                                                break;
-
-
+                                            Console.WriteLine("\nil est temps d'aller au travail.\n");
+                                            Console.ReadKey();
+                                            goto couloir;
                                         }
 
                                     }
@@ -449,17 +565,97 @@ namespace mon_premier_jeu
 
                                 case "porte": //obligatoire
                                     {
+                                        string choixalltrav;
                                         Console.WriteLine("\nvous enfilez vos mocassins.");
                                         Console.ReadKey();
-                                        Console.WriteLine("vous mettez votre veste.");
+                                        Console.WriteLine("vous mettez votre veste grise.");
                                         Console.ReadKey();
-                                        Console.WriteLine("vous vous retournez vers la cuisine attiré par la bonne odeur.");
+                                        Console.WriteLine("vous mettez un large chapeau noir.");
                                         Console.ReadKey();
-                                        Console.WriteLine("vous soupirez et faite demi-tour");
+                                        if (QTE1 == true)
+                                        {
+                                            Console.WriteLine("vous vous retournez vers la cuisine attiré par la bonne odeur.");
+                                            Console.ReadKey();
+                                            Console.WriteLine("vous soupirez et faite demi-tour");
+                                            Console.ReadKey();
+                                        }
+                                        if (QTE1 == false) 
+                                        {
+                                            Console.WriteLine("vous sentez que la bonne odeur de la cuisine c'est grandement intensifiée");
+                                            Console.ReadKey();
+                                            Console.WriteLine("cela vous angoisse fortement.");
+                                            Console.ReadKey();
+                                        }
+                                        Console.WriteLine("vous sortez dehors en fermant la [porte] derrière vous.");
                                         Console.ReadKey();
-                                        Console.WriteLine("vous sortez dehors en fermant la porte derrière vous.\n\n\n");
+                                        Console.WriteLine("vous regardez votre montre.");
                                         Console.ReadKey();
-                                        goto confin;
+                                    allerautaf:;//fait disparaitre l'option porte pour cacher l'easter egg
+                                        Console.WriteLine("il est l'heur d'aller au travail");
+                                        Console.ReadKey();
+                                        Console.WriteLine("votre [voiture] est devant la maison.");
+                                        Console.ReadKey();
+                                        Console.Write("où voulez vous aller? : ");
+                                        choixalltrav = Convert.ToString(Console.ReadLine());
+
+                                        switch (choixalltrav) 
+                                        {
+                                            case "porte": 
+                                                {
+                                                    if (QTE1 == false) 
+                                                    {
+                                                        if (contportm == 3)//easter egg et indice
+                                                        {
+                                                            Console.WriteLine("\nvous vous doutez mais ne voulez savoir.\n");
+                                                            Console.ReadKey();
+                                                            contportm = contportm + 1;
+                                                            goto allerautaf;
+                                                        }
+                                                        else 
+                                                        {
+                                                            Console.WriteLine("\nvous ne pouvez pas retourner chez vous.\n");
+                                                            Console.ReadKey();
+                                                            contportm = contportm + 1;
+                                                            goto allerautaf;
+                                                        }
+                                                    }
+                                                    if (QTE1 == true) 
+                                                    { 
+                                                        Console.WriteLine("\nvous ne pouvez pas retourner chez vous.\n"); 
+                                                        Console.ReadKey();
+                                                        goto allerautaf;
+                                                    }
+                                                } 
+                                                break;
+
+                                            case "voiture": 
+                                                {
+                                                    Console.WriteLine("\nvous entrez dans votre voiture.");
+                                                    Console.ReadKey();
+                                                    if (sac_à_lunch == true)
+                                                    {
+                                                        Console.WriteLine("vous déposez votre lunch sur la banquette arrière.");
+                                                        Console.ReadKey();
+                                                    }
+                                                    Console.WriteLine("vous démarez le contact et reculez la voiture dans l'allée.");
+                                                    Console.ReadKey();
+                                                    Console.WriteLine("vous soupirez.");
+                                                    Console.ReadKey();
+                                                    Console.WriteLine("vous : une nouvelle journée de travail commence.\n\n\n");
+                                                    Console.ReadKey();
+                                                    goto confin;
+                                                } 
+                                                break;
+
+                                            default:
+                                                {
+                                                    Console.WriteLine("\nvous soupirez en étant confus, car vous ne comprenez pas ce que votre cerveau essaye de vous faire faire.\n");
+                                                    Console.ReadKey();
+                                                    goto allerautaf;
+                                                }
+                                                break;
+                                        }
+
                                     }
                                     break;
 
