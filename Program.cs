@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjetNarratif
@@ -12,18 +13,46 @@ namespace ProjetNarratif
 
         static void Main(string[] args)
         {
-        //idées de succès: - suicide réussi(se suicider, pas tué femme et enfant, dire aurevoir à la famille et laisser une note aux enfants ?? ne pas tué de collègues ou ne pas aller au travail??)
-        //                 - mort avec classe(se suicider, prendre un bain et se raser)
-        //                 - suicide raté(se suicider, ne pas dire aurevoir, ne pas laisser de note)
-        //                 - la survie à quel prix?(ne pas se suicider)
-        //                 - la fin?(se suicider)
-        //                 - famille(découvrez le nom de toute votre famille)
-        //                 - merci d'avoir joué(faire toutes les fins au moins une fois)
-        //                 - surhomme(avoir réussi le QTE final et sauvé votre famille)
-        //fin rentrer maison manger femme et enfants
-        //fin forêt aller suicide
-        //fin forêt retour suicide ? + collègues tués?
-        //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
+            //idées options pour la forêt: corps, corde, pieux, clairière.
+            //idées de succès: - suicide réussi(se suicider, pas tué femme et enfant, dire aurevoir à la famille et laisser une note aux enfants ?? ne pas tué de collègues ou ne pas aller au travail??)
+            //                 - mort avec classe(se suicider, prendre un bain et se raser)
+            //                 - suicide raté(se suicider, ne pas dire aurevoir, ne pas laisser de note)
+            //                 - la survie à quel prix?(ne pas se suicider)
+            //                 - la fin?(se suicider)
+            //                 - famille(découvrez le nom de toute votre famille)
+            //                 - merci d'avoir joué(faire toutes les fins au moins une fois)
+            //                 - surhomme(avoir réussi le QTE final et sauver votre famille)
+            //fin rentrer maison manger femme et enfants
+            //fin forêt aller suicide
+            //fin forêt retour suicide ? + collègues tués?
+            //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
+
+            string messdébut = " ";
+            Console.WriteLine("ATTENTION");
+            Console.ReadKey();
+            Console.WriteLine("ce jeu parle de sujets sensibles tel que la dépression et le suicide.");
+            Console.ReadKey();
+            Console.WriteLine("si vous n'etes pas à l'aise avec de tels sujets veuillez [quitter] l'application.");
+            Console.ReadKey();
+            Console.WriteLine("sinon vous êtes libre de [continuer].");
+            Console.Write("choix : ");
+            messdébut = Convert.ToString(Console.ReadLine());
+            if (messdébut == "continuer")
+            {
+                goto start;
+            }
+            if (messdébut == "quitter")
+            {
+                goto fin;
+            }
+            else
+            {
+                Console.WriteLine("\ndésoler ce n'est pas une option\n");
+                Console.ReadKey();
+                goto confin;
+            }
+
+
         start:;
             //COMPTEUR POUR EASTER EGG
             int contras = 0;//suicidaire rasoir
@@ -33,18 +62,21 @@ namespace ProjetNarratif
             string votre_femme = "votre femme";
             string votre_fils = "votre fils";
             string votre_fille = "votre fille";
-            
+
             //ACTIONS
+            bool bain = false;
             bool note = false;
             bool bon_mat_f = false;
             bool bon_mat_e = false;
-            
+            bool tutoQTE = false;
+
             //OBJETS
             bool sac_à_lunch = false;
             bool habits = false;//variable qui vérifie la sortie de la chambre
-            
+
             //QTE
-            bool QTE1 = true;
+            bool QTEfamd = true;//QTE avec la famille avant d'aller au travail
+
 
 
             string choixchamb = " ";
@@ -171,15 +203,25 @@ namespace ProjetNarratif
 
                             case "bain":
                                 {
-                                    Console.WriteLine("\nvous faites couler de l'eau brulante dans le bain.");
-                                    Console.ReadKey();
-                                    Console.WriteLine("une fois qu'il est rempli vous entrez dedans.");
-                                    Console.ReadKey();
-                                    Console.WriteLine("vous vous rappelez l'époque lointaine où la chaleur de l'eau vous réconfortait");
-                                    Console.ReadKey();
-                                    Console.WriteLine("cela fait longtemps qu'elle ne vous fait plus rien.\n");
-                                    Console.ReadKey();
-                                    goto salledebain;
+                                    if (bain == false)
+                                    {
+                                        Console.WriteLine("\nvous faites couler de l'eau brulante dans le bain.");
+                                        Console.ReadKey();
+                                        Console.WriteLine("une fois qu'il est rempli vous entrez dedans.");
+                                        Console.ReadKey();
+                                        Console.WriteLine("vous vous rappelez l'époque lointaine où la chaleur de l'eau vous réconfortait");
+                                        Console.ReadKey();
+                                        Console.WriteLine("cela fait longtemps qu'elle ne vous fait plus rien.\n");
+                                        Console.ReadKey();
+                                        bain = true;
+                                        goto salledebain;
+                                    }
+                                    if (bain == true)
+                                    {
+                                        Console.WriteLine("vous vous êtes déja lavé.");
+                                        Console.ReadKey();
+                                        goto salledebain;
+                                    }
                                 }
                                 break;
 
@@ -225,12 +267,12 @@ namespace ProjetNarratif
                             Console.ReadKey();
                             Console.WriteLine("vous avez la [porte] d'entrée derrière vous ainsi que celle de votre [chambre].");
                             Console.ReadKey();
-                            if (QTE1 == true)
+                            if (QTEfamd == true)
                             {
                                 Console.WriteLine("vous entendez des rires d'enfant depuis la [cuisine].");
                                 Console.ReadKey();
                             }
-                            if (QTE1 == false)
+                            if (QTEfamd == false)
                             {
                                 Console.WriteLine("il y a la [cuisine].");
                                 Console.ReadKey();
@@ -271,7 +313,7 @@ namespace ProjetNarratif
                                                 {
                                                     Console.WriteLine("\nvous soupirez.");
                                                     Console.ReadKey();
-                                                    Console.WriteLine("vous fermez la porte de la chambre de vos enfants derrière vous.\n");
+                                                    Console.WriteLine("vous quittez la chambre de vos enfants.\n");
                                                     Console.ReadKey();
                                                     goto couloir;
                                                 }
@@ -306,7 +348,7 @@ namespace ProjetNarratif
                                                         Console.ReadKey();
                                                         goto chambre_enfants;
                                                     }
-                                                    else 
+                                                    else
                                                     {
                                                         Console.WriteLine("\nvous n'avez plus rien à faire ici.\n");
                                                         Console.ReadKey();
@@ -344,25 +386,25 @@ namespace ProjetNarratif
 
                                 case "cuisine": //optionnel
                                     {
-                                        if(QTE1 == true) 
-                                        { 
-                                        string choixcui = " ";
-                                        Console.WriteLine("\nvous vous dirigez vers la cuisine où l'odeur agréable du couloir s'intensifie");
-                                        Console.ReadKey();
-                                    cuisine:;
-                                        Console.WriteLine("vous voyez " + votre_fils + " et " + votre_fille + " jouer à la [table] à manger en mageant leur céréales.");
-                                        Console.ReadKey();
-                                        Console.WriteLine("vous voyez " + votre_femme + " devant le [comptoir] qui prépare les dîners des enfants.");
-                                        Console.ReadKey();
-                                        Console.WriteLine("sur le comptoir à coté de " + votre_femme + " il y a un [sac].");
-                                        Console.ReadKey();
-                                        Console.WriteLine("il y a le [couloir] derrière vous.");
-                                        Console.ReadKey();
-                                        Console.WriteLine("vous avez chaud.");
-                                        Console.ReadKey();
-                                        Console.Write("que voulez vous faire? : ");
-                                        Console.ReadKey();
-                                        choixcui = Convert.ToString(Console.ReadLine());
+                                        if (QTEfamd == true)
+                                        {
+                                            string choixcui = " ";
+                                            Console.WriteLine("\nvous vous dirigez vers la cuisine où l'odeur agréable s'intensifie");
+                                            Console.ReadKey();
+                                        cuisine:;
+                                            Console.WriteLine("vous voyez " + votre_fils + " et " + votre_fille + " jouer à la [table] à manger en mangeant leur céréales.");
+                                            Console.ReadKey();
+                                            Console.WriteLine("vous voyez " + votre_femme + " devant le [comptoir] qui prépare les dîners des enfants.");
+                                            Console.ReadKey();
+                                            Console.WriteLine("sur le comptoir à coté de " + votre_femme + " il y a un [sac].");
+                                            Console.ReadKey();
+                                            Console.WriteLine("il y a le [couloir] derrière vous.");
+                                            Console.ReadKey();
+                                            Console.WriteLine("vous avez chaud.");
+                                            Console.ReadKey();
+                                            Console.Write("que voulez vous faire? : ");
+                                            Console.ReadKey();
+                                            choixcui = Convert.ToString(Console.ReadLine());
 
                                             switch (choixcui)
                                             {
@@ -376,7 +418,7 @@ namespace ProjetNarratif
 
                                                 case "able":
                                                     {
-                                                        
+
                                                         if (bon_mat_e == false)
                                                         {
                                                             Console.WriteLine("\nvous vous approchez de vos enfants.");
@@ -384,11 +426,21 @@ namespace ProjetNarratif
                                                             Console.WriteLine("vous sentez une goutte de sueur perler sur votre font");
                                                             Console.ReadKey();
                                                             int i = 0;
-                                                            Console.WriteLine("\nATTENTION QTE.");
-                                                            Console.ReadKey();
-                                                            Console.WriteLine("vous allez devoir spamer votre touche entrer le plus rapidement possible 10 fois au signal.\n");
-                                                            Console.ReadKey();
-                                                            Console.WriteLine("QTE commencé");
+                                                            if (tutoQTE == false)
+                                                            {
+                                                                Console.WriteLine("\nACTION DE RÉSISTER : Lorsque [RÉSISTEZ] s'affiche à l'écran vous pouvez perdre le controle de votre corps dans certaines situations.");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("pour garder le controle appuyer 10 fois de suite rapidement sur votre touche entrée dans le temps imparti.\n");
+                                                                Console.ReadKey();
+                                                                tutoQTE = true;
+                                                            }
+                                                            Console.WriteLine("3");
+                                                            Thread.Sleep(1000);
+                                                            Console.WriteLine("2");
+                                                            Thread.Sleep(1000);
+                                                            Console.WriteLine("1");
+                                                            Thread.Sleep(1000);
+                                                            Console.WriteLine("[RÉSISTEZ]");
                                                             DateTime datea = DateTime.Now;//enregistre l'heur avant le QTE
                                                             do
                                                             {
@@ -400,7 +452,7 @@ namespace ProjetNarratif
                                                             TimeSpan res = dateb.Subtract(datea);//soustrait l'heur du début à l'heur de fin
                                                             double resu = res.TotalSeconds;//converti le résultat en double en secondes
                                                             Console.ReadKey();
-                                                            if (resu < 2)
+                                                            if (resu < 2.2)
                                                             {
                                                                 Console.WriteLine("\nréussi\n");
                                                                 Console.ReadKey();
@@ -426,7 +478,7 @@ namespace ProjetNarratif
                                                                 Console.ReadKey();
                                                                 Console.WriteLine("vous oubliez ce qui c'est passé.\n");
                                                                 Console.ReadKey();
-                                                                QTE1 = false;
+                                                                QTEfamd = false;
                                                                 goto couloir;
                                                             }
                                                         }
@@ -443,7 +495,7 @@ namespace ProjetNarratif
 
                                                 case "omptoir":
                                                     {
-                                                        
+
                                                         if (bon_mat_f == false)
                                                         {
                                                             Console.WriteLine("\n" + votre_femme + " vous souhaite bon matin et vous embrasse sur la joue.");
@@ -463,11 +515,21 @@ namespace ProjetNarratif
                                                             Console.WriteLine("pas avec eux.");
                                                             Console.ReadKey();
                                                             int i = 0;
-                                                            Console.WriteLine("\nATTENTION QTE.");
-                                                            Console.ReadKey();
-                                                            Console.WriteLine("vous allez devoir spamer votre touche entrer le plus rapidement possible 10 fois au signal.\n");
-                                                            Console.ReadKey();
-                                                            Console.WriteLine("QTE commencé");
+                                                            if (tutoQTE == false)
+                                                            {
+                                                                Console.WriteLine("\nACTION DE RÉSISTER : Lorsque [RÉSISTEZ] s'affiche à l'écran vous pouvez perdre le controle de votre corps dans certaines situations.");
+                                                                Console.ReadKey();
+                                                                Console.WriteLine("pour garder le controle appuyer 10 fois de suite rapidement sur votre touche entrée dans le temps imparti.\n");
+                                                                Console.ReadKey();
+                                                                tutoQTE = true;
+                                                            }
+                                                            Console.WriteLine("3");
+                                                            Thread.Sleep(1000);
+                                                            Console.WriteLine("2");
+                                                            Thread.Sleep(1000);
+                                                            Console.WriteLine("1");
+                                                            Thread.Sleep(1000);
+                                                            Console.WriteLine("[RÉSISTEZ]");
                                                             DateTime datea = DateTime.Now;//enregistre l'heur avant le QTE
                                                             do
                                                             {
@@ -479,7 +541,7 @@ namespace ProjetNarratif
                                                             TimeSpan res = dateb.Subtract(datea);//soustrait l'heur du début à l'heur de fin
                                                             double resu = res.TotalSeconds;//converti le résultat en double en secondes
                                                             Console.ReadKey();
-                                                            if (resu < 2)
+                                                            if (resu < 2.2)
                                                             {
                                                                 Console.WriteLine("\nréussi\n");
                                                                 Console.ReadKey();
@@ -506,7 +568,7 @@ namespace ProjetNarratif
                                                                 Console.ReadKey();
                                                                 Console.WriteLine("vous oubliez ce qui c'est passé.\n");
                                                                 Console.ReadKey();
-                                                                QTE1 = false;
+                                                                QTEfamd = false;
                                                                 goto couloir;
                                                             }
                                                         }
@@ -553,7 +615,7 @@ namespace ProjetNarratif
                                             }
 
                                         }
-                                        if (QTE1 == false)
+                                        if (QTEfamd == false)
                                         {
                                             Console.WriteLine("\nil est temps d'aller au travail.\n");
                                             Console.ReadKey();
@@ -572,14 +634,14 @@ namespace ProjetNarratif
                                         Console.ReadKey();
                                         Console.WriteLine("vous mettez un large chapeau noir.");
                                         Console.ReadKey();
-                                        if (QTE1 == true)
+                                        if (QTEfamd == true)
                                         {
                                             Console.WriteLine("vous vous retournez vers la cuisine attiré par la bonne odeur.");
                                             Console.ReadKey();
                                             Console.WriteLine("vous soupirez et faite demi-tour");
                                             Console.ReadKey();
                                         }
-                                        if (QTE1 == false) 
+                                        if (QTEfamd == false)
                                         {
                                             Console.WriteLine("vous sentez que la bonne odeur de la cuisine c'est grandement intensifiée");
                                             Console.ReadKey();
@@ -591,18 +653,18 @@ namespace ProjetNarratif
                                         Console.WriteLine("vous regardez votre montre.");
                                         Console.ReadKey();
                                     allerautaf:;//fait disparaitre l'option porte pour cacher l'easter egg
-                                        Console.WriteLine("il est l'heur d'aller au travail");
+                                        Console.WriteLine("il est l'heure d'aller au travail");
                                         Console.ReadKey();
                                         Console.WriteLine("votre [voiture] est devant la maison.");
                                         Console.ReadKey();
                                         Console.Write("où voulez vous aller? : ");
                                         choixalltrav = Convert.ToString(Console.ReadLine());
 
-                                        switch (choixalltrav) 
+                                        switch (choixalltrav)
                                         {
-                                            case "porte": 
+                                            case "porte":
                                                 {
-                                                    if (QTE1 == false) 
+                                                    if (QTEfamd == false)
                                                     {
                                                         if (contportm == 3)//easter egg et indice
                                                         {
@@ -611,7 +673,7 @@ namespace ProjetNarratif
                                                             contportm = contportm + 1;
                                                             goto allerautaf;
                                                         }
-                                                        else 
+                                                        else
                                                         {
                                                             Console.WriteLine("\nvous ne pouvez pas retourner chez vous.\n");
                                                             Console.ReadKey();
@@ -619,16 +681,16 @@ namespace ProjetNarratif
                                                             goto allerautaf;
                                                         }
                                                     }
-                                                    if (QTE1 == true) 
-                                                    { 
-                                                        Console.WriteLine("\nvous ne pouvez pas retourner chez vous.\n"); 
+                                                    if (QTEfamd == true)
+                                                    {
+                                                        Console.WriteLine("\nvous ne pouvez pas retourner chez vous.\n");
                                                         Console.ReadKey();
                                                         goto allerautaf;
                                                     }
-                                                } 
+                                                }
                                                 break;
 
-                                            case "voiture": 
+                                            case "voiture":
                                                 {
                                                     Console.WriteLine("\nvous entrez dans votre voiture.");
                                                     Console.ReadKey();
@@ -644,7 +706,7 @@ namespace ProjetNarratif
                                                     Console.WriteLine("vous : une nouvelle journée de travail commence.\n\n\n");
                                                     Console.ReadKey();
                                                     goto confin;
-                                                } 
+                                                }
                                                 break;
 
                                             default:
