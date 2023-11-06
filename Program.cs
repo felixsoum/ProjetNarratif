@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+//nom: kim-pahud
+//date: 2023-11-05
+//description: mon premier jeu
 
 namespace ProjetNarratif
 {
@@ -13,20 +16,21 @@ namespace ProjetNarratif
 
         static void Main(string[] args)
         {
-            //idées options pour la forêt: corps, corde, pieux, clairière.
-            //idées de succès: - suicide réussi(se suicider, pas tué femme et enfant, dire aurevoir à la famille et laisser une note aux enfants ?? ne pas tué de collègues ou ne pas aller au travail??)
-            //                 - mort avec classe(se suicider, prendre un bain et se raser)
-            //                 - suicide raté(se suicider, ne pas dire aurevoir, ne pas laisser de note)
-            //                 - la survie à quel prix?(ne pas se suicider)
-            //                 - la fin?(se suicider)
-            //                 - famille(découvrez le nom de toute votre famille)
-            //                 - merci d'avoir joué(faire toutes les fins au moins une fois)
-            //                 - surhomme(avoir réussi le QTE final et sauver votre famille)
-            //fin rentrer maison manger femme et enfants
-            //fin forêt aller suicide
-            //fin forêt retour suicide ? + collègues tués?
-            //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
-
+        //futur ajout de différents mode de difficultée pour les QTE
+        //idées options pour la forêt: corps, corde, pieux, clairière.
+        //idées de succès: - suicide réussi(se suicider, pas tué femme et enfant, dire aurevoir à la famille et laisser une note aux enfants ?? ne pas tué de collègues ou ne pas aller au travail??)
+        //                 - mort avec classe(se suicider, prendre un bain et se raser)
+        //                 - suicide raté(se suicider, ne pas dire aurevoir, ne pas laisser de note)
+        //                 - la survie à quel prix?(ne pas se suicider)
+        //                 - la fin?(se suicider)
+        //                 - famille(découvrez le nom de toute votre famille)
+        //                 - merci d'avoir joué(faire toutes les fins au moins une fois)
+        //                 - surhomme(avoir réussi le QTE final et sauver votre famille)
+        //fin rentrer maison manger femme et enfants
+        //fin forêt aller suicide
+        //fin forêt retour suicide ? + collègues tués?
+        //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
+        messdébut:;
             string messdébut = " ";
             Console.WriteLine("ATTENTION");
             Console.ReadKey();
@@ -49,7 +53,7 @@ namespace ProjetNarratif
             {
                 Console.WriteLine("\ndésoler ce n'est pas une option\n");
                 Console.ReadKey();
-                goto confin;
+                goto messdébut;
             }
 
 
