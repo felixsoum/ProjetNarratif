@@ -82,8 +82,8 @@ Tu cours vers la toilette. [toilette]
                                     if (in5 == 1)
                                     {
                                         Console.WriteLine("Bonne combinaison!");
-                                        
 
+                                        Game.Transition<UpperBathRoomGood>();
                                     }
                                     else
                                     {
