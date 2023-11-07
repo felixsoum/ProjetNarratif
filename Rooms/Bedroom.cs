@@ -63,7 +63,13 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     Console.WriteLine("Ton petit coeurs accélère...");
                     Console.WriteLine("Il se dirige vers la porte de ta chambre...");
                     Console.WriteLine("Il l'ouvre et la ferme derrière lui.");
+                    Console.WriteLine("Ton niveau de peur augmente...");
+                
                     Scared1 = true;
+                    if (Scared1 == true)
+                    {
+                        Console.WriteLine("Niveau de peur : 1...");
+                    }
                     Game.Transition<BedroomBedChoice>();
 
                     break;

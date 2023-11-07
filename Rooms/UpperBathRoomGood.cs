@@ -9,9 +9,13 @@ namespace ProjetNarratif.Rooms
     internal class UpperBathRoomGood : Room
     {
         internal override string CreateDescription() =>
-@"Dans le grenier, il y fait noir et froid.
-Un coffre est verrouillé avec un code [????].
-Tu peux revenir dans ta [chambre].
+@"Tu arrives à te cacher derrière la laveuse.
+Tu l'entends entré dans la salle de bain et se fâcher de ne pas t'y trouver...
+tu entends ses pas s'éloigner en direction de la salle de jeu...
+Tu sors de ta cachettes : 
+Diriges-toi vers ta chambre [chambre]
+Descends les escaliers [escaliers]
+
 ";
 
         internal override void ReceiveChoice(string choice)
@@ -20,10 +24,10 @@ Tu peux revenir dans ta [chambre].
             {
                 case "chambre":
                     Console.WriteLine("Tu retournes dans ta chambre.");
-                    Game.Transition<Bedroom>();
+                    Game.Transition<BedroomPostGR>();
                     break;
-                case "5872":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
+                case "escaliers":
+                    Console.WriteLine("Silencieusement, tu descends les escaliers");
                     
                     break;
                 default:
