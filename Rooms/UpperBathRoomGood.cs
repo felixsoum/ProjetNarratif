@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription() =>
 @"Tu arrives à te cacher derrière la laveuse.
-Tu l'entends entré dans la salle de bain et se fâcher de ne pas t'y trouver...
+Tu l'entends entrer dans la salle de bain et se fâcher de ne pas t'y trouver...
 tu entends ses pas s'éloigner en direction de la salle de jeu...
 Tu sors de ta cachettes : 
 Diriges-toi vers ta chambre [chambre]
@@ -28,7 +28,8 @@ Descends les escaliers [escaliers]
                     break;
                 case "escaliers":
                     Console.WriteLine("Silencieusement, tu descends les escaliers");
-                    
+                    Console.WriteLine("Fin de la beta");
+
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

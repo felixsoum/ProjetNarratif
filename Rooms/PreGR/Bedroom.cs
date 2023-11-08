@@ -61,8 +61,10 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     Console.WriteLine("Tu regardes alors ton garde robe s'ouvrir...");
                     Console.WriteLine("Tu le vois se rapprocher tranquillement vers ton lit...");
                     Console.WriteLine("Ton petit coeurs accélère...");
+                    
                     Console.WriteLine("Il se dirige vers la porte de ta chambre...");
                     Console.WriteLine("Il l'ouvre et la ferme derrière lui.");
+                    Console.WriteLine("Tu cherches autour de toi pour le regard réconfortant de M.Tocson, mais tu l'as égaré...");
                     Console.WriteLine("Ton niveau de peur augmente...");
                 
                     Scared1 = true;

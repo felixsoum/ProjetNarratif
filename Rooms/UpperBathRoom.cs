@@ -34,9 +34,10 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                     Console.WriteLine("Ton souffle accélère...");
                     if (!GameRoom.Tocson)
                     {
-                        Console.WriteLine("Ton niveau de peur augmente...");
+                        
                         if (Bedroom.Scared1)
                         {
+                            Console.WriteLine("Ton niveau de peur augmente...");
                             Console.WriteLine("Niveau de peur : 2 ");
                             Bedroom.Scared2 = true;
                         } else
@@ -49,7 +50,7 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                     {
                         string ch = "";
                         Console.WriteLine("M.Tocson peut t'aider. ");
-                       ch1: Console.Write("Écris oui pour utiliser son aide, \n ou non pour conserver son effet pour plus tard : ");
+                       ch1: Console.Write("Écris oui pour utiliser son aide,\nou non pour conserver son effet pour plus tard : ");
                         try
                         {
                             ch = Convert.ToString(Console.ReadLine());
