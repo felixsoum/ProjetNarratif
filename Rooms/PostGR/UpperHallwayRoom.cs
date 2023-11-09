@@ -30,9 +30,15 @@ Tu cours vers la toilette. [toilette]
                     thirddeath = true;
                     break;
                 case "horloge":
+                    Console.WriteLine("tic tac tic tac");
                     Console.WriteLine("Tu te dirige rapidement vers l'horloge et te cache derrière");
                     Console.WriteLine("TIC TAC TIC TAC TIC TAC");
-                    Console.WriteLine("Le bruit de l'horloge t'empêche de savoir où il est allé...");
+                    Console.WriteLine("Tu ne te sens pas bien...");
+                    Console.WriteLine("Dong Dong Dong");
+                    Console.WriteLine("Les coups de minuits se font entendre dans toute la maison.");
+                    Console.WriteLine("Tu te mets à paniquer...");
+                    Console.WriteLine("Tu dois t'en aller...");
+                    Game.Transition<ClockRoom>();
 
                     break;
                 case "toilette":
