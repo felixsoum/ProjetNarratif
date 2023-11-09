@@ -25,7 +25,7 @@ Tu vas inspecter l'horloge familiale [horloge]
                     Console.WriteLine("\t28967\n1=2\n2=8\n3=9\n...");
                     Console.WriteLine("\nBien que cryptique, cette information de servira surement...");
 
-                    Game.Transition<Bedroom>();
+                   
                     break;
                 case "jeux":
                     Console.WriteLine("Tu rentres dans la salle de jeux");

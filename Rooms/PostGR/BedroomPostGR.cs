@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription() =>
 @"Tu te retrouves dans ta chambre, il l'a sacagé...
 Tu ne te sens pas à l'aise ici, dépêche toi...
-Ton tiroir, tu gardes caché des informations utiles sur ta maison, mais tu ne te souviens pas tu codes qui est caché dans la salle de jeux... [????]
+Ton tiroir, tu gardes caché des informations utiles sur ta maison, mais tu ne te souviens pas tu codes qui est caché dans la salle de jeu... [????]
 Tes livres préférés. [livres]
 Une affiche que ta mère t'avait offert pour ta fête [affiche] 
 Tu retournes dans le couloir [couloir]
@@ -32,7 +32,7 @@ Tu retournes dans le couloir [couloir]
                     Console.WriteLine("\tMa cachette préféré :");
                     Console.WriteLine("\nIgnoré, c'est comme ça que je me sens quand tocson ne me répond plus. Ne t'en fais pas,\nje suis toujours ton ami malgré tout." +
                         "Veux-tu que je te chante une berçeuse pour que \ntu t'endorme? Imagine que nous somme tous les deux superman!Superman!Imagine!\nBattre les villains et sauver" +
-                        "les innocents! Le rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
+                        " les innocents! Le rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
                    
                     break;
 
@@ -53,6 +53,7 @@ Tu retournes dans le couloir [couloir]
                     Console.WriteLine("En ouvrant la porte tu entends la porte de la salle de jeu s'ouvrir...");
                     Console.WriteLine("Tu n'a pas le choix, tu cours et descends les escaliers...");
                     Console.WriteLine("Fin de la beta");
+                    Game.Finish();
 
                     break;
 

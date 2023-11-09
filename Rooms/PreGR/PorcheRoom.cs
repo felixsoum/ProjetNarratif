@@ -28,6 +28,7 @@ Prends le risque d'être vu en te déplaçant plus lentement. [lent]
                     Console.Write("Appuyez sur une touche pour recommencer : ");
                     Console.ReadKey();
                     Console.Clear();
+                    Game.Transition<Bedroom>();
                     break;
                 case "lent":
                     Console.WriteLine("Tu prends ton temps et te diriges lentement vers la fenêtre. ");

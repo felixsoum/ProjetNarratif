@@ -82,8 +82,11 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                     Game.Transition<Bedroom>();
                     break;
                 case "attendre":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
-                    
+                    Console.WriteLine("Tu fermes tes yeux et bouches tes oreilles");
+                    Console.WriteLine("Tu comptes jusqu'à 100 et tu sors de ta cachettes");
+                    Console.WriteLine("Tu sors dans le couloir");
+                    Game.Transition<PostBathHall>();
+
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

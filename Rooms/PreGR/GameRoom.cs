@@ -11,7 +11,7 @@ namespace ProjetNarratif.Rooms
         internal static bool Tocson;
         internal override string CreateDescription() =>
 @"Dans la salle de jeux, tu entends ses pas faire du bruit dans le couloir...
-Tu aimerais que ton meilleur ami Monsieur Tocson soit avec toi pour te donner du courage.
+La porte de ta chambre s'ouvre et se ferme immédiatement. Tu peux l'entendre faire du bruit de l'autre côté du mur...
 Tu vois une piscine à balles. [balles]
 Tu peux aller ouvrir la porte de la salle de jeux [porte]
 Tu ressents une présence réconfortante [????]
@@ -22,7 +22,7 @@ Tu ressents une présence réconfortante [????]
             switch (choice)
             {
                 case "balles":
-                    int num1 = 0, num2 = 0, num3 = 0, rslt = 0;
+                    int num1 = 0, num2 = 0, num3 = 0;
 
                   
                     
