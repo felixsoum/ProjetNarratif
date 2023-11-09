@@ -46,40 +46,50 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                             Console.WriteLine("Niveau de peur : 1 ");
                             Bedroom.Scared1 = true;
                         }
+
                     } else
                     {
-                        string ch = "";
+                        string ch;
                         Console.WriteLine("M.Tocson peut t'aider. ");
-                       ch1: Console.Write("Écris oui pour utiliser son aide,\nou non pour conserver son effet pour plus tard : ");
-                        try
-                        {
-                            ch = Convert.ToString(Console.ReadLine());
-                        } catch { Console.WriteLine("Commande invalide : "); goto ch1; }
-                       
+                    ch1: Console.Write("Écris oui pour utiliser son aide,\nou non pour conserver son effet pour plus tard : ");
 
-                        if (ch == "oui" ||  ch == "Oui")
-                        {
+                        ch = Convert.ToString(Console.ReadLine());
+                       
+                       if (ch == "oui" || ch == "Oui" || ch == "non" || ch == "Non")
+                       {
+                             if (ch == "oui" ||  ch == "Oui")
+                             {
                             Console.WriteLine("Tu regardes ton meilleur ami et il te réconforte.");
                             Console.WriteLine("Tu réussis à te calmer.");
-                        }
-                        if (ch == "non" || ch == "Non")
-                        {
+                            Game.Transition<PostBathHall>();
+                          
+                             }
+                            if (ch == "non" || ch == "Non")
+                            {
                             if (Bedroom.Scared1)
                             {
                                 Console.WriteLine("Ton niveau de peur augmente...");
                                 Console.WriteLine("Niveau de peur : 2 ");
                                 Bedroom.Scared2 = true;
+                                Game.Transition<PostBathHall>();
                             }
                             else
                             {
                                 Console.WriteLine("Ton niveau de peur augmente...");
                                 Console.WriteLine("Niveau de peur : 1 ");
                                 Bedroom.Scared1 = true;
+                                Game.Transition<PostBathHall>();
                             }
-                        } else { Console.WriteLine("Commande invalide : "); goto ch1; }
+                            } 
+                       }
+                        else { Console.WriteLine("Commande invalide"); goto ch1; }
+
+
+
+
                     }
 
-                    Game.Transition<Bedroom>();
+                    Game.Transition<PostBathHall>();
                     break;
                 case "attendre":
                     Console.WriteLine("Tu fermes tes yeux et bouches tes oreilles");
@@ -89,7 +99,7 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
 
                     break;
                 default:
-                    Console.WriteLine("Commande invalide.");
+                    Console.WriteLine("Salut");
                     break;
             }
         }

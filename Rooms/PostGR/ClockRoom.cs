@@ -31,7 +31,7 @@ namespace ProjetNarratif.Rooms
                         Game.Transition<BedroomPostGR>();
                     }
                     break;
-                case "jeux":
+                case "jeu":
                     Console.WriteLine("Pris de panique, tu cours te réfugier dans la salle de jeu!");
                     Console.WriteLine("C'est en ouvrant la porte que tu te rends compte de quelque chose...");
                     Console.WriteLine("Il est dans cette pièce...");

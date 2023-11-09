@@ -44,6 +44,7 @@ Tu descends les escaliers [escaliers]
                 case "escaliers":
                     Console.WriteLine("Silencieusement, tu descends les escaliers");
                     Console.WriteLine("Fin de la beta");
+                    Game.Finish();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");
