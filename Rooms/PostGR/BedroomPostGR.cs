@@ -32,7 +32,7 @@ Tu retournes dans le couloir [couloir]
                     Console.WriteLine("\tMa cachette préféré :");
                     Console.WriteLine("\nIgnoré, c'est comme ça que je me sens quand tocson ne me répond plus. Ne t'en fais pas,\nje suis toujours ton ami malgré tout." +
                         "Veux-tu que je te chante une berçeuse pour que \ntu t'endorme? Imagine que nous somme tous les deux superman!Superman!Imagine!\nBattre les villains et sauver" +
-                        " les innocents! Le rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
+                        " les innocents!\nLe rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
                    
                     break;
 

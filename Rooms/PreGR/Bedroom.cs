@@ -66,7 +66,7 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     
                     Console.WriteLine("Il se dirige vers la porte de ta chambre...");
                     Console.WriteLine("Il l'ouvre et la ferme derrière lui.");
-                    Console.WriteLine("Tu cherches autour de toi pour le regard réconfortant de ton ami tocson, mais tu l'as égaré...");
+                    Console.WriteLine("Tu cherches autour de toi pour le regard réconfortant de ton ami tocson,\nmais tu l'as égaré...");
                     Console.WriteLine("Ton niveau de peur augmente...");
                 
                     Scared1 = true;

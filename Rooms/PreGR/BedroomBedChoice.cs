@@ -14,7 +14,8 @@ namespace ProjetNarratif.Rooms
 Tu sorts de ta cachette :
 Ta fenetre, elle mène surement vers quelque part... [fenetre]
 La porte de ta chambre. [porte]
-Ton tiroir, tu gardes caché des informations utiles sur ta maison, mais tu ne te souviens pas tu codes qui est caché dans la salle de jeux... [????]
+Ton tiroir, tu gardes caché des informations utiles sur ta maison, 
+mais tu ne te souviens pas tu codes qui est caché dans la salle de jeux... [????]
 Tes livres préférés. [livres]
 Une affiche que ta mère t'avait offert pour ta fête [affiche] 
 ";
@@ -47,12 +48,12 @@ Une affiche que ta mère t'avait offert pour ta fête [affiche]
                    
                     
                     break;
-                case "3537":
+                case "3735":
                     Console.WriteLine("Ton tiroir s'ouvre et tu y trouves une note : ");
                     Console.WriteLine("\tMa cachette préféré :");
                     Console.WriteLine("\nIgnoré, c'est comme ça que je me sens quand tocson ne me répond plus. Ne t'en fais pas,\nje suis toujours ton ami malgré tout." +
                         "Veux-tu que je te chante une berçeuse pour que \ntu t'endorme? Imagine que nous somme tous les deux superman!Superman!Imagine!\nBattre les villains et sauver" +
-                        "les innocents! Le rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
+                        " les innocents!\nLe rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
 
                     break;
                 case "livres":
