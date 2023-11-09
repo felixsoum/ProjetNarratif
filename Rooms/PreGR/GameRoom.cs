@@ -40,7 +40,7 @@ Tu ressents une présence réconfortante [????]
                     if (num1 == 3) { Console.WriteLine("Bleu!"); }
                     if (num1 == 4) { Console.WriteLine("Rouge!"); }
                     if (num1 == 5) { Console.WriteLine("Mauve!"); }
-                qst2: Console.Write("Premier chiffre : ");
+                qst2: Console.Write("Deuxième chiffre : ");
                     try { num2 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst2; }
                     if (num2 <= 0 || num2 > 5)
                     {
