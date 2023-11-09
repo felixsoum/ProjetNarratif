@@ -14,8 +14,7 @@ namespace ProjetNarratif.Rooms
 Tu aimerais que ton meilleur ami Monsieur Tocson soit avec toi pour te donner du courage.
 Tu vois une piscine à balles. [balles]
 Tu peux aller ouvrir la porte de la salle de jeux [porte]
-Tu retournes à la fenêtre [fenetre]
-Tu ressents une présence bienveillante [M.Tocson]
+Tu ressents une présence réconfortante [????]
 ";
 
         internal override void ReceiveChoice(string choice)
@@ -97,11 +96,7 @@ Tu ressents une présence bienveillante [M.Tocson]
 
                     break;
 
-                case "fenetre":
-
-                    Console.WriteLine("En te retournant vers la fenêtre, tu remarque que celles-ci à disparue!");
-
-                    break;
+              
 
 
               
