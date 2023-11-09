@@ -24,6 +24,8 @@ Tu entends les portes, de celui-ci, s'ouvrir lentement, tu dois agir vite...
 Cours vers ta fenêtre il n'y a pas de temps a perdre [fenetre]
 Tu es tétanisé, cache toi sous tes couverture [drap]
 Roule hors de ton petit lit et cache toi en dessous [lit]
+
+
 ";
  
         internal override void  ReceiveChoice(string choice)
@@ -75,8 +77,13 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                         Console.WriteLine("Niveau de peur : 1...");
                     }
                     Game.Transition<BedroomBedChoice>();
-
                     break;
+
+                case "test":
+                    Game.Transition<Bathroom>();
+                    break;
+
+                  
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;

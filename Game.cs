@@ -1,4 +1,5 @@
 ﻿using ProjetNarratif.Rooms;
+using System.Diagnostics;
 
 namespace ProjetNarratif
 {
@@ -9,7 +10,9 @@ namespace ProjetNarratif
         internal bool IsGameOver() => isFinished;
         static bool isFinished;
         static string nextRoom = "";
+        internal static Stopwatch stopwatch = new Stopwatch();
 
+     
         internal void Add(Room room)
         {
             rooms.Add(room);
@@ -32,6 +35,21 @@ namespace ProjetNarratif
             nextRoom = typeof(T).Name;
         }
 
+        internal static int vie = 3;
+        internal static void Vie()
+        {
+            //vie
+            vie = vie - 1;
+            if (vie != 0)
+            {
+                Console.WriteLine($"Il te reste {vie} vies");
+            }
+            else
+            {
+                Console.WriteLine("Tu es mort :(");
+                Game.Finish();
+            }
+        }
         internal static void Finish()
         {
             isFinished = true;

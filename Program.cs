@@ -18,13 +18,20 @@ game.Add(new Bathroom());
 game.Add(new AtticRoom());
 game.Add(new LivingRoom());
 
+Game.stopwatch.Start();
+
 while (!game.IsGameOver())
 {
     Console.WriteLine("--");
     Console.WriteLine(game.CurrentRoomDescription);
     string? choice = Console.ReadLine()?.ToLower() ?? "";
-    Console.Clear();
-    game.ReceiveChoice(choice);
+    Console.WriteLine("Min: " + Game.stopwatch.Elapsed.TotalHours);
+  
+   
+    Console.WriteLine($"PV = {Game.vie}/3");
+  Console.Clear();
+     game.ReceiveChoice(choice);
+
 
 }
 
