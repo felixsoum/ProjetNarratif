@@ -37,7 +37,7 @@ Une affiche que ta mère t'avait offert pour ta fête [affiche]
                     break;
                    
                 case "porte":
-                    if (!BedroomBedChoice.book)
+                    if (!BedroomChoiceDraps.book)
                     {
                         Console.WriteLine("En te rapprochant de la porte de ta chambre, tu réalise que la poignée est plus haute que d'habitude.");
                     }
