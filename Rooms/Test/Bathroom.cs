@@ -18,11 +18,13 @@ Le [miroir] devant toi affiche ton visage déprimé.
 il y a un couteau sur le bord du bain [couteau]
 Tu peux revenir dans ta [chambre].
 [attic]
+
+Jette ta piece de monnaie dans les air [monnaie]
 ";
             
         }
 
-
+        Random random = new Random();
         internal override void ReceiveChoice(string choice)
         {
             
@@ -61,7 +63,17 @@ Tu peux revenir dans ta [chambre].
                    
                     
                     break;
-
+                case "monnaie": 
+                   double chance = random.Next();
+                    if (chance < 0.5)
+                    {
+                        Console.WriteLine("Pile");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Face");
+                    }
+                    break;
                 case "attic":
 
                  Game.Transition<AtticRoom>();

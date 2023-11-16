@@ -1,5 +1,6 @@
 ﻿using ProjetNarratif;
 using ProjetNarratif.Rooms;
+using ProjetNarratif.Rooms._1st_Floor;
 
 var game = new Game();
 game.Add(new Bedroom());
@@ -20,9 +21,10 @@ game.Add(new LivingRoom());
 game.Add(new KitchenRoom());
 game.Add(new FfHallwayRoom());
 game.Add(new GuessRoom());
+game.Add(new it());
+game.Add(new FfLivingRoom());
 
-
-Game.stopwatch.Start();
+//Game.stopwatch.Start();
 
 while (!game.IsGameOver())
 {
