@@ -53,6 +53,7 @@ Tu cours vers la toilette. [toilette]
                     Console.WriteLine("La lumière des toilettes clignottes, tu doit trouver un endroit pour te cacher vite!");
                     Console.WriteLine("Il y a 5 combinaisons, un seul chiffre par combinaison doit être utilisé : ");
                     Console.WriteLine("Trouve la combinaison correcte pour te cacher parfaitement : ");
+                    Console.WriteLine("Lorsque tu seras prêt, appuis sur une touche, puis rentre un chiffre et appuis sur enter. \nUne mauvaise touche = mauvaise combinaison \nune bonne touche = Bonne combinaison");
                     Console.WriteLine("34567");
                     Console.ReadKey();
                   clear: Console.Clear();

@@ -43,7 +43,8 @@ Tu peux revenir dans ta [chambre].
                     else
                     {
                         Console.WriteLine("Tu aperçois les chiffres 5872 écrits sur la brume sur le miroir.");
-                        
+                        //pour lier un site web (musique image etc)
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=oavMtUWDBTM", UseShellExecute = true });
                     }
                     break;
                 case "chambre":

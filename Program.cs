@@ -20,7 +20,7 @@ game.Add(new LivingRoom());
 game.Add(new KitchenRoom());
 game.Add(new FfHallwayRoom());
 game.Add(new GuessRoom());
-game.Add(new GuessToilets());
+
 
 Game.stopwatch.Start();
 
