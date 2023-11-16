@@ -6,57 +6,38 @@ using System.Threading.Tasks;
 
 namespace ProjetNarratif.Rooms
 {
+   
     internal class FfLivingRoom : Room 
     {
-        internal override string CreateDescription()
-        {
-            if (Game.stopwatch.Elapsed.TotalSeconds < 30)
-            {
-                return
-
-                       @"Il fait noir
+        internal override string CreateDescription() =>
+@" En bas des escalier, te voilà dans ton salon. Tu te rappelle des bons souvenirs que tu à eu ici,
+mais pourtant tu n'es pas heureux... Le peur commence à t'engloutir...
+Il ne semble pas t'avoir suivi, pour l'instant.....
+Tu te déplace vers la cuisine [cuisine]
+Tu vas vers le Couloir [couloir]
+La porte du sous-sol tes parents s'y trouvent! [porte]
 ";
-            }
-            if (Bathroom.bathtaken)
-            {
-                return
- @"Il fait supra mega noir
-";
-            }
-            else
-            {
-                return
-          @"Dans le grenier, il y fait noir et froid.
-Un coffre est verrouillé avec un code [????].
-Tu peux revenir dans ta [chambre].
-[couteau]
-";
-            }
-
-        }
-
 
         internal override void ReceiveChoice(string choice)
         {
+      
+
             switch (choice)
             {
-                case "chambre":
-                    Console.WriteLine("Tu retournes dans ta chambre.");
-                    Game.Transition<Bedroom>();
+                case "cuisine":
+                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
+                    Game.Finish();
                     break;
-                case "5872":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
+                case "couloir":
+                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+
+                    break;
+                case "porte": 
+                    Console.WriteLine("Tu essaye d'ouvrir la porte, mais celle-ci est barrée.");
                     
                     break;
-                case "couteau":
-                    Console.WriteLine("Tu prends le couteau mais tu te coupes avec");
-
-                    Game.Vie();
-
-                    break;
-
                 default:
-                    Console.WriteLine("Commande invalide.");
+                    Console.WriteLine("Commande invalide");
                     break;
             }
         }
