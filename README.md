@@ -8,4 +8,5 @@ Ne te fais pas attraper et résous les mystères que cache ta propre maison afin
 Une histoire dont tu-es le héro!
 
 Commentaires
-1) Il y a un bug si on choisi drap -> porte -> livres -> porte. -Felix
+1) Il y a un bug si on choisi drap -> porte -> livres -> porte.
+2) C'est difficile de comprendre qu'est-ce qui se passe dans le puzzle des toilettes.
