@@ -22,7 +22,7 @@ namespace ProjetNarratif.Rooms
             switch (choice)
             {
                 case "chambre":
-                   if (Bedroom.Scared1)
+                   if (Game.peur >= 1)
                     {
                         Console.WriteLine("Ton niveau de peur est trop élevé pour que tu puisses entrprendre cette action...");
                     } else 
@@ -49,8 +49,7 @@ namespace ProjetNarratif.Rooms
                 case "escaliers": 
                     Console.WriteLine("Tu te diriges vers les escaliers d'un pas effrayé...");
                     Console.WriteLine("Tu les descends");
-                    Console.WriteLine("Fin beta");
-                    Game.Finish();
+                    Game.Transition<FfLivingRoom>();
 
                     break;
 

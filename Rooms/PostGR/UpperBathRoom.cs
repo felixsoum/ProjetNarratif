@@ -34,18 +34,20 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                     Console.WriteLine("Ton souffle accélère...");
                     if (!GameRoom.Tocson)
                     {
-                        
-                        if (Bedroom.Scared1)
-                        {
-                            Console.WriteLine("Ton niveau de peur augmente...");
-                            Console.WriteLine("Niveau de peur : 2 ");
-                            Bedroom.Scared2 = true;
-                        } else
-                        {
-                            Console.WriteLine("Ton niveau de peur augmente...");
-                            Console.WriteLine("Niveau de peur : 1 ");
-                            Bedroom.Scared1 = true;
-                        }
+                        Game.peur++;
+                        Console.WriteLine("Ton niveau de peur augmente...");
+                        Console.WriteLine($"Niveau de peur : {Game.peur} ");
+                        //if (Bedroom.Scared1)
+                        //{
+                        //    Console.WriteLine("Ton niveau de peur augmente...");
+                        //    Console.WriteLine("Niveau de peur : 2 ");
+                        //    Bedroom.Scared2 = true;
+                        //} else
+                        //{
+                        //    Console.WriteLine("Ton niveau de peur augmente...");
+                        //    Console.WriteLine("Niveau de peur : 1 ");
+                        //    Bedroom.Scared1 = true;
+                        //}
 
                     } else
                     {
@@ -66,21 +68,25 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                              }
                             if (ch == "non" || ch == "Non")
                             {
-                            if (Bedroom.Scared1)
-                            {
+                                Game.peur++;
                                 Console.WriteLine("Ton niveau de peur augmente...");
-                                Console.WriteLine("Niveau de peur : 2 ");
-                                Bedroom.Scared2 = true;
+                                Console.WriteLine($"Niveau de peur : {Game.peur} ");
                                 Game.Transition<PostBathHall>();
+                                //if (Bedroom.Scared1)
+                                //{
+                                //    Console.WriteLine("Ton niveau de peur augmente...");
+                                //    Console.WriteLine("Niveau de peur : 2 ");
+                                //    Bedroom.Scared2 = true;
+                                //    Game.Transition<PostBathHall>();
+                                //}
+                                //else
+                                //{
+                                //    Console.WriteLine("Ton niveau de peur augmente...");
+                                //    Console.WriteLine("Niveau de peur : 1 ");
+                                //    Bedroom.Scared1 = true;
+                                //    Game.Transition<PostBathHall>();
+                                //}
                             }
-                            else
-                            {
-                                Console.WriteLine("Ton niveau de peur augmente...");
-                                Console.WriteLine("Niveau de peur : 1 ");
-                                Bedroom.Scared1 = true;
-                                Game.Transition<PostBathHall>();
-                            }
-                            } 
                        }
                         else { Console.WriteLine("Commande invalide"); goto ch1; }
 

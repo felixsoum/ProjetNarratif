@@ -36,6 +36,8 @@ namespace ProjetNarratif
         }
 
         internal static int vie = 3;
+
+        internal static int peur = 0;
         internal static void Vie()
         {
             //vie
