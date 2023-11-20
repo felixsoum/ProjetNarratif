@@ -83,6 +83,9 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     Game.Transition<Bathroom>();
                     break;
 
+                case "current":
+                    Game.Transition<FfLivingRoom>();
+                    break;
                   
                 default:
                     Console.WriteLine("Commande invalide.");
