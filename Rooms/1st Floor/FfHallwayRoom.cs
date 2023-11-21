@@ -38,23 +38,53 @@ Tu te diriges vers la cuisine [cuisine]
 
 
         }
-
+        static bool paintkit = false;
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
                 case "cuisine":
-                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
-                    Game.Finish();
+                    Console.WriteLine("Tu vas dans la cuisine");
+                    Game.Transition<KitchenRoom>();
                     break;
 
                 case "chambre":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
-
+                    Console.WriteLine("Tu entres dans la chambre");
+                    Game.Transition<GuessRoom>();
                     break;
 
                 case "peinture":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+
+                    int ch = 0;
+
+                    if (!paintkit)
+                    {
+                        Console.WriteLine("\n\tPaysage de printemps");
+                        Console.WriteLine("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
+                            "\nTu as toujours trouvé qu'il y avait quelque chose de malsaint dans cette toile,\nmais tu ne sais pas quoi...");
+                    } else
+                    {
+                        Console.WriteLine("\n\tPaysage de printemps");
+                        Console.Write("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
+                            "\nTu as toujours trouvé qu'il y avait quelque chose de malsaint dans cette toile,\nmais tu ne sais pas quoi...");
+
+                       qst: Console.WriteLine("\nAvec le kit de peinture, tu peux investiguer d'avantage cette toile :\n(1) oui\n(2) non\nTon choix : ");
+                        try
+                        {
+                            ch = Convert.ToInt32(Console.ReadLine());
+                        } catch { Console.WriteLine("Option non valide"); goto qst; }
+                       if (ch == 1)
+                        {
+                            Console.WriteLine("Tu te sens transporté, tu entres dans la peinture...");
+                        }
+                        if (ch == 2)
+                        {
+                            Console.WriteLine("Tu décides de ne pas investiguer...");
+                        }
+
+
+                    }
+                    
 
                     break;
 
