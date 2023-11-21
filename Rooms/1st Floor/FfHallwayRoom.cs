@@ -76,6 +76,7 @@ Tu te diriges vers la cuisine [cuisine]
                        if (ch == 1)
                         {
                             Console.WriteLine("Tu te sens transporté, tu entres dans la peinture...");
+                            Game.Transition<PeintureCouloirRoom>();
                         }
                         if (ch == 2)
                         {
