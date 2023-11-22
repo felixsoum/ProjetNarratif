@@ -8,6 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class GuessToilets : Room
     {
+<<<<<<< Updated upstream
         internal override string CreateDescription()
         {
             if (Game.stopwatch.Elapsed.TotalSeconds < 30)
@@ -35,11 +36,19 @@ Tu peux revenir dans ta [chambre].
 
         }
 
+=======
+        internal override string CreateDescription() =>
+@"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
+Une télévision grésille [television].
+S'assoir sur le sofa [sofa].
+";
+>>>>>>> Stashed changes
 
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
+<<<<<<< Updated upstream
                 case "chambre":
                     Console.WriteLine("Tu retournes dans ta chambre.");
                     Game.Transition<Bedroom>();
@@ -55,6 +64,16 @@ Tu peux revenir dans ta [chambre].
 
                     break;
 
+=======
+                case "television":
+                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
+                    Game.Finish();
+                    break;
+                case "sofa":
+                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+
+                    break;
+>>>>>>> Stashed changes
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;

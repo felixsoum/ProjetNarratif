@@ -89,7 +89,8 @@ Tu te diriges vers la cuisine [cuisine]
                     break;
 
                 case "porte":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+                    Console.WriteLine("Lorsque tu te tournes vers la porte d'entrée, elle te parait loin." +
+                        "\nTu avances vers celle-ci, mais tu sembles incapable de l'atteindre");
 
                     break;
 
