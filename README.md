@@ -9,4 +9,5 @@ Une histoire dont tu-es le héro!
 
 Commentaires
 1) Il y a un bug si on choisi drap -> porte -> livres -> porte.
-2) C'est difficile de comprendre qu'est-ce qui se passe dans le puzzle des toilettes.
+2) Fix : l'element bool etait mal assigne
+3) C'est difficile de comprendre qu'est-ce qui se passe dans le puzzle des toilettes.
