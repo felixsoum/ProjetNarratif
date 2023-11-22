@@ -31,8 +31,57 @@ Tu décides de rentrer à l'intérieur [rentre]
 
                     break;
                 case "arbre":
-                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
-
+                    string choix = "", ch = "";
+                    Console.WriteLine("Tu te diriges vers l'arbre que tu vois au loin." +
+                        "\nSur le chemin, tu rescents l'herbe froide humide sous tes pieds.");
+                    Console.WriteLine("Tu es devant l'arbre, tu ne te sens pas normal...");
+                   qst: Console.Write("Faire demi-tour?" +
+                        "\nOui" +
+                        "\nNon" +
+                        "\nTon choix : ");
+                    try
+                    {
+                        choix = Convert.ToString(Console.ReadLine());
+                    } catch { Console.WriteLine("Commande invalide :\n "); goto qst; }
+                    if (choix == "Oui" || choix == "oui")
+                    {
+                        Console.WriteLine("Tu te retournes vers ta maison et commence à marcher");
+                        Console.WriteLine("Tu entends un cris au loin!");
+                    qst1: Console.Write("Tu vas investiguer?" +
+                    "\nOui" +
+                    "\nNon" +
+                    "\nTon choix : ");
+                        try
+                        {
+                            ch = Convert.ToString(Console.ReadLine());
+                        }
+                        catch { Console.WriteLine("Commande invalide :\n "); goto qst1; }
+                        if (ch == "Oui" || ch == "oui")
+                        {
+                            Console.WriteLine("Tu te retournes et cours vers les cris");
+                        }
+                        if (choix == "Non" || choix == "non")
+                        {
+                            Console.WriteLine("Tu fais de ton mieu pour ignorer les cris, mais tu en ai incapable...");
+                            Console.WriteLine("Tu te retournes et cours vers les cris");
+                        }
+                        if (choix == "Non" || choix == "non")
+                        {
+                            Console.WriteLine("Tu entends un cris au loin!");
+                            Console.WriteLine("Tu ne peux pas t'empêcher d'aller voir." +
+                                "\nTu cours en direction des cris");
+                            Console.WriteLine("Tu t<enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
+                                "\nPersonne n'est là?" +
+                                "\nTu es seul..." +
+                                "\nUne lumière t'aveugle" +
+                                "\nTu cris");
+                            Console.WriteLine("Fin 4 : Mort sur la route");
+                            Bedroom.fourthdeath = true;
+                            Game.Transition<Bedroom>();
+                            //Bruit de camion
+                            //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=oavMtUWDBTM", UseShellExecute = true });
+                        }
+                    }
                     break;
                 case "rentre":
                     Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");

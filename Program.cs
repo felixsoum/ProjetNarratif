@@ -23,7 +23,7 @@ game.Add(new FfHallwayRoom());
 game.Add(new GuessRoom());
 game.Add(new it());
 game.Add(new FfLivingRoom());
-
+game.Add(new OutsideRoom());
 //Game.stopwatch.Start();
 
 while (!game.IsGameOver())

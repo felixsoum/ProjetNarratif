@@ -12,6 +12,7 @@ namespace ProjetNarratif.Rooms
         {
             if (Game.peur >= 1)
             {
+              
                 return
   @"Le couloir est mal éclairé, quelque chose est différent de d'habitude...
 Te calmer pourrait surement t'aider à voir les choses différament.
@@ -95,8 +96,8 @@ Tu te diriges vers la cuisine [cuisine]
                     break;
 
                 case "entree":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
-
+                    Console.WriteLine("Tu arrives devant la porte d'entrée,\nTu l'ouvres et sors de ta maison.");
+                    Game.Transition<OutsideRoom>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");

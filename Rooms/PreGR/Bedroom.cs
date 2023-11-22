@@ -10,6 +10,7 @@ namespace ProjetNarratif.Rooms
         internal static bool firstdeath;
         internal static bool seconddeath;
         internal static bool thirddeath;
+        internal static bool fourthdeath;
         internal static bool WindowLock;
         internal static bool Scared1;
         internal static bool Scared2;
