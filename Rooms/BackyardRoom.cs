@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProjetNarratif.Rooms
 {
+   
     internal class BackyardRoom : Room
     {
+        internal static bool PaintKit;
         internal override string CreateDescription() =>
-@"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
-Une télévision grésille [television].
-S'assoir sur le sofa [sofa].
+@"Tu es dans la cour arrière. 
+Il fait noir.
+Tu rescents le vent frais sur ton visage.
+Il y a un brouillard épais qui recouvre ta cour
+À travers le brouillard, tu arrives à distinguer la cabane dans l'arbre
+que ton père avait construit pour toi [cabane]
+Directement à droite de la porte, il y a une grosse boite en bois [boite]
+Tu rentres à l'intérieur [rentre]
 ";
 
         internal override void ReceiveChoice(string choice)
@@ -20,7 +27,7 @@ S'assoir sur le sofa [sofa].
             {
                 case "television":
                     Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
-                    Game.Finish();
+                    
                     break;
                 case "sofa":
                     Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
