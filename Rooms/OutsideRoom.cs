@@ -73,7 +73,7 @@ Tu décides de rentrer à l'intérieur [rentre]
                             Bedroom.fourthdeath = true;
                             Game.Transition<Bedroom>();
                             //Bruit de camion
-                            //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=oavMtUWDBTM", UseShellExecute = true });
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
                         }
 
                     }
@@ -91,7 +91,7 @@ Tu décides de rentrer à l'intérieur [rentre]
                         Bedroom.fourthdeath = true;
                         Game.Transition<Bedroom>();
                         //Bruit de camion
-                        //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=oavMtUWDBTM", UseShellExecute = true });
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
                     }
                     break;
                 case "rentre":
