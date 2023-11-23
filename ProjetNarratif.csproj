@@ -111,6 +111,7 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.2" />
     <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
   </ItemGroup>
 

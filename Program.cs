@@ -105,6 +105,7 @@ namespace ProjetNarratif
             Console.WriteLine("si vous souhaitez désactiver le gore dans les descriptions entrez [non]");
             Console.WriteLine("si vous êtes à l'aise avec ce genre  de description entrez [oui]\n");
             choixgore = Convert.ToString(Console.ReadLine());
+            bruit.clickmenu();
             if (choixgore == "oui")
             {
                 Console.WriteLine("scène gore activé\n\n");
