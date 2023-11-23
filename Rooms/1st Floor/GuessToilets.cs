@@ -4,57 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetNarratif.Rooms
+namespace ProjetNarratif.Rooms._1st_Floor
 {
     internal class GuessToilets : Room
     {
-        internal override string CreateDescription()
-        {
-            if (Game.stopwatch.Elapsed.TotalSeconds < 30)
-            {
-                return
-
-                       @"Il fait noir
+        internal override string CreateDescription() =>
+        @"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
+Une télévision grésille [television].
+S'assoir sur le sofa [sofa].
 ";
-            }
-            if (Bathroom.bathtaken)
-            {
-                return
- @"Il fait supra mega noir
-";
-            }
-            else
-            {
-                return
-          @"Dans le grenier, il y fait noir et froid.
-Un coffre est verrouillé avec un code [????].
-Tu peux revenir dans ta [chambre].
-[couteau]
-";
-            }
-
-        }
-
 
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "chambre":
-                    Console.WriteLine("Tu retournes dans ta chambre.");
-                    Game.Transition<Bedroom>();
+                case "television":
+                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
+                    Game.Finish();
                     break;
-                case "5872":
-                    Console.WriteLine("Le coffre s'ouvre et tu obiens une clé.");
-                    
-                    break;
-                case "couteau":
-                    Console.WriteLine("Tu prends le couteau mais tu te coupes avec");
-
-                    Game.Vie();
+                case "sofa":
+                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
 
                     break;
-
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;
