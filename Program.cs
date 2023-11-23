@@ -23,12 +23,12 @@ game.Add(new FfHallwayRoom());
 game.Add(new GuessRoom());
 game.Add(new it());
 game.Add(new FfLivingRoom());
-<<<<<<< HEAD
+
 game.Add(new PeintureCouloirRoom());
 
-=======
+
 game.Add(new OutsideRoom());
->>>>>>> 49afd8383b78d0e1e0f490c066faf02ebc62e833
+
 //Game.stopwatch.Start();
 
 while (!game.IsGameOver())
