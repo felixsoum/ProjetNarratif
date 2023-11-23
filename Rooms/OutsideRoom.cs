@@ -60,27 +60,38 @@ Tu décides de rentrer à l'intérieur [rentre]
                         {
                             Console.WriteLine("Tu te retournes et cours vers les cris");
                         }
-                        if (choix == "Non" || choix == "non")
+                        if (ch == "Non" || ch == "non")
                         {
                             Console.WriteLine("Tu fais de ton mieu pour ignorer les cris, mais tu en ai incapable...");
                             Console.WriteLine("Tu te retournes et cours vers les cris");
-                        }
-                        if (choix == "Non" || choix == "non")
-                        {
-                            Console.WriteLine("Tu entends un cris au loin!");
-                            Console.WriteLine("Tu ne peux pas t'empêcher d'aller voir." +
-                                "\nTu cours en direction des cris");
-                            Console.WriteLine("Tu t<enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
-                                "\nPersonne n'est là?" +
-                                "\nTu es seul..." +
-                                "\nUne lumière t'aveugle" +
-                                "\nTu cris");
+                            Console.WriteLine("Tu t'enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
+                           "\nPersonne n'est là?" +
+                           "\nTu es seul..." +
+                           "\nUne lumière t'aveugle" +
+                           "\nTu cris");
                             Console.WriteLine("Fin 4 : Mort sur la route");
                             Bedroom.fourthdeath = true;
                             Game.Transition<Bedroom>();
                             //Bruit de camion
                             //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=oavMtUWDBTM", UseShellExecute = true });
                         }
+
+                    }
+                    if (choix == "Non" || choix == "non")
+                    {
+                        Console.WriteLine("Tu entends un cris au loin!");
+                        Console.WriteLine("Tu ne peux pas t'empêcher d'aller voir." +
+                            "\nTu cours en direction des cris");
+                        Console.WriteLine("Tu t'enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
+                            "\nPersonne n'est là?" +
+                            "\nTu es seul..." +
+                            "\nUne lumière t'aveugle" +
+                            "\nTu cris");
+                        Console.WriteLine("Fin 4 : Mort sur la route");
+                        Bedroom.fourthdeath = true;
+                        Game.Transition<Bedroom>();
+                        //Bruit de camion
+                        //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=oavMtUWDBTM", UseShellExecute = true });
                     }
                     break;
                 case "rentre":
