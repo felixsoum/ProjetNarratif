@@ -9,9 +9,12 @@ namespace ProjetNarratif.Rooms
     internal class GuessRoom : Room 
     {
         internal override string CreateDescription() =>
-@"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
-Une télévision grésille [television].
-S'assoir sur le sofa [sofa].
+@"Tu rentres dans la chambre d'invité.
+Tout est bien rangé, comme si personne n'y était jamais rentré.
+Au fond de la pièce se trouve une salle de bain [bain]
+À gauche, il y a une fenêtre [fenêtre]
+En face de toi, il y a un lit. [lit]
+Au dessus se trouve une peinture [peinture]
 ";
 
         internal override void ReceiveChoice(string choice)
