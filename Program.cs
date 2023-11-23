@@ -1,9 +1,15 @@
-﻿using System;
+﻿using NAudio.SoundFont;
+using System;
+using System.Media;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using System.Timers;
+using System.IO;
+using ProjetNarratif;
+using System.Diagnostics;
 //nom: kim-pahud
 //date: 2023-11-05
 //description: mon premier jeu
@@ -14,51 +20,8 @@ namespace ProjetNarratif
     {
 
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-        //futur ajout de différents mode de difficultée pour les QTE
-        //idées options pour la forêt: corps, corde, pieux, clairière.
-        //idées de succès: - suicide réussi(se suicider, pas tué femme et enfant, dire aurevoir à la famille et laisser une note aux enfants ?? ne pas tué de collègues ou ne pas aller au travail??)
-        //                 - mort avec classe(se suicider, prendre un bain et se raser)
-        //                 - suicide raté(se suicider, ne pas dire aurevoir, ne pas laisser de note)
-        //                 - la survie à quel prix?(ne pas se suicider)
-        //                 - la fin?(se suicider)
-        //                 - famille(découvrez le nom de toute votre famille)
-        //                 - merci d'avoir joué(faire toutes les fins au moins une fois)
-        //                 - surhomme(avoir réussi le QTE final et sauver votre famille)
-        //fin rentrer maison manger femme et enfants
-        //fin forêt aller suicide
-        //fin forêt retour suicide ? + collègues tués?
-        //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
-        messdébut:;
-            string messdébut = " ";
-            Console.WriteLine("ATTENTION");
-            Console.ReadKey();
-            Console.WriteLine("ce jeu parle de sujets sensibles tel que la dépression et le suicide.");
-            Console.ReadKey();
-            Console.WriteLine("si vous n'etes pas à l'aise avec de tels sujets veuillez [quitter] l'application.");
-            Console.ReadKey();
-            Console.WriteLine("sinon vous êtes libre de [continuer].\n");
-            Console.ReadKey();
-            Console.Write("choix : ");
-            messdébut = Convert.ToString(Console.ReadLine());
-            if (messdébut == "continuer")
-            {
-                goto continuer;
-            }
-            if (messdébut == "quitter")
-            {
-                goto fin;
-            }
-            else
-            {
-                Console.WriteLine("\ndésoler ce n'est pas une option\n");
-                Console.ReadKey();
-                goto messdébut;
-            }
-
-
-        continuer:;
             // déclarer les bool des succès ici pour qu'ils soyent sauvegardés entre les parties
 
             //FINS
@@ -87,21 +50,66 @@ namespace ProjetNarratif
             bool la_prévention_avant_tout = false;
             bool brochette_de_folie = false;
             bool merci_gros_fou = false;
+        //futur ajout de différents mode de difficultée pour les QTE
+        //idées de succès: - suicide réussi(se suicider, pas tué femme et enfant, dire aurevoir à la famille et laisser une note aux enfants ?? ne pas tué de collègues ou ne pas aller au travail??)
+        //                 - suicide raté(se suicider, ne pas dire aurevoir, ne pas laisser de note)
+        //                 - la survie à quel prix?(ne pas se suicider)
+        //                 - famille(découvrez le nom de toute votre famille)
+        //                 - merci d'avoir joué(faire toutes les fins au moins une fois)
+        //                 - surhomme(avoir réussi le QTE final et sauver votre famille)
+        //fin rentrer maison manger femme et enfants
+        //si prendre repas midi dans la cuisine faim contenu à midi et collègue sauvé sinon assouvir faim avec collègue
 
+            string messdébut = " ";
+            SoundPlayer ostmenu = new SoundPlayer(Path.Combine(Environment.CurrentDirectory + @"\ostmenu.wav"));
+            bruit.Bruitostmenu();
+            ostmenu.PlayLooping();
+        messdébut:;
+            Console.WriteLine("ATTENTION");
+            Console.ReadKey();
+            bruit.clickmenu();
+            Console.WriteLine("ce jeu parle de sujets sensibles tel que la dépression et le suicide.");
+            Console.ReadKey();
+            bruit.clickmenu();
+            Console.WriteLine("si vous n'etes pas à l'aise avec de tels sujets veuillez [quitter] l'application.");
+            Console.ReadKey();
+            bruit.clickmenu();
+            Console.WriteLine("sinon vous êtes libre de [continuer].\n");
+            Console.Write("choix : ");
+            messdébut = Convert.ToString(Console.ReadLine());
+            bruit.clickmenu();
+            if (messdébut == "continuer")
+            {
+                goto messgore;
+            }
+            if (messdébut == "quitter")
+            {
+                goto fin;
+            }
+            else
+            {
+                Console.WriteLine("\ndésoler ce n'est pas une option\n");
+                Console.ReadKey();
+                bruit.clickmenu();
+                goto messdébut;
+            }
+
+
+        messgore:;
             //gore activé ou pas
             bool gore = true;
-        messgore:;
             string choixgore = " ";
             Console.WriteLine("ce jeu contient des descriptions gore qui peuvent s'avérer choquantes pour un certain public.");
             Console.ReadKey();
+            bruit.clickmenu();
             Console.WriteLine("si vous souhaitez désactiver le gore dans les descriptions entrez [non]");
             Console.WriteLine("si vous êtes à l'aise avec ce genre  de description entrez [oui]\n");
-            Console.Write("votre choix : ");
             choixgore = Convert.ToString(Console.ReadLine());
             if (choixgore == "oui")
             {
                 Console.WriteLine("scène gore activé\n\n");
                 Console.ReadKey();
+                bruit.clickmenu();
                 goto start;
             }
             if (choixgore == "non")
@@ -109,14 +117,17 @@ namespace ProjetNarratif
                 gore = false;
                 Console.WriteLine("scène gore désactivé\n\n");
                 Console.ReadKey();
-                goto fin;
+                bruit.clickmenu();
+                goto start;
             }
             else
             {
                 Console.WriteLine("\ndésoler ce n'est pas une option\n");
                 Console.ReadKey();
+                bruit.clickmenu();
                 goto messgore;
             }
+
         start:;
             //COMPTEUR AUTRES
             int contvoit = 1;
@@ -166,6 +177,10 @@ namespace ProjetNarratif
 
 
             string choixchamb = " ";
+            Console.Clear();
+            ostmenu.Stop();
+            Thread.Sleep(1500);
+            bruit.wake();
             Console.WriteLine("vous vous réveillez dans votre lit, votre femme est déja levée.");
             Console.ReadKey();
             Console.WriteLine("vous vous levez de votre lit et observez autour de vous.");
@@ -207,6 +222,7 @@ namespace ProjetNarratif
                 case "toilettes"://optionnel
                     {
                         string choixbain = " ";
+                        Console.Clear();
                         Console.WriteLine("\nvous entrez dans votre salle de bain et vous sentez un frisson vous parcourir le corps.");
                         Console.ReadKey();
                     salledebain:;
@@ -226,7 +242,7 @@ namespace ProjetNarratif
                                     Console.ReadKey();
                                     goto chambre;
                                 }
-                                break;
+                                
 
                             case "miroir":
                                 {
@@ -240,7 +256,7 @@ namespace ProjetNarratif
                                     Console.ReadKey();
                                     goto salledebain;
                                 }
-                                break;
+                                
 
                             case "rasoir":
                                 {
@@ -276,7 +292,7 @@ namespace ProjetNarratif
                                         goto salledebain;
                                     }
                                 }
-                                break;
+                               
 
                             case "toilettes":
                                 {
@@ -286,7 +302,7 @@ namespace ProjetNarratif
                                     Console.ReadKey();
                                     goto salledebain;
                                 }
-                                break;
+                                
 
                             case "bain":
                                 {
@@ -318,7 +334,7 @@ namespace ProjetNarratif
                                     Console.ReadKey();
                                     goto salledebain;
                                 }
-                                break;
+                               
                         }
                     }
                     break;
@@ -333,7 +349,7 @@ namespace ProjetNarratif
                         Console.ReadKey();
                         goto chambre;
                     }
-                    break;
+                   
 
                 case "couloir"://obligatoire
                     {
@@ -346,6 +362,7 @@ namespace ProjetNarratif
                         else
                         {
                             string choixcoul = " ";
+                            Console.Clear();
                             Console.WriteLine("\nvous ouvrez la porte de votre chambre et suivez la bonne odeur jusqu'au couloir.");
                             Console.ReadKey();
                         couloir:;
@@ -372,13 +389,15 @@ namespace ProjetNarratif
                                     {
                                         Console.WriteLine("\nvous faites demi-tour et vous retournez dans votre chambre.\n");
                                         Console.ReadKey();
+                                        Console.Clear();
                                         goto chambre;
                                     }
-                                    break;
+                                   
 
                                 case "enfants": //optionnel
                                     {
                                         string chambenf = " ";
+                                        Console.Clear();
                                         Console.WriteLine("\nvous entrez dans la chambre de vos enfants.");
                                         Console.ReadKey();
                                     chambre_enfants:;
@@ -403,7 +422,7 @@ namespace ProjetNarratif
                                                     Console.ReadKey();
                                                     goto couloir;
                                                 }
-                                                break;
+                                                
 
                                             case "photo":
                                                 {
@@ -420,7 +439,7 @@ namespace ProjetNarratif
                                                     votre_femme = "Béatrice";
                                                     goto chambre_enfants;
                                                 }
-                                                break;
+                                               
 
                                             case "papier":
                                                 {
@@ -442,8 +461,7 @@ namespace ProjetNarratif
                                                         goto chambre_enfants;
                                                     }
                                                 }
-                                                break;
-
+                                                
                                             case "travaux":
                                                 {
                                                     Console.WriteLine("\nvous vous approchez du mur.");
@@ -457,7 +475,7 @@ namespace ProjetNarratif
                                                     votre_fils = "Pierre";
                                                     goto chambre_enfants;
                                                 }
-                                                break;
+                                               
 
                                             default:
                                                 {
@@ -465,17 +483,18 @@ namespace ProjetNarratif
                                                     Console.ReadKey();
                                                     goto chambre_enfants;
                                                 }
-                                                break;
+                                               
                                         }
 
                                     }
-                                    break;
+                                   
 
                                 case "cuisine": //optionnel
                                     {
                                         if (QTEfamd == true)
                                         {
                                             string choixcui = " ";
+                                            Console.Clear();
                                             Console.WriteLine("\nvous vous dirigez vers la cuisine où l'odeur agréable s'intensifie");
                                             Console.ReadKey();
                                         cuisine:;
@@ -500,7 +519,7 @@ namespace ProjetNarratif
                                                         Console.ReadKey();
                                                         goto couloir;
                                                     }
-                                                    break;
+                                                  
 
                                                 case "table":
                                                     {
@@ -701,7 +720,7 @@ namespace ProjetNarratif
                                                         Console.ReadKey();
                                                         goto cuisine;
                                                     }
-                                                    break;
+                                                   
                                             }
 
                                         }
@@ -718,6 +737,7 @@ namespace ProjetNarratif
                                 case "porte": //obligatoire
                                     {
                                         string choixalltrav;
+                                        Console.Clear();
                                         Console.WriteLine("\nvous enfilez vos mocassins.");
                                         Console.ReadKey();
                                         Console.WriteLine("vous mettez votre veste grise.");
@@ -795,6 +815,7 @@ namespace ProjetNarratif
                                                     Console.ReadKey();
                                                     Console.WriteLine("vous : une nouvelle journée de travail commence.\n");
                                                     Console.ReadKey();
+                                                    Console.Clear();
                                                     //********************** FIN DÉMO DÉBUT JEU COMPLET retirez le goto confin; pour tester contenu *************************************
                                                     Console.WriteLine("vous commencez à rouler vers la ville.");
                                                     Console.ReadKey();
@@ -831,6 +852,7 @@ namespace ProjetNarratif
                                                     Console.ReadKey();
                                                     Console.WriteLine("une fois arrivé vous allez garer votre voiture dans le parking.\n");
                                                     Console.ReadKey();
+                                                    Console.Clear();
                                                 forêt:;//************************************************************************************************************************************************
                                                     if (branche_parking == true)
                                                     {
@@ -883,7 +905,7 @@ namespace ProjetNarratif
                                                                             Console.ReadKey();
                                                                             goto forêtstart;
                                                                         }
-                                                                        break;
+                                                                       
 
                                                                     case "sentier":
                                                                         {
@@ -922,7 +944,7 @@ namespace ProjetNarratif
                                                                                         mangerlapin = true;
                                                                                         goto sentier1;
                                                                                     }
-                                                                                    break;
+                                                                                    
 
                                                                                 case "sentier":
                                                                                     {
@@ -978,7 +1000,7 @@ namespace ProjetNarratif
                                                                                                                 Console.ReadKey();
                                                                                                                 goto sentier2;
                                                                                                             }
-                                                                                                            break;
+                                                                                                      
 
                                                                                                         case "rocher": //**************************************************************** fin clairière ****************************************************************************************
                                                                                                             {
@@ -1169,7 +1191,7 @@ namespace ProjetNarratif
                                                                                                                 Console.ReadKey();
                                                                                                                 goto confin;
                                                                                                             }
-                                                                                                            break;//**************************************************************** fin clairière ****************************************************************************************
+                                                                                                            //**************************************************************** fin clairière ****************************************************************************************
 
                                                                                                         case "baton":
                                                                                                             {
@@ -1204,7 +1226,7 @@ namespace ProjetNarratif
                                                                                                                     goto clairière;
                                                                                                                 }
                                                                                                             }
-                                                                                                            break;
+                                                                                                           
 
                                                                                                         default:
                                                                                                             {
@@ -1212,10 +1234,10 @@ namespace ProjetNarratif
                                                                                                                 Console.ReadKey();
                                                                                                                 goto clairière;
                                                                                                             }
-                                                                                                            break;
+                                                                                                           
                                                                                                     }
                                                                                                 }
-                                                                                                break;
+                                                                                            
 
                                                                                             case "dévier":
                                                                                                 {
@@ -1266,7 +1288,7 @@ namespace ProjetNarratif
 
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+                                                                                                          
 
                                                                                                             case "corps":
                                                                                                                 {
@@ -1336,7 +1358,7 @@ namespace ProjetNarratif
                                                                                                                         goto véritée;
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+                                                                                                              
 
                                                                                                             case "monticules":
                                                                                                                 {
@@ -1435,7 +1457,7 @@ namespace ProjetNarratif
                                                                                                                         goto sentier2;
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+                                                                                                             
 
                                                                                                             default:
                                                                                                                 {
@@ -1443,7 +1465,7 @@ namespace ProjetNarratif
                                                                                                                     Console.ReadKey();
                                                                                                                     goto véritée;
                                                                                                                 }
-                                                                                                                break;
+                                                                                                               
                                                                                                         }
 
                                                                                                     }
@@ -1491,7 +1513,7 @@ namespace ProjetNarratif
                                                                                                                         goto sentier2;
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+                                                                                                               
 
                                                                                                             case "corps":
                                                                                                                 {
@@ -1515,7 +1537,7 @@ namespace ProjetNarratif
                                                                                                                         goto véritée;
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+
 
                                                                                                             case "monticules":
                                                                                                                 {
@@ -1548,7 +1570,7 @@ namespace ProjetNarratif
                                                                                                                     }
 
                                                                                                                 }
-                                                                                                                break;
+                                                                                                             
 
                                                                                                             default:
                                                                                                                 {
@@ -1556,7 +1578,7 @@ namespace ProjetNarratif
                                                                                                                     Console.ReadKey();
                                                                                                                     goto véritée;
                                                                                                                 }
-                                                                                                                break;
+                                                                                                              
                                                                                                         }
                                                                                                     }
                                                                                                     if (QTEascen == true)
@@ -1591,7 +1613,7 @@ namespace ProjetNarratif
                                                                                                                         goto sentier2;
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+                                                                                                               
 
                                                                                                             case "monticules":
                                                                                                                 {
@@ -1623,7 +1645,7 @@ namespace ProjetNarratif
                                                                                                                         goto sentier2;
                                                                                                                     }
                                                                                                                 }
-                                                                                                                break;
+                                                                                                             
 
                                                                                                             default:
                                                                                                                 {
@@ -1631,7 +1653,7 @@ namespace ProjetNarratif
                                                                                                                     Console.ReadKey();
                                                                                                                     goto véritée;
                                                                                                                 }
-                                                                                                                break;
+                                                                                                              
                                                                                                         }
                                                                                                     }
                                                                                                 }
@@ -1643,7 +1665,7 @@ namespace ProjetNarratif
                                                                                                     Console.ReadKey();
                                                                                                     goto sentier2;
                                                                                                 }
-                                                                                                break;
+                                                                                              
                                                                                         }
                                                                                     }
                                                                                     break;
@@ -1654,7 +1676,7 @@ namespace ProjetNarratif
                                                                                         Console.ReadKey();
                                                                                         goto sentier1;
                                                                                     }
-                                                                                    break;
+                                                                                    
                                                                             }
                                                                         }
                                                                         break;
@@ -1665,7 +1687,7 @@ namespace ProjetNarratif
                                                                             Console.ReadKey();
                                                                             goto forêtstart;
                                                                         }
-                                                                        break;
+                                                                        
                                                                 }
                                                             }
                                                             if (QTEfamd == false)
@@ -1885,7 +1907,7 @@ namespace ProjetNarratif
                                                                         Console.ReadKey();
                                                                         goto lunch;
                                                                     }
-                                                                    break;
+                                                                
                                                             }
                                                         }
                                                         string parking = " ";
@@ -1975,7 +1997,7 @@ namespace ProjetNarratif
                                                                                     étageacctu = "RC";
                                                                                     goto parking;
                                                                                 }
-                                                                                break;
+                                                                              
 
                                                                             case "1":
                                                                                 {
@@ -1994,7 +2016,7 @@ namespace ProjetNarratif
                                                                                     étageacctu = "RC";
                                                                                     goto ascenseurRC;
                                                                                 }
-                                                                                break;
+                                                                               
 
                                                                             case "2":
                                                                                 {
@@ -2013,7 +2035,7 @@ namespace ProjetNarratif
                                                                                     étageacctu = "RC";
                                                                                     goto ascenseurRC;
                                                                                 }
-                                                                                break;
+                                                                                
 
                                                                             case "3":
                                                                                 {
@@ -2033,7 +2055,7 @@ namespace ProjetNarratif
                                                                                     goto ascenseurRC;
 
                                                                                 }
-                                                                                break;
+                                                                               
 
                                                                             case "4":
                                                                                 {
@@ -2053,7 +2075,7 @@ namespace ProjetNarratif
                                                                                     goto ascenseurRC;
 
                                                                                 }
-                                                                                break;
+                                                                            
 
                                                                             case "5":
                                                                                 {
@@ -2079,7 +2101,7 @@ namespace ProjetNarratif
                                                                                     branche_parking = true;
                                                                                     goto pbureau;
                                                                                 }
-                                                                                break;
+                                                                             
 
                                                                             default:
                                                                                 {
@@ -2087,7 +2109,7 @@ namespace ProjetNarratif
                                                                                     Console.ReadKey();
                                                                                     goto ascenceurfail;
                                                                                 }
-                                                                                break;
+                                                                              
 
                                                                         }
 
@@ -2218,7 +2240,7 @@ namespace ProjetNarratif
                                                                                             étageacctu = "RC";
                                                                                             goto parking;
                                                                                         }
-                                                                                        break;
+                                                                                   
 
                                                                                     case "1":
                                                                                         {
@@ -2267,7 +2289,7 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto ascenseur;
                                                                                                     }
-                                                                                                    break;
+                                                                                                
 
                                                                                                 case "portes":
                                                                                                     {
@@ -2284,7 +2306,7 @@ namespace ProjetNarratif
                                                                                                         visiterét1 = true;
                                                                                                         goto resto;
                                                                                                     }
-                                                                                                    break;
+                                                                                                
 
                                                                                                 case "écriteau":
                                                                                                     {
@@ -2301,7 +2323,7 @@ namespace ProjetNarratif
                                                                                                         visiterét1 = true;
                                                                                                         goto resto;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 default:
                                                                                                     {
@@ -2309,11 +2331,10 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto resto;
                                                                                                     }
-                                                                                                    break;
-
+                                                                                                   
                                                                                             }
                                                                                         }
-                                                                                        break;
+                                                                                        
 
                                                                                     case "2":
                                                                                         {
@@ -2357,7 +2378,7 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto ascenseur;
                                                                                                     }
-                                                                                                    break;
+                                                                                                   
 
                                                                                                 case "salle":
                                                                                                     {
@@ -2375,7 +2396,7 @@ namespace ProjetNarratif
                                                                                                         visiterét2 = true;
                                                                                                         goto salledereception;
                                                                                                     }
-                                                                                                    break;
+                                                                                                    
 
                                                                                                 default:
                                                                                                     {
@@ -2383,10 +2404,10 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto salledereception;
                                                                                                     }
-                                                                                                    break;
+                                                                                                    
                                                                                             }
                                                                                         }
-                                                                                        break;
+                                                                                      
 
                                                                                     case "3":
                                                                                         {
@@ -2438,7 +2459,7 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto ascenseur;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 case "salles":
                                                                                                     {
@@ -2455,7 +2476,7 @@ namespace ProjetNarratif
                                                                                                         visiterét3 = true;
                                                                                                         goto clinique;
                                                                                                     }
-                                                                                                    break;
+                                                                                                   
 
                                                                                                 case "vitre":
                                                                                                     {
@@ -2470,8 +2491,8 @@ namespace ProjetNarratif
                                                                                                         visiterét3 = true;
                                                                                                         goto clinique;
                                                                                                     }
-                                                                                                    break;
-
+                                                                                                
+    
                                                                                                 case "portes":
                                                                                                     {
                                                                                                         if (porte == false)
@@ -2500,19 +2521,18 @@ namespace ProjetNarratif
                                                                                                             goto clinique;
                                                                                                         }
                                                                                                     }
-                                                                                                    break;
-
+                                                                                                    
                                                                                                 default:
                                                                                                     {
                                                                                                         Console.WriteLine("\nvous soupirez en étant confus, car vous ne comprenez pas ce que votre cerveau essaye de vous faire faire.\n");
                                                                                                         Console.ReadKey();
                                                                                                         goto clinique;
                                                                                                     }
-                                                                                                    break;
+                                                                                                 
                                                                                             }
 
                                                                                         }
-                                                                                        break;
+                                                                                   
 
                                                                                     case "4":
                                                                                         {
@@ -2561,7 +2581,7 @@ namespace ProjetNarratif
                                                                                                         goto ascenseur;
 
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 case "secrétaire":
                                                                                                     {
@@ -2588,7 +2608,7 @@ namespace ProjetNarratif
                                                                                                             goto retraite;
                                                                                                         }
                                                                                                     }
-                                                                                                    break;
+                                                                                                 
 
                                                                                                 default:
                                                                                                     {
@@ -2596,10 +2616,10 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto retraite;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
                                                                                             }
                                                                                         }
-                                                                                        break;
+                                                                                    
 
                                                                                     case "5":
                                                                                         {
@@ -2627,7 +2647,7 @@ namespace ProjetNarratif
                                                                                             branche_parking = true;
                                                                                             goto pbureau;
                                                                                         }
-                                                                                        break;
+                                                                                      
 
                                                                                     default:
                                                                                         {
@@ -2635,8 +2655,7 @@ namespace ProjetNarratif
                                                                                             Console.ReadKey();
                                                                                             goto ascenseur;
                                                                                         }
-                                                                                        break;
-
+                                                                                    
                                                                                 }
                                                                             }
 
@@ -2722,7 +2741,7 @@ namespace ProjetNarratif
                                                                                             étageacctu = "RC";
                                                                                             goto parking;
                                                                                         }
-                                                                                        break;
+                                                                                       
 
                                                                                     case "1":
                                                                                         {
@@ -2771,7 +2790,7 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto ascenseur;
                                                                                                     }
-                                                                                                    break;
+
 
                                                                                                 case "portes":
                                                                                                     {
@@ -2788,7 +2807,7 @@ namespace ProjetNarratif
                                                                                                         visiterét1 = true;
                                                                                                         goto resto;
                                                                                                     }
-                                                                                                    break;
+                                                                                                 
 
                                                                                                 case "écriteau":
                                                                                                     {
@@ -2805,7 +2824,7 @@ namespace ProjetNarratif
                                                                                                         visiterét1 = true;
                                                                                                         goto resto;
                                                                                                     }
-                                                                                                    break;
+                                                                                                 
 
                                                                                                 default:
                                                                                                     {
@@ -2813,11 +2832,11 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto resto;
                                                                                                     }
-                                                                                                    break;
+                                                                                                   
 
                                                                                             }
                                                                                         }
-                                                                                        break;
+                                                                                     
 
                                                                                     case "2":
                                                                                         {
@@ -2861,7 +2880,7 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto ascenseur;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 case "salle":
                                                                                                     {
@@ -2879,7 +2898,7 @@ namespace ProjetNarratif
                                                                                                         visiterét2 = true;
                                                                                                         goto salledereception;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 default:
                                                                                                     {
@@ -2887,10 +2906,10 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto salledereception;
                                                                                                     }
-                                                                                                    break;
+                                                                                                   
                                                                                             }
                                                                                         }
-                                                                                        break;
+                                                                                       
 
                                                                                     case "3":
                                                                                         {
@@ -2942,7 +2961,7 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto ascenseur;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 case "salles":
                                                                                                     {
@@ -2959,7 +2978,7 @@ namespace ProjetNarratif
                                                                                                         visiterét3 = true;
                                                                                                         goto clinique;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 case "vitre":
                                                                                                     {
@@ -2974,7 +2993,7 @@ namespace ProjetNarratif
                                                                                                         visiterét3 = true;
                                                                                                         goto clinique;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 case "portes":
                                                                                                     {
@@ -3004,7 +3023,7 @@ namespace ProjetNarratif
                                                                                                             goto clinique;
                                                                                                         }
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 default:
                                                                                                     {
@@ -3012,11 +3031,11 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto clinique;
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
                                                                                             }
 
                                                                                         }
-                                                                                        break;
+                                                                                       
 
                                                                                     case "4":
                                                                                         {
@@ -3065,7 +3084,7 @@ namespace ProjetNarratif
                                                                                                         goto ascenseur;
 
                                                                                                     }
-                                                                                                    break;
+                                                                                                   
 
                                                                                                 case "secrétaire":
                                                                                                     {
@@ -3092,7 +3111,7 @@ namespace ProjetNarratif
                                                                                                             goto retraite;
                                                                                                         }
                                                                                                     }
-                                                                                                    break;
+                                                                                                  
 
                                                                                                 default:
                                                                                                     {
@@ -3100,10 +3119,10 @@ namespace ProjetNarratif
                                                                                                         Console.ReadKey();
                                                                                                         goto retraite;
                                                                                                     }
-                                                                                                    break;
+                                                                                                   
                                                                                             }
                                                                                         }
-                                                                                        break;
+                                                                                      
 
                                                                                     case "5":
                                                                                         {
@@ -3131,7 +3150,7 @@ namespace ProjetNarratif
                                                                                             branche_parking = true;
                                                                                             goto pbureau;
                                                                                         }
-                                                                                        break;
+                                                                                       
 
                                                                                     default:
                                                                                         {
@@ -3139,7 +3158,7 @@ namespace ProjetNarratif
                                                                                             Console.ReadKey();
                                                                                             goto ascenseur;
                                                                                         }
-                                                                                        break;
+                                                                                      
 
                                                                                 }
                                                                             }
@@ -3175,7 +3194,7 @@ namespace ProjetNarratif
                                                                     branche_parking = true;
                                                                     goto pbureau;
                                                                 }
-                                                                break;
+                                                              
 
                                                             case "voiture":
                                                                 {
@@ -3356,7 +3375,7 @@ namespace ProjetNarratif
                                                                     Console.ReadKey();
                                                                     goto parking;
                                                                 }
-                                                                break;
+                                                               
                                                         }
                                                     }
 
@@ -3369,7 +3388,7 @@ namespace ProjetNarratif
                                                     Console.ReadKey();
                                                     goto allerautaf;
                                                 }
-                                                break;
+                                               
                                         }
 
                                     }
@@ -3381,7 +3400,7 @@ namespace ProjetNarratif
                                         Console.ReadKey();
                                         goto couloir;
                                     }
-                                    break;
+                                  
                             }
 
                         }
@@ -3394,7 +3413,7 @@ namespace ProjetNarratif
                         Console.ReadKey();
                         goto chambre;
                     }
-                    break;
+                   
             }
 
         confin:;
