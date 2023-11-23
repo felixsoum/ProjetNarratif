@@ -8,6 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class OutsideRoom : Room
     {
+        internal static bool backdoorkey = false;
         internal override string CreateDescription() =>
 @"Tu es sur le patio de ta maison.
 Lorsque tu regardes vers l'horizon, tu ne vois presque rien.
@@ -17,7 +18,7 @@ Un épais brouillard bloque ton champs de vision
 Malgré le brouillard, tu arrives à percevoir un arbre au loin. [arbre]
 Tu décides de rentrer à l'intérieur [rentre] 
 ";
-        static bool backdoorkey = false;
+       
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
@@ -73,7 +74,7 @@ Tu décides de rentrer à l'intérieur [rentre]
                             Bedroom.fourthdeath = true;
                             Game.Transition<Bedroom>();
                             //Bruit de camion
-                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
+                           // System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
                         }
 
                     }
@@ -91,14 +92,14 @@ Tu décides de rentrer à l'intérieur [rentre]
                         Bedroom.fourthdeath = true;
                         Game.Transition<Bedroom>();
                         //Bruit de camion
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
+                        //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
                     }
                     break;
                 case "rentre":
                     Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
 
                     break;
-                case "clef":
+                case "lettre":
                     Console.WriteLine("Tu plonge ta mains dans la boite au lettre et tâtes les rebords du bout des doigts." +
                         "\nTu trouves la clef que ton père avait caché");
                              backdoorkey = true;

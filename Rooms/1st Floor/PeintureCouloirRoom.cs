@@ -8,6 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class PeintureCouloirRoom : Room
     {
+        
         internal override string CreateDescription() =>
 @"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
 Une télévision grésille [television].

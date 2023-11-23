@@ -9,18 +9,34 @@ namespace ProjetNarratif.Rooms
     internal class KitchenRoom : Room
     {
         internal override string CreateDescription() =>
-@"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
-Une télévision grésille [television].
-S'assoir sur le sofa [sofa].
+@"Tu es dans la cuisine.
+Un faible lumière éclaire la pièce.
+la cuisine semble si vide lorsque personne n'y est...
+Au fond de la cuisine se trouve un porte qui mène à la cour [cour]
+Le frigo, il y a quelque chose dessus [frigo]
+Près du garde-manger, il y a un espace de rangement [espace]
+Tu vas dans le salon [salon]
+Tu vas vers le couloir [salon]
 ";
-
+        static bool SpaceKey = false;
+        
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "television":
-                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
-                    Game.Finish();
+                case "cour":
+
+                    if (!OutsideRoom.backdoorkey)
+                    {
+                        Console.WriteLine("Tu tires sur la porte arrière, mais elle est barrée");
+                    } else
+                    {
+                        Console.WriteLine("Tu ouvres la porte arrière et sors dans ta cour");
+                        Game.Transition<BackyardRoom>();
+                    }
+
+                    
+                    
                     break;
                 case "sofa":
                     Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
