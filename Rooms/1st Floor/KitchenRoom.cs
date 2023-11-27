@@ -38,7 +38,7 @@ Tu vas vers le couloir [salon]
                     
                     
                     break;
-                case "sofa":
+                case "salon":
                     Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
 
                     break;
