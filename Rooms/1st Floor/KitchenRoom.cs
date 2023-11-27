@@ -16,7 +16,7 @@ Au fond de la cuisine se trouve un porte qui mène à la cour [cour]
 Le frigo, il y a quelque chose dessus [frigo]
 Près du garde-manger, il y a un espace de rangement [espace]
 Tu vas dans le salon [salon]
-Tu vas vers le couloir [salon]
+Tu vas vers le couloir [couloir]
 ";
         static bool SpaceKey = false;
         
@@ -39,7 +39,22 @@ Tu vas vers le couloir [salon]
                     
                     break;
                 case "salon":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+                    Console.WriteLine("Tu vas dans le salon.");
+                    Game.Transition<FfLivingRoom>();
+
+                    break;
+                case "couloir":
+                    Console.WriteLine("Tu vas dans le couloir.");
+
+                    Game.Transition<FfHallwayRoom>();
+
+                    break;
+
+                case "espace":
+
+                    Console.WriteLine("Tu ouvres la porte. Il fait noir." +
+                        "\ntu essais d'ouvrir la lumière, mais l'ampoule reste éteinte.");
+                    
 
                     break;
                 default:

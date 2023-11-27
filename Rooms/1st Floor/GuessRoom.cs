@@ -73,12 +73,12 @@ Au dessus se trouve une peinture [peinture]
                             catch { Console.WriteLine("Option non valide"); goto qst; }
                             if (ch == 1)
                             {
-                                Console.WriteLine("Tu te sens transporté, tu entres dans la peinture...");
+                                Console.WriteLine("");
                                 
                             }
                             if (ch == 2)
                             {
-                                Console.WriteLine("Tu décides de ne pas investiguer...");
+                                Console.WriteLine("Tu t'éloignes de la fenêtre");
                             }
                         }
                        

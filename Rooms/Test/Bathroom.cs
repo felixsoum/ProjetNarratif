@@ -32,7 +32,7 @@ Jette ta piece de monnaie dans les air [monnaie]
             {
                 case "bain":
                     Console.WriteLine("Tu te laisses relaxer dans le bain bain chaud, tu regardes la brume se répendre dans la pièce.");
-                    bathtaken = true;
+                    
 
                     
                     break;

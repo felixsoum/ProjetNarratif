@@ -39,7 +39,7 @@ Tu te diriges vers la cuisine [cuisine]
 
 
         }
-        static bool paintkit = false;
+       internal static bool artkit = false;
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
@@ -58,7 +58,7 @@ Tu te diriges vers la cuisine [cuisine]
 
                     int ch = 0;
 
-                    if (!paintkit)
+                    if (!artkit)
                     {
                         Console.WriteLine("\n\tPaysage de printemps");
                         Console.WriteLine("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
@@ -69,7 +69,7 @@ Tu te diriges vers la cuisine [cuisine]
                         Console.Write("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
                             "\nTu as toujours trouvé qu'il y avait quelque chose de malsaint dans cette toile,\nmais tu ne sais pas quoi...");
 
-                       qst: Console.WriteLine("\nAvec le kit de peinture, tu peux investiguer d'avantage cette toile :\n(1) oui\n(2) non\nTon choix : ");
+                       qst: Console.Write("\nAvec le kit de peinture, tu peux investiguer d'avantage cette toile :\n(1) oui\n(2) non\nTon choix : ");
                         try
                         {
                             ch = Convert.ToInt32(Console.ReadLine());

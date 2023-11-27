@@ -56,7 +56,7 @@ namespace ProjetNarratif
         {
             isFinished = true;
         }
-
+        
         internal void CheckTransition()
         {
             foreach (var room in rooms)

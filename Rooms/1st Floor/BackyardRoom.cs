@@ -20,18 +20,33 @@ que ton père avait construit pour toi [cabane]
 Directement à droite de la porte, il y a une grosse boite en bois [boite]
 Tu rentres à l'intérieur [rentre]
 ";
-
+        static bool ladder = false;
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
-                case "television":
-                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
+                case "boite":
+                    Console.WriteLine("Il y a un cadena sur la boite qui t'empêche de l'ouvrir");
                     
                     break;
-                case "sofa":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+                case "cabane":
+                    if (!ladder)
+                    {
+                        Console.WriteLine("Tu t'avances dans la cour. Au pied de la cabane," +
+                            "\ntu réalises que l'échelle pour y monter est brisée.");
+                    } else
+                    {
+                        Console.WriteLine("Tu utilises les planches de bois que tu as trouvé, et grimpe dans la cabane.");
+                        //Game.Transition<CabinRoom>();
+                    }
 
+                   
+
+                    break;
+
+                case "rentre":
+                    Console.WriteLine("Tu retournes à l'intérieur.");
+                    Game.Transition<KitchenRoom>();
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");
