@@ -28,11 +28,22 @@ Tu retournes dans le couloir [couloir]
                     break;
 
                 case "3735":
-                    Console.WriteLine("Ton tiroir s'ouvre et tu y trouves une note : ");
-                    Console.WriteLine("\tMa cachette préféré :");
-                    Console.WriteLine("\nIgnoré, c'est comme ça que je me sens quand tocson ne me répond plus. Ne t'en fais pas,\nje suis toujours ton ami malgré tout." +
-                        "Veux-tu que je te chante une berçeuse pour que \ntu t'endorme? Imagine que nous somme tous les deux superman!Superman!Imagine!\nBattre les villains et sauver" +
-                        " les innocents!\nLe rêve c'est clair! En me réveillant je serais superman, cette fois-ci, c'est sûr...");
+                    int ch = 0;
+                    if(!FfHallwayRoom.artkit)
+                    {
+                        Console.WriteLine("Ton tiroir s'ouvre et tu y trouves un dessin : ");
+                        Console.WriteLine("Tu reconnais ta chambre. " +
+                            "\nSur ton lit, il y a un garçon et une fille." +
+                            "\nIls ont l'air heureux. ");
+                    } else
+                    {
+                        
+                        Console.WriteLine("Ton tiroir s'ouvre et tu y trouves un dessin : ");
+                        Console.WriteLine("Tu reconnais ta chambre. " +
+                            "\nSur ton lit, il y a un garçon et une fille." +
+                            "\nIls ont l'air heureux. ");
+                    }
+                   
                    
                     break;
 
