@@ -88,6 +88,7 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     break;
 
                 case "current":
+                    Game.Peur();
                     Game.Transition<FfLivingRoom>();
                     break;
                   

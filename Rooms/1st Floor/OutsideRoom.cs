@@ -63,16 +63,27 @@ Tu décides de rentrer à l'intérieur [rentre]
                         }
                         if (ch == "Non" || ch == "non")
                         {
-                            Console.WriteLine("Tu fais de ton mieu pour ignorer les cris, mais tu en ai incapable...");
-                            Console.WriteLine("Tu te retournes et cours vers les cris");
-                            Console.WriteLine("Tu t'enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
-                           "\nPersonne n'est là?" +
-                           "\nTu es seul..." +
-                           "\nUne lumière t'aveugle" +
-                           "\nTu cris");
-                            Console.WriteLine("Fin 4 : Mort sur la route");
-                            Bedroom.fourthdeath = true;
-                            Game.Transition<Bedroom>();
+                            if (Game.peur >= 1)
+                            {
+                                Console.WriteLine("Tu fais de ton mieu pour ignorer les cris, mais tu en ai incapable...");
+                                Console.WriteLine("Tu te retournes et cours vers les cris");
+                                Console.WriteLine("Tu t'enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
+                               "\nPersonne n'est là?" +
+                               "\nTu es seul..." +
+                               "\nUne lumière t'aveugle" +
+                               "\nTu cris");
+                                Console.WriteLine("Fin 4 : Mort sur la route");
+                                Bedroom.fourthdeath = true;
+                                Game.Transition<Bedroom>();
+                            } else
+                            {
+                                Console.WriteLine("Les cris te perturbent énormément." +
+                                    "\nTu luttes pour les ignorés, tu les reconnais" +
+                                    "\nTu réussis à retourner vers l'entrée de ta maison." +
+                                    "\nTon niveau de peur augmente... ");
+                                Game.Peur();
+                            }
+                           
                             //Bruit de camion
                            // System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
                         }
