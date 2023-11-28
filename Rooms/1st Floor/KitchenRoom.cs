@@ -57,6 +57,15 @@ Tu vas vers le couloir [couloir]
                     
 
                     break;
+
+                case "frigo":
+
+                    Console.WriteLine("Tu vois une note de ton père sur le frigo : " +
+                        "\nJ'ai changé la cachette de la clef!" +
+                        "\nElle est dans la boite aux [lettres]!");
+
+
+                    break;
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;
