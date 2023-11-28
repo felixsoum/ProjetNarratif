@@ -13,6 +13,8 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription() =>
 @"Sur le toit du porche, l'air et fraîche et l'atmosphère est menacante.
 Tu entends du bruit dans les escaliers, il les monte...
+Au loin, tu entends quelqu'un pleurer.
+Les pleurs te semblent familiers.
 Dépêches-toi à rejoindre la fenêtre qui mène à la salle de jeu. [cours]
 Prends le risque d'être vu en te déplaçant plus lentement. [lent]
 ";
