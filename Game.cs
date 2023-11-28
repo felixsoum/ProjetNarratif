@@ -38,6 +38,22 @@ namespace ProjetNarratif
         internal static int vie = 3;
 
         internal static int peur = 0;
+
+        internal static void Peur()
+        {
+            //vie
+            peur++;
+            if (peur <= 2)
+            {
+                Console.WriteLine($"Niveau de peur : {peur}");
+            }
+            if (peur == 3)
+            {
+                Console.WriteLine($"Tu te perds dans la peur, niveau de peur : {peur}");
+                Console.WriteLine("Fin du jeu");
+                Game.Finish();
+            }
+        }
         internal static void Vie()
         {
             //vie

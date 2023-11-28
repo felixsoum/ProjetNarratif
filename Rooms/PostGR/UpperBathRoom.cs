@@ -34,9 +34,10 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                     Console.WriteLine("Ton souffle accélère...");
                     if (!GameRoom.Tocson)
                     {
-                        Game.peur++;
+                       
                         Console.WriteLine("Ton niveau de peur augmente...");
-                        Console.WriteLine($"Niveau de peur : {Game.peur} ");
+                        Game.Peur();
+                            
                         //if (Bedroom.Scared1)
                         //{
                         //    Console.WriteLine("Ton niveau de peur augmente...");
@@ -68,9 +69,9 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                              }
                             if (ch == "non" || ch == "Non")
                             {
-                                Game.peur++;
+                                
                                 Console.WriteLine("Ton niveau de peur augmente...");
-                                Console.WriteLine($"Niveau de peur : {Game.peur} ");
+                                Game.Peur();
                                 Game.Transition<PostBathHall>();
                                 //if (Bedroom.Scared1)
                                 //{

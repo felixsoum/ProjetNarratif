@@ -71,10 +71,10 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                     Console.WriteLine("Il l'ouvre et la ferme derrière lui.");
                     Console.WriteLine("Tu cherches autour de toi pour le regard réconfortant de ton ami tocson,\nmais tu l'as égaré...");
                     Console.WriteLine("Ton niveau de peur augmente...");
+                    Game.Peur();
+                    
 
-                    Game.peur++; 
-
-                    Console.WriteLine($"Nveau de peur : {Game.peur}");
+                    
                     //Scared1 = true;
                     //if (Scared1 == true)
                     //{
