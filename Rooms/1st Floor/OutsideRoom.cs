@@ -14,7 +14,7 @@ namespace ProjetNarratif.Rooms
 Lorsque tu regardes vers l'horizon, tu ne vois presque rien.
 Un épais brouillard bloque ton champs de vision
 À tes pieds tu trouves un tapis de bienvenu [tapis]
-À ta gauche se trouve une boite au lettre [boite]
+À ta gauche se trouve une boite aux lettres [boite]
 Malgré le brouillard, tu arrives à percevoir un arbre au loin. [arbre]
 Tu décides de rentrer à l'intérieur [rentre] 
 ";
@@ -99,8 +99,8 @@ Tu décides de rentrer à l'intérieur [rentre]
                     Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
 
                     break;
-                case "lettre":
-                    Console.WriteLine("Tu plonge ta mains dans la boite au lettre et tâtes les rebords du bout des doigts." +
+                case "lettres":
+                    Console.WriteLine("Tu plonge ta mains dans la boite aux lettres et tâtes les rebords du bout des doigts." +
                         "\nTu trouves la clef que ton père avait caché");
                              backdoorkey = true;
                     break;
