@@ -94,7 +94,7 @@ Tu retournes dans le couloir [couloir]
                         "Elle est barrée de l'autre côté");
 
                     break;
-                case "armoir":
+                case "armoire":
                     int code;
                     Console.WriteLine("Tu es en face de l'armoire." +
                         "\nIl y a un cadenas dessus : ");
@@ -110,15 +110,16 @@ Tu retournes dans le couloir [couloir]
                             "\nIl y a un compteur électrique derrière");
                         int cui = 0, sal = 1, cou = 1, cha = 1, rslt = 0;
                         char choix = ' ';
+                        Console.WriteLine("Il y a 4 interrupteur devant toi (1 - 4) " +
+                               "\nou appuis sur 0 pour quitter : ");
+                        Console.WriteLine($"\n\tCuisine : {cui}" +
+                            $"\n\tSalon   : {sal}" +
+                            $"\n\tCouloir : {cou}" +
+                            $"\n\tChambre : {cha}\n");
                         do
                         {
-
-                            Console.WriteLine("Il y a 4 interrupteur devant toi (1 - 4) " +
-                                "\nou appuis sur 0 pour quitter : ");
-                            Console.WriteLine($"\t\nCuisine : {cui}" +
-                                $"\n\tSalon : {sal}" +
-                                $"\n\tCouloir : {cou}" +
-                                $"\n\tChambre : {cha}");
+                            
+                           
                                 qst2: Console.Write("Interrupteur choisi : ");
                                 try
                             {
@@ -145,16 +146,16 @@ Tu retournes dans le couloir [couloir]
                                     {
                                         cou = 0;
                                     }
-                                    cha = cha + 1;
+                                    cha = cha + 0;
                                     if (cha == 2)
                                     {
                                         cha = 0;
                                     }
 
-                               Console.WriteLine($"\t\nCuisine : {cui}" +
-                               $"\n\tSalon : {sal}" +
+                               Console.WriteLine($"\n\tCuisine : {cui}" +
+                               $"\n\tSalon   : {sal}" +
                                $"\n\tCouloir : {cou}" +
-                               $"\n\tChambre : {cha}");
+                               $"\n\tChambre : {cha}\n");
 
                                     rslt = cui + sal + cou + cha;
                                     if (rslt == 4)
@@ -167,9 +168,129 @@ Tu retournes dans le couloir [couloir]
                                         Console.WriteLine("Rien ne se passe...");
                                     }
                                     break;
-                                case '2': break;
-                                case '3': break;
-                                case '4': break;
+
+                                case '2':
+                                    cui = cui + 1;
+                                    if (cui == 2)
+                                    {
+                                        cui = 0;
+                                    }
+                                    sal = sal + 1;
+                                    if (sal == 2)
+                                    {
+                                        sal = 0;
+                                    }
+                                    cou = cou + 1;
+                                    if (cou == 2)
+                                    {
+                                        cou = 0;
+                                    }
+                                    cha = cha + 1;
+                                    if (cha == 2)
+                                    {
+                                        cha = 0;
+                                    }
+
+                                    Console.WriteLine($"\n\tCuisine : {cui}" +
+                                    $"\n\tSalon   : {sal}" +
+                                    $"\n\tCouloir : {cou}" +
+                                    $"\n\tChambre : {cha}\n");
+
+                                    rslt = cui + sal + cou + cha;
+
+                                    if (rslt == 4)
+                                    {
+                                        Console.ForegroundColor = ConsoleColor.Green;
+                                        Console.WriteLine("Tu entends un click");
+                                        Console.ForegroundColor= ConsoleColor.White;
+                                        light = true;
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Rien ne se passe...");
+                                    }
+                                    break;
+                                   
+                                case '3':
+                                    cui = cui + 1;
+                                    if (cui == 2)
+                                    {
+                                        cui = 0;
+                                    }
+                                    sal = sal + 0;
+                                    if (sal == 2)
+                                    {
+                                        sal = 0;
+                                    }
+                                    cou = cou + 1;
+                                    if (cou == 2)
+                                    {
+                                        cou = 0;
+                                    }
+                                    cha = cha + 1;
+                                    if (cha == 2)
+                                    {
+                                        cha = 0;
+                                    }
+
+                                    Console.WriteLine($"\n\tCuisine : {cui}" +
+                                    $"\n\tSalon   : {sal}" +
+                                    $"\n\tCouloir : {cou}" +
+                                    $"\n\tChambre : {cha}\n");
+
+                                    rslt = cui + sal + cou + cha;
+                                    if (rslt == 4)
+                                    {
+                                        Console.WriteLine("Tu entends un click");
+                                        light = true;
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Rien ne se passe...");
+                                    }
+                                    break;
+
+                                case '4':
+                                    cui = cui + 0;
+                                    if (cui == 2)
+                                    {
+                                        cui = 0;
+                                    }
+                                    sal = sal + 1;
+                                    if (sal == 2)
+                                    {
+                                        sal = 0;
+                                    }
+                                    cou = cou + 1;
+                                    if (cou == 2)
+                                    {
+                                        cou = 0;
+                                    }
+                                    cha = cha + 0;
+                                    if (cha == 2)
+                                    {
+                                        cha = 0;
+                                    }
+
+                                    Console.WriteLine($"\n\tCuisine : {cui}" +
+                                    $"\n\tSalon   : {sal}" +
+                                    $"\n\tCouloir : {cou}" +
+                                    $"\n\tChambre : {cha}");
+
+                                    rslt = cui + sal + cou + cha;
+                                    if (rslt == 4)
+                                    {
+                                        Console.WriteLine("Tu entends un click");
+                                        light = true;
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Rien ne se passe...");
+                                    }
+                                    break;
                                 default: Console.WriteLine("Commande invalide : "); break;
                             }
                         } while (choix != '0');
