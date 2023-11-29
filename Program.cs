@@ -25,7 +25,7 @@ game.Add(new it());
 game.Add(new FfLivingRoom());
 game.Add(new BackyardRoom());
 game.Add(new PeintureCouloirRoom());
-
+game.Add(new CabinRoom());
 
 game.Add(new OutsideRoom());
 

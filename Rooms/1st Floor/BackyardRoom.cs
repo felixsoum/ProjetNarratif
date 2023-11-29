@@ -38,7 +38,7 @@ Tu t'enfonces dans le brouillard [??????]
                     } else
                     {
                         Console.WriteLine("Tu utilises les planches de bois que tu as trouvé, et grimpe dans la cabane.");
-                        //Game.Transition<CabinRoom>();
+                        Game.Transition<CabinRoom>();
                     }
 
                    
