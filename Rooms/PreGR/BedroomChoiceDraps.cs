@@ -66,8 +66,9 @@ Une affiche que ta mère t'avait offert pour ta fête [affiche]
 
                 case "affiche":
                     Console.WriteLine("Tu te déplace vers l'affiche.");
-                    Console.WriteLine("Dessus, tu contemple ton héro préféré, Superman. ");
-                    Console.WriteLine("Dans son constume bleu, rouge et jaune, Superman t'a toujours inspiré.");
+                    Console.WriteLine("Dessus, tu contemple ton héro préféré, Sentry. ");
+                    Console.WriteLine("Dans son constume jaune, bleu et noir," +
+                        "\nSentry à toujours été une source d'inspiration pour toi.");
 
                     break;
 

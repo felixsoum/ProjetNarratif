@@ -27,7 +27,12 @@ Tu ressents une présence réconfortante [????]
                   
                     
                     Console.WriteLine("Tu avances vers la piscines à balles.");
-                    Console.WriteLine("Tu vois des balles jaunes, vertes, bleues, rouges et mauves");
+                    Console.WriteLine("Tu vois des balles : " +
+                        "\n(1) noires, " +
+                        "\n(2) vertes, " +
+                        "\n(3) jaunes, " +
+                        "\n(4) bleues " +
+                        "\n(5) mauves");
                     Console.WriteLine("Entre 3 chiffres de 1 à 5 et trouves la combinaison : ");
                    qst1: Console.Write("Premier chiffre : ");
                     try { num1 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst1; }
@@ -35,10 +40,10 @@ Tu ressents une présence réconfortante [????]
                     {
                         Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst1;
                     }
-                    if (num1 == 1) { Console.WriteLine("Jaune!"); }
+                    if (num1 == 1) { Console.WriteLine("Noir!"); }
                     if (num1 == 2) { Console.WriteLine("Vert!"); }
-                    if (num1 == 3) { Console.WriteLine("Bleu!"); }
-                    if (num1 == 4) { Console.WriteLine("Rouge!"); }
+                    if (num1 == 3) { Console.WriteLine("Jaune!"); }
+                    if (num1 == 4) { Console.WriteLine("Bleu!"); }
                     if (num1 == 5) { Console.WriteLine("Mauve!"); }
                 qst2: Console.Write("Deuxième chiffre : ");
                     try { num2 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst2; }
@@ -46,10 +51,10 @@ Tu ressents une présence réconfortante [????]
                     {
                         Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst1;
                     }
-                    if (num2 == 1) { Console.WriteLine("Jaune!"); }
+                    if (num2 == 1) { Console.WriteLine("Noir!"); }
                     if (num2 == 2) { Console.WriteLine("Vert!"); }
-                    if (num2 == 3) { Console.WriteLine("Bleu!"); }
-                    if (num2 == 4) { Console.WriteLine("Rouge!"); }
+                    if (num2 == 3) { Console.WriteLine("Jaune!"); }
+                    if (num2 == 4) { Console.WriteLine("Bleu!"); }
                     if (num2 == 5) { Console.WriteLine("Mauve!"); }
                 qst3: Console.Write("Troisième chiffre : ");
                     try { num3 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst3; }
@@ -57,10 +62,10 @@ Tu ressents une présence réconfortante [????]
                     {
                         Console.WriteLine("Il faut entrer un chiffre entre 1 et 5! "); goto qst1;
                     }
-                    if (num3 == 1) { Console.WriteLine("Jaune!"); }
+                    if (num3 == 1) { Console.WriteLine("Noir!"); }
                     if (num3 == 2) { Console.WriteLine("Vert!"); }
-                    if (num3 == 3) { Console.WriteLine("Bleu!"); }
-                    if (num3 == 4) { Console.WriteLine("Rouge!"); }
+                    if (num3 == 3) { Console.WriteLine("Jaune!"); }
+                    if (num3 == 4) { Console.WriteLine("Bleu!"); }
                     if (num3 == 5) { Console.WriteLine("Mauve!"); }
 
                     if (num1 == 3)
@@ -71,6 +76,7 @@ Tu ressents une présence réconfortante [????]
                             {
                                 Console.WriteLine("Bonne combinaison!");
                                 Console.WriteLine("En tassant les balles tu trouves un papier : ");
+                                Console.WriteLine("\n\tFrançais exercice");
                                 Console.WriteLine("Maman a 37 ans! Papa a 35 ans!");
                             }
                         }
