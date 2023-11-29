@@ -77,7 +77,14 @@ Tu ressents une présence réconfortante [????]
                                 Console.WriteLine("Bonne combinaison!");
                                 Console.WriteLine("En tassant les balles tu trouves un papier : ");
                                 Console.WriteLine("\n\tFrançais exercice");
-                                Console.WriteLine("Maman a 37 ans! Papa a 35 ans!");
+                                Console.WriteLine("\n\nMaman est grande" +
+                                    "\nMaman a 37 ans" +
+                                    "\nMaman est triste" +
+                                    "\nMaman pleure " +
+                                    "\n\nPapa est fort" +
+                                    "\nPapa a 35 ans" +
+                                    "\nPapa est faché" +
+                                    "\nPapa le cherche");
                             }
                         }
                         
