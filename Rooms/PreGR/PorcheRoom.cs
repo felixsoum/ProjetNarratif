@@ -25,12 +25,8 @@ Prends le risque d'être vu en te déplaçant plus lentement. [lent]
             {
                 case "cours":
                     Console.WriteLine("Tu te dépèche et cours vers la fenêtre, mais glisse sur le côté et chutes en bas tu porche.");
-                    Console.WriteLine("Fin 2 : Une chute mortelle");
-                    seconddeath = true;
-                    Console.Write("Appuyez sur une touche pour recommencer : ");
-                    Console.ReadKey();
-                    Console.Clear();
-                    Game.Transition<Bedroom>();
+                    Console.WriteLine("Game over : Une chute mortelle");
+                    Game.Finish();
                     break;
                 case "lent":
                     Console.WriteLine("Tu prends ton temps et te diriges lentement vers la fenêtre. ");

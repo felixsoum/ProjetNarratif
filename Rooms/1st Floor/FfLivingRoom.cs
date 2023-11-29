@@ -12,7 +12,7 @@ namespace ProjetNarratif.Rooms
         
         internal override string CreateDescription() =>
 @"Te voilà dans ton salon. Tu te rappelle des bons souvenirs que tu as eu ici,
-mais pourtant tu n'es pas heureux... Le peur commence à t'engloutir...
+mais pourtant tu n'es pas heureux... 
 Il ne semble pas t'avoir suivi, pour l'instant.....
 Tu te déplace vers la cuisine [cuisine]
 Tu vas vers le Couloir [couloir]
@@ -103,7 +103,31 @@ Un sofa [sofa]
                         Console.WriteLine("Tu t'approches de ta télévision,\nelle est éteinte.");
                     } else
                     {
-                        Console.WriteLine();
+
+                        Console.WriteLine("Tu ouvres la télévision, tu y vois un monsieur parler :"); 
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Un drame c'est produit dans le coins de Springfield qui choque la communauté. " +
+                            "\nEn effet, c'est en soirée que le corps de la jeune...");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\nTu ne te sens plus bien...");
+                        Console.WriteLine("Tu fixes l'écran de la télévision, ton coeur accélère");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\nMarc Dumais fait face à quinze ans de prison au moins");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\nTu vas être malade...");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\nElle n'avait que huit ans...");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\nTu fermes la télévision..." +
+                            "\nTa respiration tremble.");
+                        if (Game.peur >= 1)
+                        {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Tu entends ses cris");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        
+
                     }
                    
 

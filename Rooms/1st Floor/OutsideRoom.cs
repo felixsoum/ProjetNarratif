@@ -47,7 +47,9 @@ Tu décides de rentrer à l'intérieur [rentre]
                     if (choix == "Oui" || choix == "oui")
                     {
                         Console.WriteLine("Tu te retournes vers ta maison et commence à marcher");
-                        Console.WriteLine("Tu entends un cris au loin!");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Tu entends ses cris au loins");
+                        Console.ForegroundColor = ConsoleColor.White;
                     qst1: Console.Write("Tu vas investiguer?" +
                     "\nOui" +
                     "\nNon" +
@@ -91,7 +93,9 @@ Tu décides de rentrer à l'intérieur [rentre]
                     }
                     if (choix == "Non" || choix == "non")
                     {
-                        Console.WriteLine("Tu entends un cris au loin!");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Tu entends ses cris au loins");
+                        Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("Tu ne peux pas t'empêcher d'aller voir." +
                             "\nTu cours en direction des cris");
                         Console.WriteLine("Tu t'enfonce dans le brouillard, les cris se rapprochent, tu y es, mais..." +
@@ -99,9 +103,8 @@ Tu décides de rentrer à l'intérieur [rentre]
                             "\nTu es seul..." +
                             "\nUne lumière t'aveugle" +
                             "\nTu cris");
-                        Console.WriteLine("Fin 4 : Mort sur la route");
-                        Bedroom.fourthdeath = true;
-                        Game.Transition<Bedroom>();
+                        Console.WriteLine("Game over : Mort sur la route");
+                       Game.Finish();
                         //Bruit de camion
                         //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/watch?v=HKzI8PENT2A", UseShellExecute = true });
                     }
