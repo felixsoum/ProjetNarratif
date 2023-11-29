@@ -19,14 +19,15 @@ Il y a un brouillard épais qui recouvre ta cour
 que ton père avait construit pour toi [cabane]
 Directement à droite de la porte, il y a une grosse boite en bois [boite]
 Tu rentres à l'intérieur [rentre]
+Tu t'enfonces dans le brouillard [??????]
 ";
-        static bool ladder = false;
+        internal static bool ladder = false;
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
             {
                 case "boite":
-                    Console.WriteLine("Il y a un cadena sur la boite qui t'empêche de l'ouvrir");
+                    Console.WriteLine("Il y a un cadenas sur la boite qui t'empêche de l'ouvrir");
                     
                     break;
                 case "cabane":
@@ -47,6 +48,10 @@ Tu rentres à l'intérieur [rentre]
                 case "rentre":
                     Console.WriteLine("Tu retournes à l'intérieur.");
                     Game.Transition<KitchenRoom>();
+                    break;
+                case "jardin":
+                    Console.WriteLine("Tu avances dans ta cour et tu traverse le brouillard");
+                    
                     break;
                 default:
                     Console.WriteLine("Commande invalide.");
