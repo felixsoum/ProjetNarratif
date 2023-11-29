@@ -83,7 +83,7 @@ Tu décides de rentrer à l'intérieur [rentre]
                                     "\nTu luttes pour les ignorés, tu les reconnais" +
                                     "\nTu réussis à retourner vers l'entrée de ta maison." +
                                     "\nTon niveau de peur augmente... ");
-                                Game.Peur();
+                                Game.Tocson();
                             }
                            
                             //Bruit de camion
@@ -110,7 +110,8 @@ Tu décides de rentrer à l'intérieur [rentre]
                     }
                     break;
                 case "rentre":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+                    Console.WriteLine("Tu retournes à l'intérieur.");
+                    Game.Transition<FfHallwayRoom>();
 
                     break;
                 case "lettres":
