@@ -51,9 +51,21 @@ Tu vas vers le couloir [couloir]
                     break;
 
                 case "espace":
-
-                    Console.WriteLine("Tu ouvres la porte. Il fait noir." +
+                    if (!GuessRoom.light)
+                    {
+                            Console.WriteLine("Tu ouvres la porte. Il fait noir." +
                         "\ntu essais d'ouvrir la lumière, mais l'ampoule reste éteinte.");
+                    } else
+                    {
+                        Console.WriteLine("Dans l'espace de rangement, " +
+                            "\ntu trouves des planches de bois ainsi qu'une note : " +
+                            "\nJ'ai déplacé la bouffe du chat, elle est dans la boite en bois dans la cour," +
+                            "mais j'ai échapé la clef quelque part dans le jardin..." +
+                            "\n\n\tMaman");
+
+                        BackyardRoom.ladder = true;
+                    }
+                   
                     
 
                     break;
