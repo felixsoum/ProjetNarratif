@@ -32,69 +32,70 @@ Le son des griffes te dérange trop, bouche toi les oreilles et attends qu'il s'
                     Console.WriteLine("Tu ressents le rythme de ton coeur dans tes oreilles...");
                     Console.WriteLine("Il ferme la porte...");
                     Console.WriteLine("Ton souffle accélère...");
-                    if (!GameRoom.Tocson)
-                    {
+                    Game.Tocson();
+                    //if (!GameRoom.Tocson)
+                    //{
                        
-                        Console.WriteLine("Ton niveau de peur augmente...");
-                        Game.Peur();
+                    //    Console.WriteLine("Ton niveau de peur augmente...");
+                    //    Game.Peur();
                             
-                        //if (Bedroom.Scared1)
-                        //{
-                        //    Console.WriteLine("Ton niveau de peur augmente...");
-                        //    Console.WriteLine("Niveau de peur : 2 ");
-                        //    Bedroom.Scared2 = true;
-                        //} else
-                        //{
-                        //    Console.WriteLine("Ton niveau de peur augmente...");
-                        //    Console.WriteLine("Niveau de peur : 1 ");
-                        //    Bedroom.Scared1 = true;
-                        //}
+                    //    //if (Bedroom.Scared1)
+                    //    //{
+                    //    //    Console.WriteLine("Ton niveau de peur augmente...");
+                    //    //    Console.WriteLine("Niveau de peur : 2 ");
+                    //    //    Bedroom.Scared2 = true;
+                    //    //} else
+                    //    //{
+                    //    //    Console.WriteLine("Ton niveau de peur augmente...");
+                    //    //    Console.WriteLine("Niveau de peur : 1 ");
+                    //    //    Bedroom.Scared1 = true;
+                    //    //}
 
-                    } else
-                    {
-                        string ch;
-                        Console.WriteLine("M.Tocson peut t'aider. ");
-                    ch1: Console.Write("Écris oui pour utiliser son aide,\nou non pour conserver son effet pour plus tard : ");
+                    //} else
+                    //{
+                    //    string ch;
+                    //    Console.WriteLine("M.Tocson peut t'aider. ");
+                    //ch1: Console.Write("Écris oui pour utiliser son aide,\nou non pour conserver son effet pour plus tard : ");
 
-                        ch = Convert.ToString(Console.ReadLine());
+                    //    ch = Convert.ToString(Console.ReadLine());
                        
-                       if (ch == "oui" || ch == "Oui" || ch == "non" || ch == "Non")
-                       {
-                             if (ch == "oui" ||  ch == "Oui")
-                             {
-                            Console.WriteLine("Tu regardes ton meilleur ami et il te réconforte.");
-                            Console.WriteLine("Tu réussis à te calmer.");
-                            Game.Transition<PostBathHall>();
+                    //   if (ch == "oui" || ch == "Oui" || ch == "non" || ch == "Non")
+                    //   {
+                    //         if (ch == "oui" ||  ch == "Oui")
+                    //         {
+                    //        Console.WriteLine("Tu regardes ton meilleur ami et il te réconforte.");
+                    //        Console.WriteLine("Tu réussis à te calmer.");
+                    //        Game.Transition<PostBathHall>();
                           
-                             }
-                            if (ch == "non" || ch == "Non")
-                            {
+                    //         }
+                    //        if (ch == "non" || ch == "Non")
+                    //        {
                                 
-                                Console.WriteLine("Ton niveau de peur augmente...");
-                                Game.Peur();
-                                Game.Transition<PostBathHall>();
-                                //if (Bedroom.Scared1)
-                                //{
-                                //    Console.WriteLine("Ton niveau de peur augmente...");
-                                //    Console.WriteLine("Niveau de peur : 2 ");
-                                //    Bedroom.Scared2 = true;
-                                //    Game.Transition<PostBathHall>();
-                                //}
-                                //else
-                                //{
-                                //    Console.WriteLine("Ton niveau de peur augmente...");
-                                //    Console.WriteLine("Niveau de peur : 1 ");
-                                //    Bedroom.Scared1 = true;
-                                //    Game.Transition<PostBathHall>();
-                                //}
-                            }
-                       }
-                        else { Console.WriteLine("Commande invalide"); goto ch1; }
+                    //            Console.WriteLine("Ton niveau de peur augmente...");
+                    //            Game.Peur();
+                    //            Game.Transition<PostBathHall>();
+                    //            //if (Bedroom.Scared1)
+                    //            //{
+                    //            //    Console.WriteLine("Ton niveau de peur augmente...");
+                    //            //    Console.WriteLine("Niveau de peur : 2 ");
+                    //            //    Bedroom.Scared2 = true;
+                    //            //    Game.Transition<PostBathHall>();
+                    //            //}
+                    //            //else
+                    //            //{
+                    //            //    Console.WriteLine("Ton niveau de peur augmente...");
+                    //            //    Console.WriteLine("Niveau de peur : 1 ");
+                    //            //    Bedroom.Scared1 = true;
+                    //            //    Game.Transition<PostBathHall>();
+                    //            //}
+                    //        }
+                    //   }
+                    //    else { Console.WriteLine("Commande invalide"); goto ch1; }
 
 
 
 
-                    }
+                    //}
 
                     Game.Transition<PostBathHall>();
                     break;

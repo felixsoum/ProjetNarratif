@@ -39,6 +39,43 @@ namespace ProjetNarratif
 
         internal static int peur = 0;
 
+        internal static bool tocs = false;
+        internal static void Tocson()
+        {
+            int ch; 
+            if (!Game.tocs)
+            {
+                Console.WriteLine("Ton niveau de peur augmente : ");
+                Peur();
+            } else
+            {
+                Console.WriteLine("Tocson peut t'aider");
+                qst: Console.WriteLine("Veux-tu l'utiliser?");
+                Console.Write("(1) oui " +
+                    "\n(2) non" +
+                    "\nTon choix : ");
+                try
+                {
+                    ch = Convert.ToInt32(Console.ReadLine());
+                } catch
+                {
+                    Console.WriteLine("Commande invalide : \n"); goto qst;
+                }
+                if (ch == 1)
+                {
+                    Console.WriteLine("Tu prends Tocson et le serres dans tes bras" +
+                        "\nTu réussis à te calmer.");
+                    Console.WriteLine("Tu égares Tocson");
+                    Game.tocs = false;
+                }
+                if (ch == 2)
+                {
+                    Console.WriteLine("Ton niveau de peur augmente...");
+                    Game.Peur();
+                }
+                if (ch < 1 || ch > 2) { Console.WriteLine("Commande invalide"); goto qst; }
+            }
+        }
         internal static void Peur()
         {
             //vie

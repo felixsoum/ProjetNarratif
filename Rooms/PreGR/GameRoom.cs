@@ -8,7 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class GameRoom : Room
     {
-        internal static bool Tocson;
+        //internal static bool Tocson;
         internal override string CreateDescription() =>
 @"Dans la salle de jeux, tu entends ses pas faire du bruit dans le couloir...
 La porte de ta chambre s'ouvre et se ferme immédiatement. Tu peux l'entendre faire du bruit de l'autre côté du mur...
@@ -105,7 +105,7 @@ Tu ressents une présence réconfortante [????]
                     Console.WriteLine("\nTu trouves Tocson!");
                     Console.WriteLine("Il était là où tu l'avais laissé la dernière fois!");
                     Console.WriteLine("La prochaine fois que ton niveau de peur augmente, utilise M.Tocson pour nullifier l'effet. (Une seule utilisation)");
-                    Tocson = true;
+                    Game.tocs = true;
 
                     break;
 
