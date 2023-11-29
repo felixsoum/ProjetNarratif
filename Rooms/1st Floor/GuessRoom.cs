@@ -8,6 +8,7 @@ namespace ProjetNarratif.Rooms
 {
     internal class GuessRoom : Room 
     {
+        internal static bool light = false;
         internal override string CreateDescription() =>
 @"Tu rentres dans la chambre d'invité.
 Tout est bien rangé, comme si personne n'y était jamais rentré.
@@ -15,7 +16,8 @@ Au fond de la pièce se trouve une salle de bain [bain]
 À gauche, il y a une fenêtre [fenêtre]
 En face de toi, il y a un lit. [lit]
 Au dessus se trouve une peinture [peinture]
-À droite il y a des armoires murales [armoir]
+À droite il y a des armoires murales [armoire]
+Tu retournes dans le couloir [couloir]
 ";
 
         internal override void ReceiveChoice(string choice)
@@ -87,8 +89,91 @@ Au dessus se trouve une peinture [peinture]
                    
                     
                     break;
-                case "sofa":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+                case "bain":
+                    Console.WriteLine("Tu t'approches de la porte de la salle de bain" +
+                        "Elle est barrée de l'autre côté");
+
+                    break;
+                case "armoir":
+                    int code;
+                    Console.WriteLine("Tu es en face de l'armoire." +
+                        "\nIl y a un cadenas dessus : ");
+                   qst1: Console.Write("\nCode : ");
+                    try
+                    {
+                        code = Convert.ToInt32(Console.ReadLine()); 
+
+                    } catch { Console.WriteLine("Commande invalide"); goto qst1; }
+                    if (code == 1158)
+                    {
+                        Console.WriteLine("Tu déverouille le cadenas et ouvres les portes." +
+                            "\nIl y a un compteur électrique derrière");
+                        int cui = 0, sal = 1, cou = 1, cha = 1, rslt = 0;
+                        char choix = ' ';
+                        do
+                        {
+
+                            Console.WriteLine("Il y a 4 interrupteur devant toi (1 - 4) " +
+                                "\nou appuis sur 0 pour quitter : ");
+                            Console.WriteLine($"\t\nCuisine : {cui}" +
+                                $"\n\tSalon : {sal}" +
+                                $"\n\tCouloir : {cou}" +
+                                $"\n\tChambre : {cha}");
+                                qst2: Console.Write("Interrupteur choisi : ");
+                                try
+                            {
+                                choix = Convert.ToChar(Console.ReadLine());
+                            } catch
+                            {
+                                Console.WriteLine("Commande invalide : "); goto qst2;
+                            }
+                            switch( choix )
+                            {
+                                case '1': 
+                                    cui = cui + 1;
+                                    if (cui == 2)
+                                    {
+                                        cui = 0;
+                                    }
+                                    sal = sal + 0;
+                                    if (sal == 2)
+                                    {
+                                        sal = 0;
+                                    }
+                                    cou = cou + 1;
+                                    if (cou == 2)
+                                    {
+                                        cou = 0;
+                                    }
+                                    cha = cha + 1;
+                                    if (cha == 2)
+                                    {
+                                        cha = 0;
+                                    }
+
+                               Console.WriteLine($"\t\nCuisine : {cui}" +
+                               $"\n\tSalon : {sal}" +
+                               $"\n\tCouloir : {cou}" +
+                               $"\n\tChambre : {cha}");
+
+                                    rslt = cui + sal + cou + cha;
+                                    if (rslt == 4)
+                                    {
+                                        Console.WriteLine("Tu entends un click");
+                                        light = true;
+                                            
+                                    } else
+                                    {
+                                        Console.WriteLine("Rien ne se passe...");
+                                    }
+                                    break;
+                                case '2': break;
+                                case '3': break;
+                                case '4': break;
+                                default: Console.WriteLine("Commande invalide : "); break;
+                            }
+                        } while (choix != '0');
+                    }   
 
                     break;
                 default:
