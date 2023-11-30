@@ -60,41 +60,41 @@ Tu cours vers la toilette. [toilette]
                         Console.WriteLine("Trouve la combinaison correcte pour te cacher parfaitement : ");
                         Console.WriteLine("Lorsque tu seras prêt, appuis sur une touche, puis rentre un chiffre et appuis sur enter. \nUne mauvaise touche = mauvaise combinaison \nune bonne touche = Bonne combinaison");
                         Console.WriteLine("34567");
-                       Console.ReadKey();
+                      // Console.ReadKey();
                     //}
                    
-                Console.ReadKey();
+               // Console.ReadKey();
                 //if (Game.stopwatch.Elapsed.TotalSeconds)
-                clear: Console.Clear();
+                clear: //Console.Clear();
                     Console.WriteLine(":");
                     try { in1 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear; }
                   if (in1 == 3) 
                     { 
                         Console.WriteLine("Bonne entrée : ");
                         Console.WriteLine("43675");
-                        Console.ReadKey();
-                    clear2: Console.Clear();
+                   //     Console.ReadKey();
+                    clear2:// Console.Clear();
                         try { in2 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear2; }
                         if (in2 == 3)
                         {
                             Console.WriteLine("Bonne entrée : ");
                             Console.WriteLine("33678");
-                            Console.ReadKey();
-                        clear3: Console.Clear();
+                           // Console.ReadKey();
+                        clear3: //Console.Clear();
                             try { in3 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear3; }
                             if (in3 == 6)
                             {
                                 Console.WriteLine("Bonne entrée : ");
                                 Console.WriteLine("99542");
-                               Console.ReadKey();
-                            clear4: Console.Clear();
+                              // Console.ReadKey();
+                            clear4:// Console.Clear();
                                 try { in4 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear4; }
                                 if (in4 == 4)
                                 {
                                     Console.WriteLine("Bonne entrée : ");
                                     Console.WriteLine("12471");
-                                   Console.ReadKey();
-                                clear5: Console.Clear();
+                                  // Console.ReadKey();
+                                clear5:// Console.Clear();
                                     try { in5 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear5; }
                                     if (in5 == 1)
                                     {

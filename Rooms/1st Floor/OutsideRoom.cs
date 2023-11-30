@@ -65,7 +65,7 @@ Tu décides de rentrer à l'intérieur [rentre]
                         }
                         if (ch == "Non" || ch == "non")
                         {
-                            if (Game.peur >= 1)
+                            if (Game.peur >= 2)
                             {
                                 Console.WriteLine("Tu fais de ton mieu pour ignorer les cris, mais tu en ai incapable...");
                                 Console.WriteLine("Tu te retournes et cours vers les cris");
