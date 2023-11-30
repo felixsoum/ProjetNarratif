@@ -28,20 +28,23 @@ Tu retournes dans le couloir [couloir]
                     break;
 
                 case "3735":
-                    int ch = 0;
+                    
                     if(!FfHallwayRoom.artkit)
                     {
                         Console.WriteLine("Ton tiroir s'ouvre et tu y trouves un dessin : ");
                         Console.WriteLine("Tu reconnais ta chambre. " +
-                            "\nSur ton lit, il y a un garçon et une fille." +
-                            "\nIls ont l'air heureux. ");
+                            "\nSur ton lit, il y a un garçon." +
+                            "\nIl pleure... " +
+                            "En bas du dessin, les initiales R.D sont inscrites");
+                 
                     } else
                     {
-                        
+
                         Console.WriteLine("Ton tiroir s'ouvre et tu y trouves un dessin : ");
                         Console.WriteLine("Tu reconnais ta chambre. " +
-                            "\nSur ton lit, il y a un garçon et une fille." +
-                            "\nIls ont l'air heureux. ");
+                            "\nSur ton lit, il y a un garçon." +
+                            "\nIl pleure... " +
+                            "En bas du dessin, les initiales R.D sont inscrites");
                     }
                    
                    
