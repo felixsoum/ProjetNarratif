@@ -10,7 +10,7 @@ namespace ProjetNarratif.Rooms
     {
         internal override string CreateDescription()
         {
-            if (Game.peur >= 1)
+            if (Game.peur == 2)
             {
               
                 return

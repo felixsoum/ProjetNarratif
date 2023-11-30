@@ -297,6 +297,12 @@ Tu retournes dans le couloir [couloir]
                     }   
 
                     break;
+
+                case "couloir":
+                    Console.WriteLine("Tu retournes vers le couloir.");
+                    Game.Transition<FfHallwayRoom>();
+
+                    break;
                 default:
                     Console.WriteLine("Commande invalide.");
                     break;

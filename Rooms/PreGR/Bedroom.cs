@@ -89,7 +89,7 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
 
                 case "current":
                     
-                    Game.Transition<GuessRoom>();
+                    Game.Transition<CabinRoom>();
                     break;
                   
                 default:
