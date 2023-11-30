@@ -13,13 +13,13 @@ namespace ProjetNarratif.Rooms
 @"Tu rentres dans la chambre d'invité.
 Tout est bien rangé, comme si personne n'y était jamais rentré.
 Au fond de la pièce se trouve une salle de bain [bain]
-À gauche, il y a une fenêtre [fenêtre]
+À gauche, il y a une fenêtre [fenetre]
 En face de toi, il y a un lit. [lit]
 Au dessus se trouve une peinture [peinture]
 À droite il y a des armoires murales [armoire]
 Tu retournes dans le couloir [couloir]
 ";
-
+        internal static bool Guessbathkey = false;
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
@@ -90,8 +90,19 @@ Tu retournes dans le couloir [couloir]
                     
                     break;
                 case "bain":
-                    Console.WriteLine("Tu t'approches de la porte de la salle de bain" +
-                        "Elle est barrée de l'autre côté");
+                    if (!Guessbathkey)
+                    {
+                        Console.WriteLine("Tu t'approches de la porte de la salle de bain" +
+                        "Elle est barrée.");
+                    } else
+                    {
+                        Console.WriteLine("Tu ouvres la porte de la salle de bain.");
+                        Console.WriteLine("Tu l'entends déscendre les escaliers...");
+                        Console.WriteLine("Fin de la béta");
+                        Game.Finish();
+
+                    }
+                   
 
                     break;
                 case "armoire":
@@ -303,6 +314,53 @@ Tu retournes dans le couloir [couloir]
                 case "couloir":
                     Console.WriteLine("Tu retournes vers le couloir.");
                     Game.Transition<FfHallwayRoom>();
+
+                    break;
+
+                case "lit":
+                    Console.WriteLine("Zone en cours de dévelopement :( ");
+                    Console.WriteLine("Cadeau pour le moment : ");
+                    Game.UnPeur();
+
+                    break;
+
+                case "peinture":
+                    if (!FfHallwayRoom.artkit)
+                    {
+                        Console.WriteLine("Tu t'approches de la peinture.\n");
+                        Console.WriteLine("\n\tLyla");
+                        Console.WriteLine("\nSur cette peinture, tu vois un lyla.");
+                        Console.WriteLine("Tu te sens triste..." +
+                            "\nC'étais son arbre préféré");
+                    } else
+                    {
+                        int choi = 0;
+                        Console.WriteLine("Tu t'approches de la peinture.\n");
+                        Console.WriteLine("\n\tLyla");
+                        Console.WriteLine("\nSur cette peinture, tu vois un lyla.");
+                        Console.WriteLine("Tu te sens triste..." +
+                            "\nC'étais son arbre préféré\n");
+                        Console.WriteLine("Avec le kit d'art, tu peux investiguer la toile d'avantage : ");
+                       qst4: Console.Write("(1) Oui" +
+                            "(2) Non" +
+                            "Choix : ");
+                        try
+                        {
+                            choi = Convert.ToInt32(Console.ReadLine());
+                        } catch
+                        {
+                            Console.WriteLine("Commande invalide\n"); goto qst4;
+                        }
+                        if (choi == 1)
+                        {
+                            Console.WriteLine("Tu te sens transporté dans la toile.");
+                            Console.WriteLine("Zone en dévelopement :( ");
+                            Console.WriteLine("Tu trouves une clef");
+
+                        }
+                    }
+                    
+                    
 
                     break;
                 default:

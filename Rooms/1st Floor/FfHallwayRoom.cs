@@ -63,26 +63,26 @@ Tu te diriges vers la cuisine [cuisine]
                         Console.WriteLine("\n\tPaysage de printemps");
                         Console.WriteLine("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
                             "\nTu as toujours trouvé qu'il y avait quelque chose de malsaint dans cette toile,\nmais tu ne sais pas quoi...");
-                    } else
-                    {
-                        Console.WriteLine("\n\tPaysage de printemps");
-                        Console.Write("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
-                            "\nTu as toujours trouvé qu'il y avait quelque chose de malsaint dans cette toile,\nmais tu ne sais pas quoi...");
+                    //} else
+                    //{
+                    //    Console.WriteLine("\n\tPaysage de printemps");
+                    //    Console.Write("\n C'est la peinture préféré de tes parents.\nDessus on y retrouve une montagne, une maison et un soleil qui se couche." +
+                    //        "\nTu as toujours trouvé qu'il y avait quelque chose de malsaint dans cette toile,\nmais tu ne sais pas quoi...");
 
-                       qst: Console.Write("\nAvec le kit de peinture, tu peux investiguer d'avantage cette toile :\n(1) oui\n(2) non\nTon choix : ");
-                        try
-                        {
-                            ch = Convert.ToInt32(Console.ReadLine());
-                        } catch { Console.WriteLine("Option non valide"); goto qst; }
-                       if (ch == 1)
-                        {
-                            Console.WriteLine("Tu te sens transporté, tu entres dans la peinture...");
-                            Game.Transition<PeintureCouloirRoom>();
-                        }
-                        if (ch == 2)
-                        {
-                            Console.WriteLine("Tu décides de ne pas investiguer...");
-                        }
+                    //   qst: Console.Write("\nAvec le kit de peinture, tu peux investiguer d'avantage cette toile :\n(1) oui\n(2) non\nTon choix : ");
+                    //    try
+                    //    {
+                    //        ch = Convert.ToInt32(Console.ReadLine());
+                    //    } catch { Console.WriteLine("Option non valide"); goto qst; }
+                    //   if (ch == 1)
+                    //    {
+                    //        Console.WriteLine("Tu te sens transporté, tu entres dans la peinture...");
+                    //        Game.Transition<PeintureCouloirRoom>();
+                    //    }
+                    //    if (ch == 2)
+                    //    {
+                    //        Console.WriteLine("Tu décides de ne pas investiguer...");
+                    //    }
 
 
                     }
