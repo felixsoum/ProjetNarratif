@@ -374,7 +374,7 @@ Tu retournes dans le couloir [couloir]
                             Console.WriteLine("Tu te sens transporté dans la toile.");
                             Console.WriteLine("Zone en dévelopement :( ");
                             Console.WriteLine("Tu trouves une clef");
-
+                            Guessbathkey = true;
                         }
                     }
                     
