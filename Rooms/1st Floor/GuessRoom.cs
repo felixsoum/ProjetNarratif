@@ -97,8 +97,10 @@ Tu retournes dans le couloir [couloir]
                 case "armoire":
                     int code;
                     Console.WriteLine("Tu es en face de l'armoire." +
-                        "\nIl y a un cadenas dessus : ");
+                        "\nIl y a un cadenas à 4 chiffres dessus : ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                    qst1: Console.Write("\nCode : ");
+                    Console.ForegroundColor= ConsoleColor.White;
                     try
                     {
                         code = Convert.ToInt32(Console.ReadLine()); 
