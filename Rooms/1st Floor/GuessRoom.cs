@@ -111,7 +111,7 @@ Tu retournes dans le couloir [couloir]
                     if (!Guessbathkey)
                     {
                         Console.WriteLine("Tu t'approches de la porte de la salle de bain" +
-                        "Elle est barrée.");
+                        "\nElle est barrée.");
                     } else
                     {
                         Console.WriteLine("Tu ouvres la porte de la salle de bain.");
