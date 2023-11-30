@@ -48,15 +48,25 @@ Tu cours vers la toilette. [toilette]
                     //33678
                     //99542
                     //12471
+                    Game.stopwatch.Start();
 
-                    Console.WriteLine("Tu te précipite vers les toilettes");
-                    Console.WriteLine("La lumière des toilettes clignottes, tu doit trouver un endroit pour te cacher vite!");
-                    Console.WriteLine("Il y a 5 combinaisons, un seul chiffre par combinaison doit être utilisé : ");
-                    Console.WriteLine("Trouve la combinaison correcte pour te cacher parfaitement : ");
-                    Console.WriteLine("Lorsque tu seras prêt, appuis sur une touche, puis rentre un chiffre et appuis sur enter. \nUne mauvaise touche = mauvaise combinaison \nune bonne touche = Bonne combinaison");
-                    Console.WriteLine("34567");
-                    Console.ReadKey();
-                  clear: Console.Clear();
+                  
+                       
+                    // while (Game.stopwatch.Elapsed.TotalSeconds < 5)
+                    //{
+                        Console.WriteLine("Tu te précipite vers les toilettes");
+                        Console.WriteLine("La lumière des toilettes clignottes, tu doit trouver un endroit pour te cacher vite!");
+                        Console.WriteLine("Il y a 5 combinaisons, un seul chiffre par combinaison doit être utilisé : ");
+                        Console.WriteLine("Trouve la combinaison correcte pour te cacher parfaitement : ");
+                        Console.WriteLine("Lorsque tu seras prêt, appuis sur une touche, puis rentre un chiffre et appuis sur enter. \nUne mauvaise touche = mauvaise combinaison \nune bonne touche = Bonne combinaison");
+                        Console.WriteLine("34567");
+                       Console.ReadKey();
+                    //}
+                   
+                Console.ReadKey();
+                //if (Game.stopwatch.Elapsed.TotalSeconds)
+                clear: Console.Clear();
+                    Console.WriteLine(":");
                     try { in1 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear; }
                   if (in1 == 3) 
                     { 
@@ -76,14 +86,14 @@ Tu cours vers la toilette. [toilette]
                             {
                                 Console.WriteLine("Bonne entrée : ");
                                 Console.WriteLine("99542");
-                                Console.ReadKey();
+                               Console.ReadKey();
                             clear4: Console.Clear();
                                 try { in4 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear4; }
                                 if (in4 == 4)
                                 {
                                     Console.WriteLine("Bonne entrée : ");
                                     Console.WriteLine("12471");
-                                    Console.ReadKey();
+                                   Console.ReadKey();
                                 clear5: Console.Clear();
                                     try { in5 = Convert.ToInt32(Console.ReadLine()); } catch { Console.WriteLine("Il faut entrer un chiffre positif entier : "); goto clear5; }
                                     if (in5 == 1)

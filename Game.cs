@@ -22,6 +22,13 @@ namespace ProjetNarratif
             }
         }
 
+        //public static async Task WriteSlowly(string word, TimeSpan delay = default)
+        //{
+        //    if (delay == default) delay = TimeSpan.FromSeconds(3);
+
+        //    Console.Clear();
+        //    await Task.Delay(delay);
+        //}
         internal string CurrentRoomDescription => currentRoom.CreateDescription();
 
         internal void ReceiveChoice(string choice)

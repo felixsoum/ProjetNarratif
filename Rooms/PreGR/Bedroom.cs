@@ -43,7 +43,10 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
                         Console.WriteLine("Des bruits de pas lourds se font entendre derrière toi...");
                         Console.WriteLine("Tu endends sa respiration se rapprocher...");
                         Console.WriteLine("Tu cris pour que tes parents t'entendent, mais il est trop tard, il t'a trouvé...");
-                        Console.WriteLine("\n FIN 1 : Mort prématurée");
+                        Console.WriteLine("\n FIN 1 :");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Pauvre chou");
+                        Console.ForegroundColor= ConsoleColor.White;
                         firstdeath = true;
                         Console.Write("Appuyez sur une touche pour recommencer : ");
                         Console.ReadKey();

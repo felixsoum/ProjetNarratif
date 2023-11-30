@@ -38,7 +38,10 @@ namespace ProjetNarratif.Rooms
                     Console.WriteLine("Tu ne peux plus bouger...");
                     Console.WriteLine("Il se jette sur toi...");
                     Console.WriteLine("C'est la fin...");
-                    Console.WriteLine("\n FIN 3 : Mourir de rire");
+                    Console.WriteLine("\n FIN 2 :");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Il va falloir déplacer l'horloge, il n'arrive plus à dormir...");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Bedroom.thirddeath = true;
                     Console.Write("Appuyez sur une touche pour recommencer : ");
                     Console.ReadKey();

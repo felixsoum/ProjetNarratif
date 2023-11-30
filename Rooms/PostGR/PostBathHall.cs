@@ -26,18 +26,23 @@ Tu descends les escaliers [escaliers]
                     break;
 
                 case "jeu":
-                    Console.WriteLine("Tu avance face à la porte de la salle de jeu");
+               
+                    Console.WriteLine("Pris de panique, tu cours te réfugier dans la salle de jeu!");
                     Console.WriteLine("C'est en ouvrant la porte que tu te rends compte de quelque chose...");
                     Console.WriteLine("Il est dans cette pièce...");
                     Console.WriteLine("Tu ne peux plus bouger...");
                     Console.WriteLine("Il se jette sur toi...");
                     Console.WriteLine("C'est la fin...");
-                    Console.WriteLine("\n FIN 3 : Mourir de rire");
+                    Console.WriteLine("\n FIN 2 :");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Il va falloir déplacer l'horloge, il n'arrive plus à dormir...");
+                    Console.ForegroundColor = ConsoleColor.White;
                     Bedroom.thirddeath = true;
                     Console.Write("Appuyez sur une touche pour recommencer : ");
                     Console.ReadKey();
                     Console.Clear();
                     Game.Transition<Bedroom>();
+                    
 
                     break;
 
