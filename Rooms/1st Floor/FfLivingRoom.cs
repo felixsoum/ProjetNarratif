@@ -46,25 +46,25 @@ Un sofa [sofa]
                 case "sofa":
                     char couss1, couss2, couss3;
                     //Solution dans couloir
-                    Console.WriteLine("Sur le sofa, il y a plusieurs coussins :\nCarré (1)\nRond (2)\nTriangle (3)\nRectangle (4)\nOval (5)");
+                    Console.WriteLine("Sur le sofa, il y a plusieurs coussins :\nCarré (1)\nRond (2)\nTriangle (3)\nRectangle (4)\nDemi-cercle (5)");
                     Console.WriteLine("\nTu essaies de les repositionner : ");
                     Console.WriteLine("\nPremier coussin : ");
 
                     couss1 = Convert.ToChar(Console.ReadLine());
 
-                    if (couss1 == '1')
+                    if (couss1 == '3')
                     {
 
                         Console.WriteLine("\nDeuxième coussin : ");
                         couss2 = Convert.ToChar(Console.ReadLine());
 
-                        if(couss2 == '2')
+                        if(couss2 == '1')
                         {
                             Console.WriteLine("\nTroisième coussin : ");
 
                             couss3 = Convert.ToChar(Console.ReadLine());
 
-                            if (couss3 == '3')
+                            if (couss3 == '5')
                             {
                                 Console.WriteLine("En tassant les coussins, tu trouves la télécommande pour la télévision."); 
                                 remoteTv = true;
