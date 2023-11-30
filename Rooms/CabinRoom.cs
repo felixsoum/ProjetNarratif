@@ -13,7 +13,6 @@ namespace ProjetNarratif.Rooms
 L'endroit qui était autrefois une place de confort pour toi
 semble bien plus sinistre maintenant qu'elle est partie...
 À ta gauche se trouve un dessin accroché au mur [dessin]
-Devant toi, il y a un petit lit et une petite table [lit]
 À ta droite, tu remarques une petite valise [valise]
 Tu sors de la cabane. [sors]
 ";
@@ -22,12 +21,47 @@ Tu sors de la cabane. [sors]
         {
             switch (choice)
             {
-                case "television":
-                    Console.WriteLine("Une fois devant la télévision le grésillement arrête. Tu te sens hypnotiser par ce que tu vois puis... Rien...");
-                    Game.Finish();
+                case "sors":
+                    Console.WriteLine("Tu te retournes et descends l'échelle.");
+                    Game.Transition<BackyardRoom>();
+                    
                     break;
-                case "sofa":
-                    Console.WriteLine("Le bruis de la télévision s'intensifie, tu n'entends que ça...");
+                case "valise":
+                    Console.WriteLine("Tu t'approches de la valise et tu l'ouvres");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Tu trouves tes crayons et tes pinceaux");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Tu as découvert un nouveau moyen de voir l'art.");
+                    FfHallwayRoom.artkit = true;
+                    break;
+                case "dessin":
+                    Console.WriteLine("Tu t'approches du dessin.");
+                    Console.WriteLine("En le regardant, tu ne peux t'empêcher de pleurer." +
+                        "Tu y vois ta cabane ainsi qu'une silhouette familière." +
+                        "Elle sourit." +
+                        "En bas du dessin, les initiales L.D sont inscrites.");
+                    if (FfHallwayRoom.artkit == true)
+                    {
+                        Console.WriteLine("Tu utilise ton kit d'art.");
+                        Console.WriteLine("Nouvelle mémoire débloquée");
+
+                        Console.WriteLine("\nMémoire 1 :\n ");
+
+                        Console.ForegroundColor= ConsoleColor.Magenta;
+                        Console.WriteLine("Regarde regarde! Papa à finit!");
+                        Console.WriteLine("Viens! Je veux voir ! ");
+                        Console.WriteLine("Waa! Regard tout l'espace qu'on a, on va pouvoir peinturer ici !");
+                        Console.WriteLine("C'est notre maison à nous, notre fort !");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("\nLes enfants! On mange!");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\nFin de la mémoire\n");
+                        Console.WriteLine("Tu reprends t'es esprits." +
+                            "Tu essuies tes larmes et esquisses un sourire.");
+
+                        Game.UnPeur();
+                    }
+                    
 
                     break;
                 default:

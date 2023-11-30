@@ -91,6 +91,24 @@ namespace ProjetNarratif
                 Game.Finish();
             }
         }
+
+        internal static void UnPeur()
+        {
+            //vie
+            peur--;
+            Console.WriteLine($"Ton niveau de peur descend : ");
+            if (peur < 0)
+            {
+                peur = 0;
+
+                Console.WriteLine($"Niveau de peur : {peur} ");
+            } else
+            {
+                Console.WriteLine($"Niveau de peur : {peur} ");
+            }
+           
+           
+        }
         internal static void Vie()
         {
             //vie

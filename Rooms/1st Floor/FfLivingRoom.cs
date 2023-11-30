@@ -107,7 +107,7 @@ Un sofa [sofa]
                         Console.WriteLine("Tu ouvres la télévision, tu y vois un monsieur parler :"); 
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("Un drame c'est produit dans le coins de Springfield qui choque la communauté. " +
-                            "\nEn effet, c'est en soirée que le corps de la jeune...");
+                            "\nEn effet, c'est en soirée que le corps de la jeune L...");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("\nTu ne te sens plus bien...");
                         Console.WriteLine("Tu fixes l'écran de la télévision, ton coeur accélère");
