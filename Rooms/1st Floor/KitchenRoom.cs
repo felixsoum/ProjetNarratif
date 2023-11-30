@@ -58,10 +58,10 @@ Tu vas vers le couloir [couloir]
                     } else
                     {
                         Console.WriteLine("Dans l'espace de rangement, " +
-                            "\ntu trouves des planches de bois ainsi qu'une note : " +
-                            "\nJ'ai déplacé la bouffe du chat, elle est dans la boite en bois dans la cour," +
-                            "mais j'ai échapé la clef quelque part dans le jardin..." +
-                            "\n\n\tMaman");
+                            "\ntu trouves des planches de bois : " );
+                            //"\nJ'ai déplacé la bouffe du chat, elle est dans la boite en bois dans la cour," +
+                            //"mais j'ai échapé la clef quelque part dans le jardin..." +
+                            //"\n\n\tMaman");
 
                         BackyardRoom.ladder = true;
                     }
