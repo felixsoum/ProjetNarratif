@@ -19,7 +19,7 @@ Tu regardes autours de toi :
 
 Ta fenetre est toujours ouverte elle mène surement vers quelque part... [fenetre]
 La porte de ta chambre. [porte]
-Ton tiroir, tu gardes caché des informations utiles sur ta maison... [tiroir]
+Ton tiroir, tu gardes caché des informations utiles sur ta maison... [????]
 Tes livres préférés. [livres]
 Une affiche que ta mère t'avait offert pour ta fête [affiche] 
 ";
