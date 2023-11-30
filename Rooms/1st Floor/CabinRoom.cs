@@ -37,9 +37,9 @@ Tu sors de la cabane. [sors]
                 case "dessin":
                     Console.WriteLine("Tu t'approches du dessin.");
                     Console.WriteLine("En le regardant, tu ne peux t'empêcher de pleurer." +
-                        "Tu y vois ta cabane ainsi qu'une silhouette familière." +
-                        "Elle sourit." +
-                        "En bas du dessin, les initiales L.D sont inscrites.");
+                        "\nTu y vois ta cabane ainsi qu'une silhouette familière." +
+                        "\nElle sourit." +
+                        "\nEn bas du dessin, les initiales L.D sont inscrites.");
                     if (FfHallwayRoom.artkit == true)
                     {
                         Console.WriteLine("Tu utilise ton kit d'art.");

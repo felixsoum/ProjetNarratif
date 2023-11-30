@@ -348,7 +348,7 @@ Tu retournes dans le couloir [couloir]
                         Console.WriteLine("Tu t'approches de la peinture.\n");
                         Console.WriteLine("\n\tLyla");
                         Console.WriteLine("\nSur cette peinture, tu vois un lyla.");
-                        Console.WriteLine("Tu te sens triste..." +
+                        Console.WriteLine("\nTu te sens triste..." +
                             "\nC'étais son arbre préféré");
                     } else
                     {
@@ -360,8 +360,8 @@ Tu retournes dans le couloir [couloir]
                             "\nC'étais son arbre préféré\n");
                         Console.WriteLine("Avec le kit d'art, tu peux investiguer la toile d'avantage : ");
                        qst4: Console.Write("(1) Oui" +
-                            "(2) Non" +
-                            "Choix : ");
+                            "\n(2) Non" +
+                            "\nChoix : ");
                         try
                         {
                             choi = Convert.ToInt32(Console.ReadLine());
