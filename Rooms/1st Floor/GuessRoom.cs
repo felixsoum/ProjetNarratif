@@ -49,39 +49,57 @@ Tu retournes dans le couloir [couloir]
                           "\nAu loin, à travers le brouillard, tu apperçois un arbre. " +
                           "\nUn post-it est collé sur la fenêtre." +
                           "\nTu peux y lire ARBRE MAUDIT" +
+                          "\nLes initiales R.D sont inscrites\n" +
                           "\nPrès du post-it se trouve un dessin." +
-                          "\nDessus tu vois un garçon et une fille jouer ensemble");
+                          "\nDessus tu vois un garçon et une fille jouer ensemble \n Les initiales L.D sont inscrites");
 
                         } else
                         {
                             Console.WriteLine("Tu t'approches de la fenêtre." +
-                          "\nChaque pas que tu fais, tu peux ressentir ton coeur qui bat de plus en plus vite.\n" +
-                          "Ton souffle accélère et des frissons traversent ton corps.\n" +
-                          "Tu entends sa voix, son rire, ses cris...\n" +
-                          "Tu les vois pleurer...\n" +
-                          "Tu continues d'avancer." +
-                          "Tu es devant la fenêtre." +
-                          "\nAu loin, à travers le brouillard, tu apperçois un arbre. " +
-                          "\nUn post-it est collé sur la fenêtre." +
-                          "\nTu peux y lire ARBRE MAUDIT" +
-                          "\nPrès du post-it se trouve un dessin." +
-                          "\nDessus tu vois un garçon et une fille jouer ensemble");
+                           "\nChaque pas que tu fais, tu peux ressentir ton coeur qui bat de plus en plus vite.\n" +
+                           "Ton souffle accélère et des frissons traversent ton corps.\n" +
+                           "Tu entends sa voix, son rire, ses cris...\n" +
+                           "Tu les vois pleurer...\n" +
+                           "Tu continues d'avancer." +
+                           "Tu es devant la fenêtre." +
+                           "\nAu loin, à travers le brouillard, tu apperçois un arbre. " +
+                           "\nUn post-it est collé sur la fenêtre." +
+                           "\nTu peux y lire ARBRE MAUDIT" +
+                           "\nLes initiales R.D sont inscrites\n" +
+                           "\nPrès du post-it se trouve un dessin." +
+                           "\nDessus tu vois un garçon et une fille jouer ensemble \n Les initiales L.D sont inscrites");
+                            Console.WriteLine("\nNouvelle mémoire découverte : " +
+                                "\nMémoire 2 : ");
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine("\nAhahahaha arrête!" +
+                                "\nJe vais t'attraper! Reviens ici!" +
+                                "\nArrête de te cacher derrière l'arbre!" +
+                                "\nJe vais t'avoir ! ");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("\nFin de la mémoire.");
+                            Console.WriteLine("Tu te souviens d'avoir joué à la tag avec elle..." +
+                                "\nTu te souviens de son rire contagieux" +
+                                "\nTu te souviens de ses yeux pleins de joie" +
+                                "\nTu te souviens de son enthousiasme " +
+                                "\nMais tu ne trouves pas le sourir..." +
+                                "\nTu te souviens de ce qui se passe après...");
 
-                        qst: Console.Write("\nAvec le kit d'art, tu peux investiguer d'avantage ce dessin :\n(1) oui\n(2) non\nTon choix : ");
-                            try
-                            {
-                                ch = Convert.ToInt32(Console.ReadLine());
-                            }
-                            catch { Console.WriteLine("Option non valide"); goto qst; }
-                            if (ch == 1)
-                            {
-                                Console.WriteLine("");
-                                
-                            }
-                            if (ch == 2)
-                            {
-                                Console.WriteLine("Tu t'éloignes de la fenêtre");
-                            }
+
+                            //qst: Console.Write("\nAvec le kit d'art, tu peux investiguer d'avantage ce dessin :\n(1) oui\n(2) non\nTon choix : ");
+                            //    try
+                            //    {
+                            //        ch = Convert.ToInt32(Console.ReadLine());
+                            //    }
+                            //    catch { Console.WriteLine("Option non valide"); goto qst; }
+                            //    if (ch == 1)
+                            //    {
+                            //        Console.WriteLine("");
+
+                            //    }
+                            //    if (ch == 2)
+                            //    {
+                            //        Console.WriteLine("Tu t'éloignes de la fenêtre");
+                            //    }
                         }
                        
 
