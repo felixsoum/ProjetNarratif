@@ -19,7 +19,8 @@ Tu regardes autours de toi :
 
 Ta fenetre est toujours ouverte elle mène surement vers quelque part... [fenetre]
 La porte de ta chambre. [porte]
-Ton tiroir, tu gardes caché des informations utiles sur ta maison... [????]
+Ton tiroir, tu gardes caché des choses importantes pour toi, 
+mais tu ne te souviens pas tu codes qui est caché dans la salle de jeu... [????]
 Tes livres préférés. [livres]
 Une affiche que ta mère t'avait offert pour ta fête [affiche] 
 ";
