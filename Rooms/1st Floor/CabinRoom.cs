@@ -17,6 +17,7 @@ semble bien plus sinistre maintenant qu'elle est partie...
 Tu sors de la cabane. [sors]
 ";
 
+        internal static bool firstdess = true;
         internal override void ReceiveChoice(string choice)
         {
             switch (choice)
@@ -42,6 +43,7 @@ Tu sors de la cabane. [sors]
                         "\nEn bas du dessin, les initiales L.D sont inscrites.");
                     if (FfHallwayRoom.artkit == true)
                     {
+                        
                         Console.WriteLine("Tu utilise ton kit d'art.");
                         Console.WriteLine("Nouvelle mémoire débloquée");
 
@@ -58,8 +60,12 @@ Tu sors de la cabane. [sors]
                         Console.WriteLine("\nFin de la mémoire\n");
                         Console.WriteLine("Tu reprends t'es esprits." +
                             "Tu essuies tes larmes et esquisses un sourire.");
-
-                        Game.UnPeur();
+                        if (firstdess)
+                        {
+                            Game.UnPeur();
+                            firstdess = false;
+                        }
+                        
                     }
                     
 

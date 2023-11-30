@@ -9,6 +9,7 @@ namespace ProjetNarratif.Rooms
     internal class GuessRoom : Room 
     {
         internal static bool light = false;
+        internal static bool first = true;
         internal override string CreateDescription() =>
 @"Tu rentres dans la chambre d'invité.
 Tout est bien rangé, comme si personne n'y était jamais rentré.
@@ -336,9 +337,17 @@ Tu retournes dans le couloir [couloir]
                     break;
 
                 case "lit":
+                    if (!first)
+                    {
+                        Console.WriteLine("Zone en cours de dévelopement :( ");
+                    } else
+                    {
                     Console.WriteLine("Zone en cours de dévelopement :( ");
                     Console.WriteLine("Cadeau pour le moment : ");
                     Game.UnPeur();
+                        first = false;
+                    }
+                   
 
                     break;
 
