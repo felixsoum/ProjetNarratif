@@ -9,9 +9,13 @@ namespace ProjetNarratif.Rooms
     internal class CabinRoom : Room
     {
         internal override string CreateDescription() =>
-@"Dans le Salon, Malgré que l'atmosphère soie chaleureuse, quelque chose cloche...
-Une télévision grésille [television].
-S'assoir sur le sofa [sofa].
+@"Te voilà dans la cabane.
+L'endroit qui était autrefois une place de confort pour toi
+semble bien plus sinistre maintenant qu'elle est partie...
+À ta gauche se trouve un dessin accroché au mur [dessin]
+Devant toi, il y a un petit lit et une petite table [lit]
+À ta droite, tu remarques une petite valise [valise]
+Tu sors de la cabane. [sors]
 ";
 
         internal override void ReceiveChoice(string choice)
