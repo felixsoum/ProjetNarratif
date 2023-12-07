@@ -25,6 +25,7 @@ Tu entends les portes, de celui-ci, s'ouvrir lentement, tu dois agir vite...
 Cours vers ta fenêtre il n'y a pas de temps a perdre [fenetre]
 Tu es tétanisé, cache toi sous tes couverture [drap]
 Roule hors de ton petit lit et cache toi en dessous [lit]
+Dans le coin de la pièce il y a un petit homme [coin]
 
 
 ";
@@ -88,6 +89,10 @@ Roule hors de ton petit lit et cache toi en dessous [lit]
 
                 case "test":
                     Game.Transition<Bathroom>();
+                    break;
+
+                case "coin":
+                    Game.Transition<EnigmeRoom>();
                     break;
 
                 case "current":

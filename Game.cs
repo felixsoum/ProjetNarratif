@@ -130,6 +130,21 @@ namespace ProjetNarratif
                 Game.Finish();
             }
         }
+
+        internal static void Essais()
+        {
+            //vie
+            vie = vie - 1;
+            if (vie >= 0)
+            {
+                Console.WriteLine($"\nIl te reste {vie} essais");
+            }
+            else
+            {
+                Console.WriteLine("\nTu es mort :(");
+                Game.Finish();
+            }
+        }
         internal static void Finish()
         {
             isFinished = true;
