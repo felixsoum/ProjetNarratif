@@ -54,6 +54,7 @@ namespace ProjetNarratif.Rooms
                             Game.Essais();
                             Console.WriteLine("\nVoici un indice : ");
                            qst2: Console.WriteLine("\nTu ne peux pas le voir non plus!");
+                            Console.Write("Votre réponse : ");
                             try
                             {
                                 ch = Convert.ToString(Console.ReadLine());
@@ -71,7 +72,8 @@ namespace ProjetNarratif.Rooms
                                 Game.Essais();
                                 Console.WriteLine("\nVoici un indice : ");
                             qst3:    Console.WriteLine("\nLorsque tu cris tu brise le...");
-                             
+                                Console.Write("Votre réponse : ");
+
                                 try
                                 {
                                     ch = Convert.ToString(Console.ReadLine());
