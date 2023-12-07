@@ -11,7 +11,8 @@ namespace ProjetNarratif.Rooms
         internal override string CreateDescription() =>
 @"Tu te retrouves dans ta chambre, il l'a sacagé...
 Tu ne te sens pas à l'aise ici, dépêche toi...
-Ton tiroir, tu gardes caché des informations utiles sur ta maison, mais tu ne te souviens pas tu codes qui est caché dans la salle de jeu... [????]
+Ton tiroir, tu gardes caché des choses importantes pour toi, 
+mais tu ne te souviens pas tu codes qui est caché dans la salle de jeu... [????]
 Tes livres préférés. [livres]
 Une affiche que ta mère t'avait offert pour ta fête [affiche] 
 Tu retournes dans le couloir [couloir]
@@ -59,8 +60,9 @@ Tu retournes dans le couloir [couloir]
                         Console.WriteLine("Ils ne te servirons probablement pas...");
                     }
                     break;
+
                 case "affiche": 
-                    Console.WriteLine("Ton affiche de Superman, il l'a déchiré lorsqu'il était dans ta chambre...");
+                    Console.WriteLine("Ton affiche de Sentry, il l'a déchiré lorsqu'il était dans ta chambre...");
                     break;
 
                 case "couloir": 
