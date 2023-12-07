@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProjetNarratif
+namespace mon_premier_jeu
 {
     internal class bruit
     {
@@ -82,11 +82,11 @@ namespace ProjetNarratif
         }
         public static void Bruitdepasforêt1à3()
         {
-            using (var bruitpas1player = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"bruitpasf1")))
+            using (var bruitpas1player = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"\bruitpasf1.wav")))
             using (var bruitpas1output = new WaveOutEvent())
-            using (var bruitpas2player = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"bruitpasf2")))
+            using (var bruitpas2player = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"\bruitpasf2.wav")))
             using (var bruitpas2output = new WaveOutEvent())
-            using (var bruitpas3player = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"bruitpasf3")))
+            using (var bruitpas3player = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"\bruitpasf3.wav")))
             using (var bruitpas3output = new WaveOutEvent())
             {
                 Random pasforet = new Random();
@@ -96,36 +96,34 @@ namespace ProjetNarratif
                     bruitpas1output.Init(bruitpas1player);
                     bruitpas1output.Play();
                     while (bruitpas1output.PlaybackState == PlaybackState.Playing)
-                    { }
+                    { Thread.Sleep(1); }
                 }
                 if (bruitpas == 2)
                 {
                     bruitpas2output.Init(bruitpas2player);
                     bruitpas2output.Play();
                     while (bruitpas2output.PlaybackState == PlaybackState.Playing)
-                    { }
+                    { Thread.Sleep(1); }
                 }
                 if (bruitpas == 3)
                 {
                     bruitpas3output.Init(bruitpas3player);
                     bruitpas3output.Play();
                     while (bruitpas3output.PlaybackState == PlaybackState.Playing)
-                    { }
+                    { Thread.Sleep(1); }
                 }
-
             }
         }
-        public static void wake()
+        public static void bruitteljour()
         {
-            string wake = Path.Combine(Environment.CurrentDirectory + @"\wake.wav");
-            using (var wakeplayer = new AudioFileReader(wake))
-            using (var wakeoutput = new WaveOutEvent())
+            using (var bruitteljourplayer = new AudioFileReader(Path.Combine(Environment.CurrentDirectory + @"\teljour.wav")))
+            using (var bruitteloutput = new WaveOutEvent())
             {
-                wakeoutput.Init(wakeplayer);
-                wakeoutput.Play();
-                while (wakeoutput.PlaybackState == PlaybackState.Playing)
+                bruitteloutput.Init(bruitteljourplayer);
+                bruitteloutput.Play();
+                while (bruitteloutput.PlaybackState == PlaybackState.Playing)
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1);
                 }
             }
         }
