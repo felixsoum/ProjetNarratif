@@ -29,6 +29,7 @@ namespace ProjetNarratif.Rooms
                     if (ch == "Le silence" || ch == "le silence" || ch == "silence" || ch == "Silence")
                     {
                         Console.WriteLine("\n\tBonne réponse!");
+                        Game.vie = 3;
                     } else
                     {
                         Console.WriteLine("\n\tMauvaise réponse!");
@@ -45,6 +46,7 @@ namespace ProjetNarratif.Rooms
                         if (ch == "Le silence" || ch == "le silence" || ch == "silence" || ch == "Silence")
                         {
                             Console.WriteLine("\n\tBonne réponse!");
+                            Game.vie = 3;
                         }
                         else
                         {
@@ -61,6 +63,7 @@ namespace ProjetNarratif.Rooms
                             if (ch == "Le silence" || ch == "le silence" || ch == "silence" || ch == "Silence")
                             {
                                 Console.WriteLine("\n\tBonne réponse!");
+                                Game.vie = 3;
                             }
                             else
                             {
@@ -78,6 +81,7 @@ namespace ProjetNarratif.Rooms
                                 if (ch == "Le silence" || ch == "le silence" || ch == "silence" || ch == "Silence")
                                 {
                                     Console.WriteLine("\n\tBonne réponse!");
+                                    Game.vie = 3;
                                 }
                                 else
                                 {
